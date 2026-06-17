@@ -8,3 +8,4 @@ passlib[bcrypt]
 bcrypt
 python-dotenv
 psycopg2-binary
+requests
