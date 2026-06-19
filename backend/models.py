@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey, Boolean
+from sqlalchemy import Column, Integer, String, Float, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime
 
@@ -9,7 +9,7 @@ class User(Base):
     id = Column(Integer, primary_key=True)
     email = Column(String, unique=True)
     password = Column(String)
-    role = Column(String)  # admin, mitarbeiter, kunde
+    role = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
 
 class Article(Base):
@@ -18,6 +18,7 @@ class Article(Base):
     sku = Column(String, unique=True)
     name = Column(String)
     stock = Column(Integer, default=0)
+    min_stock = Column(Integer, default=10)
     price = Column(Float)
     created_at = Column(DateTime, default=datetime.utcnow)
 
@@ -25,7 +26,7 @@ class Booking(Base):
     __tablename__ = "bookings"
     id = Column(Integer, primary_key=True)
     article_id = Column(Integer, ForeignKey("articles.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
     quantity = Column(Integer)
-    type = Column(String)  # in, out
+    type = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)

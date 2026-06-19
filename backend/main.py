@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import engine, Base
-from routers import bookings, csv, audit, telegram, security, articles, auth
+from routers import bookings, csv, audit, telegram, security, articles, auth, state
 
 Base.metadata.create_all(bind=engine)
 
@@ -23,6 +23,7 @@ app.include_router(csv.router)
 app.include_router(audit.router)
 app.include_router(telegram.router)
 app.include_router(security.router)
+app.include_router(state.router)
 
 @app.get("/")
 def root():
