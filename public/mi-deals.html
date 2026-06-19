@@ -94,7 +94,7 @@ function closeNav(){const btn=document.getElementById('hamburgerBtn');const nav=
 window.addEventListener('hashchange',()=>setActiveTab((location.hash||'#uebersicht').slice(1)));
 
 let state=load();
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
+const API_BASE = ""; // Next.js Proxy-Routen
 function seed(){return{version:2,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[]}}
 function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return v&&v.customers&&v.products&&v.deliveries?v:seed()}catch(e){return seed()}}
 function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(state));render();saveCloudState()}
