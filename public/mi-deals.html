@@ -9,6 +9,7 @@
 /* Hamburger-Menü */
 .hamburger-btn{position:fixed;top:18px;right:20px;z-index:50;width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:.2s;padding:0}.hamburger-btn:hover{background:rgba(255,255,255,.1)}.hamburger-btn span{display:block;width:20px;height:2px;border-radius:2px;background:#c9d8ea;transition:.3s}.hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger-btn.open span:nth-child(2){opacity:0}.hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}.nav-backdrop.open{opacity:1;pointer-events:auto}.nav-dropdown{position:fixed;top:72px;right:20px;z-index:45;min-width:220px;background:linear-gradient(160deg,rgba(15,20,35,.98),rgba(10,15,28,.98));border:1px solid var(--line);border-radius:20px;padding:10px;backdrop-filter:blur(24px);box-shadow:0 28px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(-12px) scale(.95);pointer-events:none;transition:all .3s cubic-bezier(.22,1,.36,1)}.nav-dropdown.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.nav-dropdown a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;color:#c9d8ea;text-decoration:none;font-weight:500;font-size:15px;transition:all .15s}.nav-dropdown a:hover{background:rgba(255,255,255,.06)}.nav-dropdown a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;box-shadow:0 8px 30px rgba(0,212,255,.2)}.grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.section{margin-top:18px}.card h2{margin-bottom:14px}.row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.03)}.row:last-child{margin-bottom:0}.product-row{display:flex;gap:12px;align-items:center}.thumb{width:42px;height:42px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#7aa4c7;flex-shrink:0}.thumb img{width:100%;height:100%;object-fit:cover}.badge{padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);color:#c9d8ea}.badge.warn{background:rgba(255,209,102,.12);border-color:rgba(255,209,102,.35);color:#ffd166}.metric{text-align:center;padding:18px 14px}.metric strong{display:block;font-size:28px;margin:4px 0 2px}.hint{padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);font-size:13px}.hint b{display:block;margin-bottom:4px}.actions{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}button,.primary,.secondary,.green,.warn{padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#f1f5f9;font-weight:600;cursor:pointer;transition:all .2s;font-size:14px}button:hover,.primary:hover{background:rgba(255,255,255,.12)}.primary{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.4)}.green{background:linear-gradient(135deg,var(--green),#22c55e);color:#052e16;border-color:rgba(255,255,255,.3)}.warn{background:linear-gradient(135deg,var(--amber),#f59e0b);color:#3f2a00;border-color:rgba(255,255,255,.3)}.danger-btn{background:rgba(255,107,138,.12);color:#fecdd3;border-color:rgba(255,107,138,.3)}.label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);color:#f8fafc;font-size:15px}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);background:rgba(255,255,255,.07)}label{display:block;margin:10px 0 4px;font-size:13px}.view-section{display:none!important}.view-section.active{display:block!important}.view-section.active.grid{display:grid!important}.tab-shell{margin-top:22px}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}.tab-headline{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:22px 0}.tab-headline p{margin:0;max-width:680px}.collapse-note{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.07);color:var(--muted);font-size:13px}.reset-armed{background:linear-gradient(135deg,#ff6b8a,#ffd166)!important;color:#18070b!important}.system-strip{display:none}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(120px);z-index:30;max-width:min(720px,calc(100% - 32px));background:rgba(8,13,24,.92);border:1px solid rgba(255,255,255,.16);box-shadow:0 22px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px);border-radius:18px;padding:14px 18px;color:#eaf6ff;font-weight:700;opacity:0;transition:.24s ease}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.system-info{grid-column:1/-1}.system-info details{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.055)}.system-info summary{cursor:pointer;font-weight:900;color:#dff8ff}.url-import{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.soft{background:rgba(103,232,249,.08);border-color:rgba(103,232,249,.18)}.soft-line{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}input[type="checkbox"]{width:auto;margin-right:8px}.review-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.danger-btn{background:rgba(251,113,133,.16)!important;color:#fecdd3!important;border:1px solid rgba(251,113,133,.35)!important}.quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.quick-step{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:12px}.auth-overlay{position:fixed;inset:0;background:rgba(7,11,19,.96);z-index:100;display:flex;align-items:center;justify-content:center}.auth-box{max-width:380px;width:92%;text-align:center}.auth-box input{margin:14px 0 10px}.hidden{display:none!important}.notice{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;margin:8px 0}
 .delivery-card{margin-bottom:20px;background:rgba(255,255,255,.04);border-radius:16px;padding:16px;border:1px solid rgba(255,255,255,.08)}.delivery-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.delivery-table{width:100%;border-collapse:collapse;font-size:13px}.delivery-table th{padding:8px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12);color:var(--muted);font-weight:600;cursor:pointer;user-select:none;white-space:nowrap}.delivery-table th:hover{color:var(--text)}.delivery-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}.delivery-table tr:last-child td{border-bottom:none}.delivery-table td.num,.delivery-table th.num{text-align:right}.recv-input{width:60px;padding:4px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);color:var(--text);font-size:13px;text-align:center}.recv-input:focus{outline:none;border-color:var(--cyan)}.recv-input:disabled{opacity:.5;cursor:not-allowed}.delivery-table .diff-pos{color:var(--green)}.delivery-table .diff-neg{color:var(--danger)}.book-btn{padding:4px 14px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}.book-btn:hover{opacity:.85;transform:translateY(-1px)}.book-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.sync-indicator{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(34,197,94,.15);color:#22c55e;transition:.3s;margin-left:8px}.sync-indicator.offline{background:rgba(239,68,68,.15);color:#ef4444}.sync-indicator.syncing{background:rgba(250,204,21,.15);color:#facc15;animation:pulse 1.5s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script type="module">import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs'; window.pdfjsLib=pdfjsLib;</script>
@@ -33,7 +34,7 @@
 
   <header>
     <div>
-      <div class="brand">M&I DEALS</div>
+      <div class="brand">M&I DEALS <span id="syncStatus" class="sync-indicator">🟢 Live</span></div>
       <h1>Warenwirtschaft, die sich hochwertig anfühlt.</h1>
       <p class="muted">Gemeinsame Cloud-Daten für Team, Familie und Einkauf: Kunden, Artikel, Bestand, Lieferungen, Verkäufe und intelligente Warenlisten-Erkennung in einer ruhigen Premium-Oberfläche.</p>
       <span class="status" style="display:none">FERTIGES PRODUKT · lokal + Bot + PDF</span><button onclick="openScannerModal()" style="display:none">📷 Scan</button>
@@ -78,7 +79,7 @@
   <section id="audit" class="section card view-section"><h2>📋 Protokoll</h2><p class="muted">Jede Bestandsänderung wird hier mit Vorher/Nachher-Werten dokumentiert.</p><div id="auditLogList"></div></section>
   <section id="import" class="grid two section view-section"><div class="card"><h2>Import</h2><p class="muted compact-help">Eine Quelle wählen, prüfen, dann bestätigen. Nichts wird automatisch gespeichert.</p><div class="quick-steps"><div class="quick-step"><b>1. Quelle</b><span class="muted">PDF, Excel, Text oder URL</span></div><div class="quick-step"><b>2. Prüfen</b><span class="muted">Artikel/Mengen ansehen</span></div><div class="quick-step"><b>3. Bestätigen</b><span class="muted">Erst dann Cloud-Speicher</span></div></div><label>Internetadresse<input id="smartImportUrl" placeholder="https://lieferant.de/liste"></label><div class="actions"><button class="secondary" onclick="importFromUrl()">URL einlesen</button></div><label>Datei auswählen<input type="file" id="smartImportFile" accept=".csv,.txt,.xlsx,.xls,.pdf,application/pdf,application/vnd.openxmlformats.document.spreadsheetml.sheet,application/vnd.ms-excel"></label><label>Liste einfügen<textarea id="smartImportText" rows="7" placeholder="12 Karton Cola 0,33l Lieferant Metro 9,99
 5 kg Grillfleisch Meyer 49,90"></textarea></label><div class="actions"><button class="primary" onclick="smartImport()">Import prüfen</button><button class="secondary" onclick="clearSmartImport()">Leeren</button></div><details class="import-watch"><summary>Automatische Überwachung</summary><p class="muted compact-help">Für Lieferanten-URLs. Am Anfang bleibt alles im Prüfmodus und muss bestätigt werden.</p><label><input id="autoImportEnabled" type="checkbox"> Lieferanten-URL überwachen</label><label>Prüfintervall<select id="autoImportInterval"><option>Täglich</option><option>Alle 6 Stunden</option><option>Stündlich</option></select></label><label><input id="autoImportRequireConfirm" type="checkbox" checked> Immer bestätigen lassen</label><button class="secondary" onclick="saveImportProfile()">Profil speichern</button></details><div class="card"><h2>Prüfung</h2><p class="muted compact-help">Hier erscheint nur die Vorschau. Erst „Import bestätigen“ schreibt Daten.</p><div id="importPreview"><p class="muted">Noch kein Import.</p></div></div></section>
-    <section id="daten" class="grid two section view-section"><div class="card"><h2>💾 Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createTestDelivery()">Test-Lieferung (3 Artikel)</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
+    <section id="daten" class="grid two section view-section"><div class="card"><h2>💾 Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createTestDelivery()">Test-Lieferung (3 Artikel)</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card"><h2>🔗 Echtzeit-Sync</h2><p class="muted">Letzte WebSocket-Verbindung zum Server prüfen und eine Test-Änderung senden. Bei 🟢 Live sollte die Änderung sofort auf allen Geräten erscheinen.</p><div class="actions"><button class="primary" onclick="syncTestRandom()">🔄 Sync-Test (Bestand ändern)</button><button class="secondary" onclick="createTestDelivery()">📦 Test-Lieferung (3 Artikel)</button></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
 </main>
 <script>
 const ACCESS_PASSWORD='MI-Deals-2026!';
@@ -97,6 +98,140 @@ window.addEventListener('hashchange',()=>setActiveTab((location.hash||'#uebersic
 
 let state=load();
 const API_BASE = ""; // Next.js Proxy-Routen
+// ─── WebSocket Echtzeit-Synchronisation ───
+const WS_URL = "wss://miguel-backend.onrender.com/ws?password=MI-Deals-2026!";
+const OFFLINE_QUEUE_KEY = "mi_deals_offline_queue";
+let ws = null;
+let wsReconnectTimer = null;
+let wsConnected = false;
+let wsQueue = []; // Offline-Queue: pending saves
+
+function updateSyncStatus(mode){
+  const el = document.getElementById('syncStatus');
+  if(!el) return;
+  el.className = 'sync-indicator';
+  if(mode === 'live'){ el.classList.remove('offline','syncing'); el.textContent = '🟢 Live'; }
+  else if(mode === 'syncing'){ el.classList.add('syncing'); el.textContent = '🟡 Sync...'; }
+  else if(mode === 'offline'){ el.classList.add('offline'); el.textContent = '🔴 Offline'; }
+}
+
+function connectWebSocket(){
+  if(ws && (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING)) return;
+  try{
+    ws = new WebSocket(WS_URL);
+    ws.onopen = function(){
+      wsConnected = true;
+      updateSyncStatus('live');
+      if(wsReconnectTimer){ clearTimeout(wsReconnectTimer); wsReconnectTimer = null; }
+      processOfflineQueue(); // Queue leeren sobald verbunden
+    };
+    ws.onmessage = function(evt){
+      try{
+        const msg = JSON.parse(evt.data);
+        if(msg.type === 'state_update' && msg.state){
+          updateSyncStatus('syncing');
+          // State lokal aktualisieren
+          const newState = msg.state;
+          if(newState && newState.customers !== undefined && newState.products !== undefined){
+            state = newState;
+            localStorage.setItem(KEY, JSON.stringify(state));
+            render();
+            note('🔄 Daten von anderem Gerät aktualisiert');
+          }
+          setTimeout(function(){ updateSyncStatus('live'); }, 1000);
+        } else if(msg.type === 'stock_change'){
+          // Einzelne Bestandsänderung (optional, lightweight)
+          if(msg.article && msg.article.sku){
+            const prod = state.products.find(function(p){ return p.sku === msg.article.sku; });
+            if(prod){
+              prod.stock = (prod.stock || 0) + (msg.change || 0);
+              localStorage.setItem(KEY, JSON.stringify(state));
+              render();
+              note('🔄 Bestand geändert: ' + (prod.name) + ' ' + (msg.change > 0 ? '+' : '') + msg.change);
+            }
+          }
+        } else if(msg.type === 'pong'){
+          // Heartbeat bestätigt
+        }
+      } catch(e){ /* ignorieren */ }
+    };
+    ws.onclose = function(){
+      wsConnected = false;
+      updateSyncStatus('offline');
+      scheduleReconnect();
+    };
+    ws.onerror = function(){
+      wsConnected = false;
+      updateSyncStatus('offline');
+      scheduleReconnect();
+    };
+  } catch(e){
+    wsConnected = false;
+    updateSyncStatus('offline');
+    scheduleReconnect();
+  }
+}
+
+function scheduleReconnect(){
+  if(wsReconnectTimer) return;
+  wsReconnectTimer = setTimeout(function(){
+    wsReconnectTimer = null;
+    connectWebSocket();
+  }, 3000);
+}
+
+function addToOfflineQueue(stateSnapshot){
+  try{
+    const queue = JSON.parse(localStorage.getItem(OFFLINE_QUEUE_KEY) || '[]');
+    queue.push({ state: stateSnapshot, ts: new Date().toISOString() });
+    // Max 20 Einträge im Queue
+    if(queue.length > 20) queue.splice(0, queue.length - 20);
+    localStorage.setItem(OFFLINE_QUEUE_KEY, JSON.stringify(queue));
+  } catch(e){ /* ignorieren */ }
+}
+
+function processOfflineQueue(){
+  try{
+    const queue = JSON.parse(localStorage.getItem(OFFLINE_QUEUE_KEY) || '[]');
+    if(queue.length === 0) return;
+    updateSyncStatus('syncing');
+    const latest = queue[queue.length - 1]; // Nur den letzten Eintrag senden
+    sendStateViaWebSocket(latest.state);
+    localStorage.removeItem(OFFLINE_QUEUE_KEY);
+    setTimeout(function(){ updateSyncStatus('live'); }, 1000);
+  } catch(e){ /* ignorieren */ }
+}
+
+function sendStateViaWebSocket(stateData){
+  if(!ws || ws.readyState !== WebSocket.OPEN){
+    addToOfflineQueue(stateData);
+    return;
+  }
+  try{
+    ws.send(JSON.stringify({
+      type: 'state_update',
+      state: stateData,
+      timestamp: new Date().toISOString()
+    }));
+  } catch(e){
+    addToOfflineQueue(stateData);
+  }
+}
+
+// Modifizierte save()-Funktion: zusätzlich WebSocket-Broadcast
+const _originalSave = save;
+save = function(){
+  state.updatedAt = new Date().toISOString();
+  localStorage.setItem(KEY, JSON.stringify(state));
+  render();
+  saveCloudState();
+  // WebSocket-Broadcast
+  sendStateViaWebSocket(state);
+};
+
+// WebSocket beim Start verbinden
+setTimeout(connectWebSocket, 500);
+
 function seed(){return{version:3,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[],auditLog:[]}}
 function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return v&&v.customers&&v.products&&v.deliveries?v:seed()}catch(e){return seed()}}
 function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(state));render();saveCloudState()}
@@ -934,6 +1069,77 @@ function quickAddProduct(code) {
     supplier: 'Scan-Import'
   });
   note('Neuer Artikel angelegt: ' + name + ' (' + code + ')');
+  save();
+}
+
+/* ─── Echtzeit-Sync Test-Funktionen ─── */
+function syncTestRandom(){
+  if(!state.products || state.products.length === 0){
+    note('❌ Keine Artikel vorhanden. Lege zuerst einen Artikel an oder lade Testdaten.');
+    return;
+  }
+  const idx = Math.floor(Math.random() * state.products.length);
+  const prod = state.products[idx];
+  const change = Math.floor(Math.random() * 10) + 1;
+  prod.stock = (prod.stock || 0) + change;
+  prod.updatedAt = new Date().toISOString();
+  state.auditLog = state.auditLog || [];
+  state.auditLog.push({
+    type: 'sync_test',
+    article: prod.sku,
+    sku: prod.sku,
+    articleName: prod.name,
+    change: '+' + change,
+    oldStock: prod.stock - change,
+    newStock: prod.stock,
+    timestamp: new Date().toISOString(),
+    user: 'Sync-Test'
+  });
+  note('🔄 Sync-Test: ' + prod.name + ' Bestand +' + change + ' (jetzt: ' + prod.stock + ') — wird an alle Geräte gesendet...');
+  save();
+}
+
+function createTestDelivery(){
+  // Sicherstellen, dass die 3 Test-Artikel existieren
+  const testArticles = [
+    { sku: 'TEST-001', name: 'Testartikel Alpha', stock: 50, price: 12.50, supplier: 'Test-Lieferant' },
+    { sku: 'TEST-002', name: 'Testartikel Beta', stock: 30, price: 8.90, supplier: 'Test-Lieferant' },
+    { sku: 'TEST-003', name: 'Testartikel Gamma', stock: 100, price: 99.00, supplier: 'Test-Lieferant' },
+  ];
+
+  state.products = state.products || [];
+  testArticles.forEach(function(a){
+    const existing = state.products.find(function(p){ return p.sku === a.sku; });
+    if(!existing){
+      state.products.push({
+        id: Date.now() + Math.floor(Math.random() * 10000),
+        sku: a.sku,
+        name: a.name,
+        stock: a.stock,
+        minStock: 10,
+        price: a.price,
+        supplier: a.supplier,
+        createdAt: new Date().toISOString()
+      });
+    }
+  });
+
+  // Lieferung mit 3 Positionen erstellen
+  const deliveryId = Date.now();
+  state.deliveries = state.deliveries || [];
+  state.deliveries.unshift({
+    id: deliveryId,
+    supplier: 'Test-Lieferant GmbH',
+    date: new Date().toISOString().slice(0,10),
+    note: '🚀 Sync-Test: wird an alle Geräte gesendet',
+    items: [
+      { id: 1, sku: 'TEST-001', name: 'Testartikel Alpha', expected: 20, received: 0, status: 'offen' },
+      { id: 2, sku: 'TEST-002', name: 'Testartikel Beta', expected: 15, received: 0, status: 'offen' },
+      { id: 3, sku: 'TEST-003', name: 'Testartikel Gamma', expected: 10, received: 5, status: 'teilweise' },
+    ]
+  });
+
+  note('✅ Test-Lieferung mit 3 Artikeln erstellt + WebSocket-Broadcast gestartet');
   save();
 }
 
