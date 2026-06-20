@@ -10,6 +10,62 @@
 .hamburger-btn{position:fixed;top:18px;right:20px;z-index:50;width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:.2s;padding:0}.hamburger-btn:hover{background:rgba(255,255,255,.1)}.hamburger-btn span{display:block;width:20px;height:2px;border-radius:2px;background:#c9d8ea;transition:.3s}.hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger-btn.open span:nth-child(2){opacity:0}.hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}.nav-backdrop.open{opacity:1;pointer-events:auto}.nav-dropdown{position:fixed;top:72px;right:20px;z-index:45;min-width:220px;background:linear-gradient(160deg,rgba(15,20,35,.98),rgba(10,15,28,.98));border:1px solid var(--line);border-radius:20px;padding:10px;backdrop-filter:blur(24px);box-shadow:0 28px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(-12px) scale(.95);pointer-events:none;transition:all .3s cubic-bezier(.22,1,.36,1)}.nav-dropdown.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.nav-dropdown a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;color:#c9d8ea;text-decoration:none;font-weight:500;font-size:15px;transition:all .15s}.nav-dropdown a:hover{background:rgba(255,255,255,.06)}.nav-dropdown a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;box-shadow:0 8px 30px rgba(0,212,255,.2)}.grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.section{margin-top:18px}.card h2{margin-bottom:14px}.row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.03)}.row:last-child{margin-bottom:0}.product-row{display:flex;gap:12px;align-items:center}.thumb{width:42px;height:42px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#7aa4c7;flex-shrink:0}.thumb img{width:100%;height:100%;object-fit:cover}.badge{padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);color:#c9d8ea}.badge.warn{background:rgba(255,209,102,.12);border-color:rgba(255,209,102,.35);color:#ffd166}.metric{text-align:center;padding:18px 14px}.metric strong{display:block;font-size:28px;margin:4px 0 2px}.hint{padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);font-size:13px}.hint b{display:block;margin-bottom:4px}.actions{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}button,.primary,.secondary,.green,.warn{padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#f1f5f9;font-weight:600;cursor:pointer;transition:all .2s;font-size:14px}button:hover,.primary:hover{background:rgba(255,255,255,.12)}.primary{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.4)}.green{background:linear-gradient(135deg,var(--green),#22c55e);color:#052e16;border-color:rgba(255,255,255,.3)}.warn{background:linear-gradient(135deg,var(--amber),#f59e0b);color:#3f2a00;border-color:rgba(255,255,255,.3)}.danger-btn{background:rgba(255,107,138,.12);color:#fecdd3;border-color:rgba(255,107,138,.3)}.label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);color:#f8fafc;font-size:15px}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);background:rgba(255,255,255,.07)}label{display:block;margin:10px 0 4px;font-size:13px}.view-section{display:none!important}.view-section.active{display:block!important}.view-section.active.grid{display:grid!important}.tab-shell{margin-top:22px}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}.tab-headline{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:22px 0}.tab-headline p{margin:0;max-width:680px}.collapse-note{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.07);color:var(--muted);font-size:13px}.reset-armed{background:linear-gradient(135deg,#ff6b8a,#ffd166)!important;color:#18070b!important}.system-strip{display:none}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(120px);z-index:30;max-width:min(720px,calc(100% - 32px));background:rgba(8,13,24,.92);border:1px solid rgba(255,255,255,.16);box-shadow:0 22px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px);border-radius:18px;padding:14px 18px;color:#eaf6ff;font-weight:700;opacity:0;transition:.24s ease}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.system-info{grid-column:1/-1}.system-info details{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.055)}.system-info summary{cursor:pointer;font-weight:900;color:#dff8ff}.url-import{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.soft{background:rgba(103,232,249,.08);border-color:rgba(103,232,249,.18)}.soft-line{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}input[type="checkbox"]{width:auto;margin-right:8px}.review-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.danger-btn{background:rgba(251,113,133,.16)!important;color:#fecdd3!important;border:1px solid rgba(251,113,133,.35)!important}.quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.quick-step{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:12px}.auth-overlay{position:fixed;inset:0;background:rgba(7,11,19,.96);z-index:100;display:flex;align-items:center;justify-content:center}.auth-box{max-width:380px;width:92%;text-align:center}.auth-box input{margin:14px 0 10px}.hidden{display:none!important}.notice{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;margin:8px 0}
 .delivery-card{margin-bottom:20px;background:rgba(255,255,255,.04);border-radius:16px;padding:16px;border:1px solid rgba(255,255,255,.08)}.delivery-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.delivery-table{width:100%;border-collapse:collapse;font-size:13px}.delivery-table th{padding:8px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12);color:var(--muted);font-weight:600;cursor:pointer;user-select:none;white-space:nowrap}.delivery-table th:hover{color:var(--text)}.delivery-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}.delivery-table tr:last-child td{border-bottom:none}.delivery-table td.num,.delivery-table th.num{text-align:right}.recv-input{width:60px;padding:4px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);color:var(--text);font-size:13px;text-align:center}.recv-input:focus{outline:none;border-color:var(--cyan)}.recv-input:disabled{opacity:.5;cursor:not-allowed}.delivery-table .diff-pos{color:var(--green)}.delivery-table .diff-neg{color:var(--danger)}.book-btn{padding:4px 14px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}.book-btn:hover{opacity:.85;transform:translateY(-1px)}.book-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .sync-indicator{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;background:rgba(34,197,94,.15);color:#22c55e;transition:.3s;margin-left:8px}.sync-indicator.offline{background:rgba(239,68,68,.15);color:#ef4444}.sync-indicator.syncing{background:rgba(250,204,21,.15);color:#facc15;animation:pulse 1.5s ease-in-out infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}@keyframes sync-flash{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(66,232,164,.4)}50%{opacity:1;box-shadow:0 0 20px 6px rgba(66,232,164,.2)}}.sync-indicator.flash{animation:sync-flash .5s ease-in-out}
+
+/* ─── Overhaul: Stock Tables, Metrics, Progress, Sort ─── */
+.stock-table{width:100%;border-collapse:collapse;font-size:13px;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04)}
+.stock-table thead{position:sticky;top:0;z-index:2}
+.stock-table th{padding:10px 12px;text-align:left;background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(79,140,255,.08));color:var(--text);font-weight:700;font-size:12px;letter-spacing:.02em;white-space:nowrap;border-bottom:2px solid rgba(0,212,255,.2);cursor:pointer;user-select:none}
+.stock-table th:hover{background:linear-gradient(135deg,rgba(0,212,255,.2),rgba(79,140,255,.14))}
+.stock-table th.num{text-align:right}
+.stock-table th .sort-arrow{display:inline-block;margin-left:4px;opacity:.5;font-size:10px;transition:.2s}
+.stock-table th:hover .sort-arrow{opacity:1}
+.stock-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle;font-size:13px}
+.stock-table tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.stock-table tr:hover td{background:rgba(0,212,255,.04)} 
+.stock-table td.num{text-align:right;font-family:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono','Consolas',monospace;letter-spacing:-.01em;font-size:13px;font-variant-numeric:tabular-nums}
+.stock-table td.critical{background:rgba(239,68,68,.1)!important;border-left:3px solid var(--danger);font-weight:600}
+.stock-table td.critical .badge{background:var(--danger)!important;color:#fff!important}
+
+/* delivery table overhaul */
+.delivery-table {border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04)}
+.delivery-table thead{position:sticky;top:0;z-index:2}
+.delivery-table th{padding:10px 12px;background:linear-gradient(135deg,rgba(0,212,255,.12),rgba(79,140,255,.08));color:var(--text);font-weight:700;font-size:12px;letter-spacing:.02em;white-space:nowrap;border-bottom:2px solid rgba(0,212,255,.2)}
+.delivery-table th.num{text-align:right}
+.delivery-table th .sort-arrow{display:inline-block;margin-left:4px;opacity:.5;font-size:10px;transition:.2s}
+.delivery-table th:hover .sort-arrow{opacity:1}
+.delivery-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px}
+.delivery-table td.num{text-align:right;font-family:'SF Mono','Fira Code','Cascadia Code','JetBrains Mono','Consolas',monospace;letter-spacing:-.01em;font-size:13px;font-variant-numeric:tabular-nums}
+.delivery-table tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.delivery-table tr:hover td{background:rgba(0,212,255,.04)}
+.delivery-table .recv-input{width:64px;padding:5px 8px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.35);color:var(--text);font-size:13px;text-align:center;font-family:inherit;transition:border .2s,box-shadow .2s}
+.delivery-table .recv-input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,212,255,.15)}
+.delivery-table .recv-input:disabled{opacity:.4;cursor:not-allowed}
+.delivery-table .diff-pos{color:var(--green);font-weight:600}
+.delivery-table .diff-neg{color:var(--danger);font-weight:600}
+.book-btn{padding:5px 16px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}
+.book-btn:hover{opacity:.85;transform:translateY(-1px);box-shadow:0 4px 15px rgba(0,212,255,.25)}
+.book-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.book-btn.green{background:linear-gradient(135deg,var(--green),#2dd4bf);color:#04111d}
+
+/* progress bar */
+.progress-wrap{display:flex;align-items:center;gap:10px;margin:4px 0}
+.progress-track{flex:1;height:6px;border-radius:99px;background:rgba(255,255,255,.08);overflow:hidden}
+.progress-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--blue));transition:width .6s cubic-bezier(.22,1,.36,1);min-width:2%}
+.progress-label{font-size:12px;font-weight:600;font-family:'SF Mono','Fira Code','Consolas',monospace;min-width:60px;text-align:right}
+
+/* metric cards overhaul */
+.metric-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.metric-card{background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:16px;transition:.2s}
+.metric-card:hover{background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.05));transform:translateY(-1px)}
+.metric-card .icon{font-size:22px;margin-bottom:6px}
+.metric-card .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:4px}
+.metric-card .value{font-size:clamp(20px,4vw,28px);font-weight:800;letter-spacing:-.03em;line-height:1.1;font-family:'SF Mono','Fira Code','Cascadia Code','Consolas',monospace;font-variant-numeric:tabular-nums}
+.metric-card .sub{font-size:11px;color:var(--muted);margin-top:4px}
+
+/* loading spinner */
+.loading-dots{display:inline-block;animation:pulse 1.5s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,.15);border-top-color:var(--cyan);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script type="module">import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs'; window.pdfjsLib=pdfjsLib;</script>
@@ -96,7 +152,7 @@ function toggleNav(){const btn=document.getElementById('hamburgerBtn');const nav
 function closeNav(){const btn=document.getElementById('hamburgerBtn');const nav=document.getElementById('mainNav');const backdrop=document.getElementById('navBackdrop');if(nav)nav.classList.remove('open');if(backdrop)backdrop.classList.remove('open');if(btn){btn.classList.remove('open');btn.setAttribute('aria-label','Navigation öffnen')}}
 window.addEventListener('hashchange',()=>setActiveTab((location.hash||'#uebersicht').slice(1)));
 
-let state=load();
+let state=seed();
 const API_BASE = ""; // Next.js Proxy-Routen
 // ─── WebSocket Echtzeit-Synchronisation ───
 const WS_URL = "wss://miguel-app.onrender.com/ws?password=MI-Deals-2026!";
@@ -229,26 +285,56 @@ function sendStateViaWebSocket(stateData){
   }
 }
 
-// Modifizierte save()-Funktion: zusätzlich WebSocket-Broadcast
-const _originalSave = save;
-save = function(){
-  state.updatedAt = new Date().toISOString();
-  localStorage.setItem(KEY, JSON.stringify(state));
-  render();
-  saveCloudState();
-  // WebSocket-Broadcast
-  sendStateViaWebSocket(state);
-};
-
 // WebSocket beim Start verbinden
 setTimeout(connectWebSocket, 500);
 
 function seed(){return{version:3,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[],auditLog:[]}}
-function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return v&&v.customers&&v.products&&v.deliveries?v:seed()}catch(e){return seed()}}
-function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(state));render();saveCloudState()}
+
+/* Server-first State: lade von Cloud, Fallback auf localStorage-Cache */
+async function loadCloudState(){
+  setCloudStatus('📡 Lade zentralen Datenstand...');
+  try{
+    const res = await fetch(`${API_BASE}/api/state`,{headers:{'x-mi-deals-password':ACCESS_PASSWORD},cache:'no-store'});
+    const data = await res.json();
+    if(!data.success) throw new Error(data.error||'Cloud-Laden fehlgeschlagen');
+    const cloudData = data.state || data.data;
+    if(cloudData && data.storage !== 'not_connected'){
+      state = cloudData;
+      localStorage.setItem(KEY, JSON.stringify(state));
+      setCloudStatus('✅ Cloud geladen · ' + new Date().toLocaleTimeString('de-DE'));
+    } else {
+      throw new Error('Keine Cloud-Daten');
+    }
+  } catch(e){
+    // Fallback auf localStorage-Cache
+    try{
+      const cached = JSON.parse(localStorage.getItem(KEY));
+      if(cached && cached.customers && cached.products){
+        state = cached;
+        setCloudStatus('⚠️ Offline-Modus · lokale Daten', true);
+      } else {
+        state = seed();
+        setCloudStatus('❌ Keine Verbindung · leeres System', true);
+      }
+    } catch(e2){
+      state = seed();
+      setCloudStatus('❌ Keine Verbindung · leeres System', true);
+    }
+    updateSyncStatus('offline');
+  }
+  render();
+}
+
+/* Cloud-Speicher + WebSocket-Broadcast + localStorage-Cache */
+function save(){
+  state.updatedAt = new Date().toISOString();
+  localStorage.setItem(KEY, JSON.stringify(state));
+  saveCloudState();
+  sendStateViaWebSocket(state);
+  render();
+}
 function setCloudStatus(text,isError=false){const el=document.getElementById('cloudStatus');if(el){el.textContent=text;el.style.borderColor=isError?'#fb7185':'#334155';}updateSystemInfo()}
-async function loadCloudState(){try{setCloudStatus('Cloud-Datenbank: lade zentralen Datenstand...');const res=await fetch(`${API_BASE}/api/state`,{headers:{'x-mi-deals-password':ACCESS_PASSWORD},cache:'no-store'});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Laden fehlgeschlagen')}const cloudData = data.state || data.data; if(cloudData && data.storage !== 'not_connected'){state=cloudData;localStorage.setItem(KEY,JSON.stringify(state));render();setCloudStatus('Cloud-Datenbank aktiv: '+ (data.storage || 'local-file') +' · Stand geladen')}else if(data.storage==='not_connected' || !data.storage){setCloudStatus('Lokale Datei-Speicherung aktiv (.mi-deals-state.json). Kein Cloud-Token nötig.',true)}else{setCloudStatus('Cloud-Datenbank: '+data.storage)}}catch(e){setCloudStatus('Cloud-Datenbank Fehler: '+e.message+'. Lokaler Browser-Speicher + lokale Datei aktiv.',true)}}
-async function saveCloudState(){try{const res=await fetch(`${API_BASE}/api/state`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Speichern fehlgeschlagen')}setCloudStatus('Cloud-Datenbank gespeichert: '+ (data.storage || 'local-file') +' · '+new Date().toLocaleTimeString('de-DE'))}catch(e){setCloudStatus('Cloud-Datenbank nicht gespeichert: '+e.message+'. Lokale Datei + Browser aktiv.',true)}}
+async function saveCloudState(){try{const res=await fetch(API_BASE+'/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success)throw new Error(data.error||'Cloud-Speichern fehlgeschlagen');setCloudStatus('☁️ Cloud gespeichert · '+new Date().toLocaleTimeString('de-DE'))}catch(e){/* silent */}}
 function euro(v){return Number(v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'})}
 function note(t){const el=document.getElementById('notice');if(el)el.textContent=t;const toast=document.getElementById('toast');if(toast){toast.textContent=t;toast.classList.add('show');clearTimeout(window.__miToastTimer);window.__miToastTimer=setTimeout(()=>toast.classList.remove('show'),3200)}updateSystemInfo()}
 function updateSystemInfo(){const el=document.getElementById('systemInfoText');if(el){el.textContent='Projektordner: /Users/christopherno/Projects/Miguel · FERTIGES PRODUKT · '+(document.getElementById('cloudStatus')?.textContent||'Cloud wird geprüft')+' · Letzte Meldung: '+(document.getElementById('notice')?.textContent||'Bereit')}}
@@ -262,7 +348,8 @@ function setReceived(did,lid,value){const d=state.deliveries.find(x=>x.id===did)
 function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return;if(d.status==='geprüft')return note('Lieferung '+d.number+' wurde bereits gebucht.');d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+(l.received||0);state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:+l.received||0,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang',timestamp:new Date().toISOString()})}});d.status='geprüft';note('Lieferung gebucht: '+d.number+' · Bestand aktualisiert');save()}
 function getDeliveryStatus(d){if(!d||!d.lines||!d.lines.length)return'offen';const booked=d.lines.filter(l=>l.status==='gebucht').length;const total=d.lines.length;if(booked===0)return'offen';if(booked<total)return'teilweise';return'abgeschlossen'}
 function statusBadgeHtml(s){const m={offen:'bg:#ef4444;color:#fff',teilweise:'bg:#f59e0b;color:#000',abgeschlossen:'bg:#22c55e;color:#fff',abweichung:'bg:#f97316;color:#fff',geprüft:'bg:#22c55e;color:#fff'};const c=m[s]||m.offen;return'<span style="display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:600;'+(c)+'">'+s+'</span>'}
-function bookLineItem(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');if(l.status==='gebucht')return note(l.name+' ist bereits gebucht.');const qty=l.received||l.expected;if(!confirm(l.name+' mit '+qty+' Stück buchen?'))return;const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang (Einzelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht';d.status=getDeliveryStatus(d);note(l.name+' ('+qty+' Stück) gebucht. Bestand aktualisiert.');save()}
+function bookLineItem(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');if(l.status==='gebucht')return note(l.name+' ist bereits gebucht.');const qty=parseInt(l.received)||0;if(qty<=0)return note('Bitte zuerst die erhaltene Menge eintragen (Erhalten > 0).');if(!confirm(l.name+' mit '+qty+' Stück buchen?'))return;const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang (Einzelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht';d.status=getDeliveryStatus(d);note(l.name+' ('+qty+' Stück) gebucht. Bestand aktualisiert.');save()}
+function bookAllDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const ub=d.lines.filter(l=>l.status!=='gebucht'&&(l.received||l.expected)>0);if(!ub.length)return note('Alle Positionen bereits gebucht.');if(!confirm('Alle '+ub.length+' offenen Positionen von '+d.number+' buchen?'))return;ub.forEach(l=>{const qty=l.received||l.expected;const p=state.products.find(x=>x.sku===l.sku);if(p){const os=p.stock||0;p.stock=os+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now()+Math.random(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:os,stockAfter:p.stock,reason:'Wareneingang (Sammelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht'});d.status='abgeschlossen';note('Alle '+ub.length+' Positionen von '+d.number+' gebucht.');save()}
 function createTestDelivery(){if(state.products.length<2)return note('Mindestens 2 Artikel anlegen für Test-Lieferung.');const ps=state.products.slice(0,3);const d={id:Date.now(),number:'TEST-WE-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Test-Lieferant GmbH',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:ps.map((p,i)=>({id:Date.now()+i+1,sku:p.sku,name:p.name,expected:10+i*5,received:0,unit:'Stk',status:'offen'}))};state.deliveries.unshift(d);save();note('Test-Lieferung erstellt: '+d.number+' mit '+ps.length+' Artikeln')}
 let deliverySortKey='';function sortDeliveries(key){deliverySortKey=(deliverySortKey===key?'-'+key:key);render()}
 function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mi-deals-sicherung-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);note('JSON-Sicherung wurde erstellt.')}
@@ -350,7 +437,7 @@ function render(){
   const open=state.deliveries.filter(d=>d.status!=='geprüft').length;
   const value=state.products.reduce((s,p)=>s + (p.stock||0)*(p.price||0),0);
   const umsatz = (state.sales || []).reduce((s,sale)=>s + (sale.total||0),0);
-  document.getElementById('uebersichtMetrics').innerHTML=[['Kunden',state.customers.length],['Artikel',state.products.length],['Offene Lieferungen',open],['Lagerwert',euro(value)],['Umsatz',euro(umsatz)]].map(m=>`<div class=\"card metric\"><p class=\"muted\">${m[0]}</p><strong>${m[1]}</strong></div>`).join('');
+  document.getElementById('uebersichtMetrics').innerHTML=[['👥',state.customers.length,'Kunden',''],['📦',state.products.length,'Artikel',''],['📥',open,'Offene Lieferungen',open>0?'wichtig':''],['💰',euro(value),'Lagerwert',''],['📊',euro(umsatz),'Umsatz',''],['⚠️',state.products.filter(p=>p.stock<=p.minStock).length,'Kritisch',state.products.filter(p=>p.stock<=p.minStock).length>0?'warn':'']].map(m=>`<div class=\"metric-card${m[3]?' '+m[3]:''}\"><div class=\"icon\">${m[0]}</div><div class=\"value ${m[3]}\">${m[1]}</div><div class=\"label\">${m[2]}</div></div>`).join('');
   
   // Kunden
   const cs=(document.getElementById('customerSearch')?.value||'').toLowerCase();
@@ -358,7 +445,7 @@ function render(){
   
   // Lager
   const ps=(document.getElementById('productSearch')?.value||'').toLowerCase();
-  document.getElementById('productList').innerHTML=state.products.filter(p=>(p.sku+p.name+p.supplier).toLowerCase().includes(ps)).map(p=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(p)}<div><b>${esc(p.name)}</b><p class=\"muted\">${esc(p.sku)} · Bestand ${p.stock} · ${euro(p.price)}</p></div></div><span class=\"badge ${p.stock<=p.minStock?'warn':''}\">${p.stock<=p.minStock?'Nachbestellen':esc(p.supplier||'ok')}</span></div>`).join('')||'<p class=\"muted\">Keine Artikel gefunden.</p>';
+  document.getElementById('productList').innerHTML=state.products.filter(p=>(p.sku+p.name+p.supplier).toLowerCase().includes(ps)).length?`<table class=\"stock-table\"><thead><tr><th>SKU</th><th>Name</th><th class=\"num\">Bestand</th><th class=\"num\">Min</th><th class=\"num\">Preis</th><th>Lieferant</th><th>Status</th></tr></thead><tbody>${state.products.filter(p=>(p.sku+p.name+p.supplier).toLowerCase().includes(ps)).map(p=>{const cr=p.stock<=p.minStock;const barW=Math.min(100,p.minStock>0?(p.stock/p.minStock)*100:100);return `<tr${cr?' class=\"critical-row\"':''}><td class=\"code\">${esc(p.sku)}</td><td><b>${esc(p.name)}</b></td><td class=\"num\"><span class=\"code\">${p.stock}</span>${p.minStock>0?`<div class=\"progress-track\" style=\"width:50px\"><div class=\"progress-fill\" style=\"width:${Math.min(barW,100)}%;background:${barW<50?'#22c55e':barW<80?'#f59e0b':'#ef4444'}\"></div></div>`:''}</td><td class=\"num code\">${p.minStock||'—'}</td><td class=\"num code\">${euro(p.price)}</td><td>${esc(p.supplier||'—')}</td><td>${cr?`<span class=\"badge warn\">Kritisch</span>`:`<span class=\"badge green\">OK</span>`}</td></tr>`}).join('')}</tbody></table>`:'<p class=\"muted\">Keine Artikel gefunden.</p>';
   
   // Lieferungen (render table)
   const delContainer = document.getElementById('deliveryList');
@@ -384,7 +471,7 @@ function render(){
         const btnText = booked ? 'Gebucht' : 'Buchen';
         return '<tr><td>'+esc(l.sku)+'</td><td>'+esc(l.name)+'</td><td class="num">'+l.expected+'</td><td><input type="number" value="'+(l.received||0)+'" class="recv-input" onchange="setReceived('+d.id+','+l.id+',this.value)"'+(booked?' disabled':'')+'></td><td class="num '+diffCls+'">'+diffStr+'</td><td>'+statusBadgeHtml(l.status)+'</td><td><button class="book-btn" onclick="bookLineItem('+d.id+','+l.id+')"'+btnDisabled+'>'+btnText+'</button></td></tr>';
       }).join('');
-      return '<div class="delivery-card"><div class="delivery-header"><b>'+esc(d.number)+'</b> – '+esc(d.customer)+' '+statusBadgeHtml(ds)+' <span class="muted">'+d.createdAt+'</span></div><table class="delivery-table"><thead><tr><th onclick="sortDeliveries(\'sku\')">Position</th><th onclick="sortDeliveries(\'name\')">Artikelname</th><th class="num">Erwartet</th><th class="num">Erhalten</th><th class="num">Differenz</th><th>Status</th><th>Aktion</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
+      return '<div class="delivery-card"><div class="delivery-header"><b>'+esc(d.number)+'</b> – '+esc(d.customer)+' '+statusBadgeHtml(ds)+' <span class="muted">'+d.createdAt+'</span> <button class="book-all-btn" onclick="bookAllDelivery('+d.id+')">📋 Alles buchen</button></div><table class="delivery-table"><thead><tr><th onclick="sortDeliveries(\'sku\')">Position</th><th onclick="sortDeliveries(\'name\')">Artikelname</th><th class="num">Erwartet</th><th class="num">Erhalten</th><th class="num">Differenz</th><th>Status</th><th>Aktion</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
     }).join('') || '<p class="muted">Keine Lieferungen.</p>';
   }
   const auditEl=document.getElementById('auditLogList');if(auditEl){const log=(state.auditLog||[]).slice(0,20);auditEl.innerHTML=log.length?log.map(e=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px"><div><b>${esc(e.name)}</b> <span class="badge green">+${e.change}</span> <span class="muted">${esc(e.deliveryNumber||e.reason)}</span></div><div class="muted">${e.stockBefore} → ${e.stockAfter} · ${new Date(e.timestamp).toLocaleDateString('de-DE',{day:"2-digit",month:"2-digit",year:"2-digit",hour:"2-digit",minute:"2-digit"})}</div></div>`).join(''):'<p class="muted">Noch keine Bestandsänderungen protokolliert.</p>';}
