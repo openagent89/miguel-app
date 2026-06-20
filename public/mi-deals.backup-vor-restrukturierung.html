@@ -8,19 +8,15 @@
 :root{--bg:#070b13;--panel:rgba(255,255,255,.075);--panel2:rgba(255,255,255,.105);--line:rgba(255,255,255,.13);--text:#f8fafc;--muted:#aab6c8;--cyan:#00d4ff;--blue:#4f8cff;--green:#42e8a4;--amber:#ffd166;--danger:#ff6b8a;--purple:#b89cff;--shadow:0 28px 90px rgba(0,0,0,.38)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 12% 0%,rgba(0,212,255,.26),transparent 34%),radial-gradient(circle at 88% 8%,rgba(184,156,255,.24),transparent 31%),linear-gradient(135deg,#070b13 0%,#0b1020 46%,#10131f 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(circle at top,black,transparent 72%)}main{max-width:1260px;margin:0 auto;padding:34px 24px 60px}header,.card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(24px);overflow:hidden}header:before,.card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 20% 0%,rgba(0,212,255,.20),transparent 35%),radial-gradient(circle at 100% 0%,rgba(184,156,255,.14),transparent 30%);pointer-events:none}header>* ,.card>*{position:relative}h1{font-size:clamp(38px,6vw,74px);line-height:.92;letter-spacing:-.06em;margin:12px 0 20px;max-width:780px}h2{margin:0 0 16px;font-size:clamp(22px,3vw,32px);letter-spacing:-.035em}.muted{color:var(--muted);line-height:1.6}.brand{display:inline-flex;align-items:center;gap:10px;letter-spacing:.24em;color:#bdf5ff;font-weight:900;font-size:13px}.status{display:inline-block;margin-top:12px;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2);font-size:12px;color:#b8e7ff;background:rgba(0,212,255,.08)}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px}.nav a{padding:10px 18px;border:1px solid var(--line);border-radius:999px;color:#c9d8ea;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s}.nav a:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}
 /* Hamburger-Menü */
 .hamburger-btn{position:fixed;top:18px;right:20px;z-index:50;width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:.2s;padding:0}.hamburger-btn:hover{background:rgba(255,255,255,.1)}.hamburger-btn span{display:block;width:20px;height:2px;border-radius:2px;background:#c9d8ea;transition:.3s}.hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger-btn.open span:nth-child(2){opacity:0}.hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}.nav-backdrop.open{opacity:1;pointer-events:auto}.nav-dropdown{position:fixed;top:72px;right:20px;z-index:45;min-width:220px;background:linear-gradient(160deg,rgba(15,20,35,.98),rgba(10,15,28,.98));border:1px solid var(--line);border-radius:20px;padding:10px;backdrop-filter:blur(24px);box-shadow:0 28px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(-12px) scale(.95);pointer-events:none;transition:all .3s cubic-bezier(.22,1,.36,1)}.nav-dropdown.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.nav-dropdown a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;color:#c9d8ea;text-decoration:none;font-weight:500;font-size:15px;transition:all .15s}.nav-dropdown a:hover{background:rgba(255,255,255,.06)}.nav-dropdown a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;box-shadow:0 8px 30px rgba(0,212,255,.2)}.grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.section{margin-top:18px}.card h2{margin-bottom:14px}.row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.03)}.row:last-child{margin-bottom:0}.product-row{display:flex;gap:12px;align-items:center}.thumb{width:42px;height:42px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#7aa4c7;flex-shrink:0}.thumb img{width:100%;height:100%;object-fit:cover}.badge{padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);color:#c9d8ea}.badge.warn{background:rgba(255,209,102,.12);border-color:rgba(255,209,102,.35);color:#ffd166}.metric{text-align:center;padding:18px 14px}.metric strong{display:block;font-size:28px;margin:4px 0 2px}.hint{padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);font-size:13px}.hint b{display:block;margin-bottom:4px}.actions{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}button,.primary,.secondary,.green,.warn{padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#f1f5f9;font-weight:600;cursor:pointer;transition:all .2s;font-size:14px}button:hover,.primary:hover{background:rgba(255,255,255,.12)}.primary{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.4)}.green{background:linear-gradient(135deg,var(--green),#22c55e);color:#052e16;border-color:rgba(255,255,255,.3)}.warn{background:linear-gradient(135deg,var(--amber),#f59e0b);color:#3f2a00;border-color:rgba(255,255,255,.3)}.danger-btn{background:rgba(255,107,138,.12);color:#fecdd3;border-color:rgba(255,107,138,.3)}.label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);color:#f8fafc;font-size:15px}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);background:rgba(255,255,255,.07)}label{display:block;margin:10px 0 4px;font-size:13px}.view-section{display:none!important}.view-section.active{display:block!important}.view-section.active.grid{display:grid!important}.tab-shell{margin-top:22px}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}.tab-headline{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:22px 0}.tab-headline p{margin:0;max-width:680px}.collapse-note{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.07);color:var(--muted);font-size:13px}.reset-armed{background:linear-gradient(135deg,#ff6b8a,#ffd166)!important;color:#18070b!important}.system-strip{display:none}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(120px);z-index:30;max-width:min(720px,calc(100% - 32px));background:rgba(8,13,24,.92);border:1px solid rgba(255,255,255,.16);box-shadow:0 22px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px);border-radius:18px;padding:14px 18px;color:#eaf6ff;font-weight:700;opacity:0;transition:.24s ease}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.system-info{grid-column:1/-1}.system-info details{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.055)}.system-info summary{cursor:pointer;font-weight:900;color:#dff8ff}.url-import{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.soft{background:rgba(103,232,249,.08);border-color:rgba(103,232,249,.18)}.soft-line{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}input[type="checkbox"]{width:auto;margin-right:8px}.review-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.danger-btn{background:rgba(251,113,133,.16)!important;color:#fecdd3!important;border:1px solid rgba(251,113,133,.35)!important}.quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.quick-step{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:12px}.auth-overlay{position:fixed;inset:0;background:rgba(7,11,19,.96);z-index:100;display:flex;align-items:center;justify-content:center}.auth-box{max-width:380px;width:92%;text-align:center}.auth-box input{margin:14px 0 10px}.hidden{display:none!important}.notice{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;margin:8px 0}
-.delivery-card{margin-bottom:20px;background:rgba(255,255,255,.04);border-radius:16px;padding:16px;border:1px solid rgba(255,255,255,.08)}.delivery-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.delivery-table{width:100%;border-collapse:collapse;font-size:13px}.delivery-table th{padding:8px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.12);color:var(--muted);font-weight:600;cursor:pointer;user-select:none;white-space:nowrap}.delivery-table th:hover{color:var(--text)}.delivery-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:middle}.delivery-table tr:last-child td{border-bottom:none}.delivery-table td.num,.delivery-table th.num{text-align:right}.recv-input{width:60px;padding:4px 6px;border-radius:8px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.3);color:var(--text);font-size:13px;text-align:center}.recv-input:focus{outline:none;border-color:var(--cyan)}.recv-input:disabled{opacity:.5;cursor:not-allowed}.delivery-table .diff-pos{color:var(--green)}.delivery-table .diff-neg{color:var(--danger)}.book-btn{padding:4px 14px;border-radius:8px;border:none;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;font-size:12px;cursor:pointer;transition:.2s;white-space:nowrap}.book-btn:hover{opacity:.85;transform:translateY(-1px)}.book-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
   </style>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <script type="module">import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs'; window.pdfjsLib=pdfjsLib;</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script src="https://unpkg.com/@point-of-sale/webhid-barcode-scanner@1.2.2/dist/webhid-barcode-scanner.umd.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
-  <script src="https://unpkg.com/@zxing/library@0.21.0/umd/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 </head>
 <body>
 <main>
-<div id="authOverlay" class="auth-overlay">
+<div id="authOverlay" class="auth-overlay hidden">
   <div class="auth-box">
     <div class="brand">M&I DEALS</div>
     <h2>Geschützter Zugriff</h2>
@@ -40,21 +36,22 @@
     </div>
     <div class="hero-orb" aria-hidden="true"></div>
   </header>
-  <!-- Hamburger-Navigation --><button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Navigation öffnen"><span></span><span></span><span></span></button><div class="nav-backdrop" id="navBackdrop" onclick="toggleNav()"></div><nav class="nav-dropdown" id="mainNav"><a href="#uebersicht" data-tab="uebersicht" onclick="setActiveTab('uebersicht')">📊 Dashboard</a><a href="#lager" data-tab="lager" onclick="setActiveTab('lager')">📦 Artikel</a><a href="#kunden" data-tab="kunden" onclick="setActiveTab('kunden')">👥 Kunden</a><a href="#lieferungen" data-tab="lieferungen" onclick="setActiveTab('lieferungen')">📥 Wareneingang</a><a href="#verkaeufe" data-tab="verkaeufe" onclick="setActiveTab('verkaeufe')">📤 Warenausgang</a><a href="#berichte" data-tab="berichte" onclick="setActiveTab('berichte')">📈 Berichte</a><a href="#audit" data-tab="audit" onclick="setActiveTab('audit')">📋 Protokoll</a><a href="#import" data-tab="import" onclick="setActiveTab('import')">🔄 Import</a><a href="#daten" data-tab="daten" onclick="setActiveTab('daten')">⚙️ Einstellungen</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><a onclick="openScannerModal();closeNav()" style="cursor:pointer">📷 Scannen</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><span style="display:block;padding:10px 16px;font-size:11px;color:#6a7a8e">M&I Deals · Warenwirtschaft v2.0</span></nav>
+  <!-- Hamburger-Navigation --><button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Navigation öffnen"><span></span><span></span><span></span></button><div class="nav-backdrop" id="navBackdrop" onclick="toggleNav()"></div><nav class="nav-dropdown" id="mainNav"><a href="#uebersicht" data-tab="uebersicht" onclick="setActiveTab('uebersicht')">📊 Übersicht</a><a href="#kunden" data-tab="kunden" onclick="setActiveTab('kunden')">👥 Kunden</a><a href="#lager" data-tab="lager" onclick="setActiveTab('lager')">📦 Lager</a><a href="#lieferungen" data-tab="lieferungen" onclick="setActiveTab('lieferungen')">🚚 Lieferungen</a><a href="#verkaeufe" data-tab="verkaeufe" onclick="setActiveTab('verkaeufe')">💰 Verkäufe</a><a href="#berichte" data-tab="berichte" onclick="setActiveTab('berichte')">📈 Berichte</a><a href="#import" data-tab="import" onclick="setActiveTab('import')">📥 Import</a><a href="#daten" data-tab="daten" onclick="setActiveTab('daten')">⚙️ Daten</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><a onclick="openScannerModal();closeNav()" style="cursor:pointer">📷 Scan</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><span style="display:block;padding:10px 16px;font-size:11px;color:#6a7a8e">FERTIGES PRODUKT · lokal + Bot + PDF</span></nav>
   <div id="notice" class="notice system-strip">Bereit.</div><div id="cloudStatus" class="notice system-strip">Cloud-Datenbank: wird geprüft...</div><div id="toast" class="toast" aria-live="polite"></div>
   <section id="uebersicht" class="view-section active">
-    <div id="uebersichtMetrics" class="grid two" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:18px;"></div>
-    <div class="card" style="margin-top:0"><h3>📋 Letzte Bewegungen</h3><div id="bewegungenList"></div></div>
-    <div class="card" style="margin-top:16px"><h3>📦 Kritische Bestände</h3><div id="lowStockOverview"></div></div>
+    <div class="tab-headline"><div><h2>Übersicht</h2><p class="muted">Ein Bereich pro Tab. Weniger Scrollen, schneller am Handy.</p></div><span class="collapse-note">Tabsystem aktiv · weniger Ablenkung</span></div>
+    <div id="uebersichtMetrics" class="grid metrics"></div>
+<div class="card" style="margin-top:16px"><h3>Letzte Bewegungen (Ein-/Ausbuchungen)</h3><div id="bewegungenList"></div></div>
+    <div class="card quality"><h2>Bedienhilfe</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><div class="hint"><b>1. Kunden</b><p class="muted small">Kunde und Ansprechpartner anlegen.</p></div><div class="hint"><b>2. Lager</b><p class="muted small">Artikel, Bestand und Mindestbestand pflegen.</p></div><div class="hint"><b>3. Lieferungen</b><p class="muted small">Erwartete und erhaltene Menge vergleichen.</p></div><div class="hint"><b>4. Ein-/Ausbuchungen</b><p class="muted small">Ausbuchung an Kunde oder Lager (intern). Genau nachverfolgen, wer welche Ware erhalten hat.</p></div><div class="hint"><b>5. Import</b><p class="muted small">Warenlisten, Excel, PDF, Webadressen oder Lieferscheine erkennen lassen.</p></div></div></div>
   </section>
   <section id="kunden" class="grid two section view-section"><div class="card"><h2>Kunden anlegen</h2><label>Kundenname<input id="c_name"></label><label>Ansprechpartner<input id="c_contact"></label><label>Telefon<input id="c_phone"></label><label>Notizen<textarea id="c_notes"></textarea></label><button class="primary" onclick="addCustomer()">Kunde speichern</button></div><div class="card"><h2>Kundenliste</h2><input id="customerSearch" placeholder="Kunden suchen..." oninput="render()"><div id="customerList"></div></div></section>
-  <section id="lager" class="grid two section view-section"><div class="card"><h2>📦 Neuen Artikel anlegen</h2><label>Artikelnummer<input id="p_sku"></label><label>Artikelname<input id="p_name"></label><label>Bestand<input id="p_stock" type="number"></label><label>Mindestbestand<input id="p_min" type="number"></label><label>Preis<input id="p_price" type="number" step="0.01"></label><label>Lieferant<input id="p_supplier"></label><label>Bild/Fotolink<input id="p_image" placeholder="optional: https://...jpg"></label><button class="primary" onclick="addProduct()">Artikel speichern</button></div><div class="card"><h2>Lagerbestand</h2><input id="productSearch" placeholder="Artikel suchen..." oninput="render()"><div id="productList"></div></div></section>
-  <section id="lieferungen" class="section card view-section"><h2>📥 Wareneingang</h2><p class="muted">Erhaltene Lieferungen erfassen und Artikel in den Bestand einbuchen.</p><div id="deliveryList"></div></section>
+  <section id="lager" class="grid two section view-section"><div class="card"><h2>Artikel anlegen</h2><label>Artikelnummer<input id="p_sku"></label><label>Artikelname<input id="p_name"></label><label>Bestand<input id="p_stock" type="number"></label><label>Mindestbestand<input id="p_min" type="number"></label><label>Preis<input id="p_price" type="number" step="0.01"></label><label>Lieferant<input id="p_supplier"></label><label>Bild/Fotolink<input id="p_image" placeholder="optional: https://...jpg"></label><button class="primary" onclick="addProduct()">Artikel speichern</button></div><div class="card"><h2>Lagerbestand</h2><input id="productSearch" placeholder="Artikel suchen..." oninput="render()"><div id="productList"></div></div></section>
+  <section id="lieferungen" class="section card view-section"><h2>Lieferungen abgleichen</h2><p class="muted">Erwartete Menge gegen erhaltene Menge prüfen. Beim Buchen wird der Lagerbestand erhöht.</p><div id="deliveryList"></div></section>
   
   <!-- NEU: Verkäufe Tab für vollständiges Wirtschaftssystem -->
   <section id="verkaeufe" class="grid two section view-section">
     <div class="card">
-      <h2>📤 Warenausgang</h2>
+      <h2>Ein-/Ausbuchung</h2>
       <p class="muted">Bestand wird automatisch angepasst. Wähle Empfänger: Kunde oder Lager (intern). So kannst du genau nachverfolgen, wer welche Ware erhalten hat.</p>
       <label>Empfänger
         <select id="v_customer"></select>
@@ -72,13 +69,12 @@
     </div>
   </section>
 
-  <section id="berichte" class="grid two section view-section"><div class="card"><h2>📊 Nachbestellungen</h2><div id="lowStock"></div></div><div class="card"><h2>Lieferabweichungen & Umsatz</h2><div id="mismatchReport"></div><div id="umsatzReport" style="margin-top:16px"></div>
+  <section id="berichte" class="grid two section view-section"><div class="card"><h2>Nachbestellungen</h2><div id="lowStock"></div></div><div class="card"><h2>Lieferabweichungen & Umsatz</h2><div id="mismatchReport"></div><div id="umsatzReport" style="margin-top:16px"></div>
 <div id="empfaengerReport" style="margin-top:16px"><h3>Erhaltene Waren nach Empfänger (Nachverfolgung)</h3><div id="empfaengerList"></div></div>
 <div class="actions" style="margin-top:12px"><button class="green" onclick="exportPDF()">PDF-Bericht herunterladen</button></div></div></section>
-  <section id="audit" class="section card view-section"><h2>📋 Protokoll</h2><p class="muted">Jede Bestandsänderung wird hier mit Vorher/Nachher-Werten dokumentiert.</p><div id="auditLogList"></div></section>
   <section id="import" class="grid two section view-section"><div class="card"><h2>Import</h2><p class="muted compact-help">Eine Quelle wählen, prüfen, dann bestätigen. Nichts wird automatisch gespeichert.</p><div class="quick-steps"><div class="quick-step"><b>1. Quelle</b><span class="muted">PDF, Excel, Text oder URL</span></div><div class="quick-step"><b>2. Prüfen</b><span class="muted">Artikel/Mengen ansehen</span></div><div class="quick-step"><b>3. Bestätigen</b><span class="muted">Erst dann Cloud-Speicher</span></div></div><label>Internetadresse<input id="smartImportUrl" placeholder="https://lieferant.de/liste"></label><div class="actions"><button class="secondary" onclick="importFromUrl()">URL einlesen</button></div><label>Datei auswählen<input type="file" id="smartImportFile" accept=".csv,.txt,.xlsx,.xls,.pdf,application/pdf,application/vnd.openxmlformats.document.spreadsheetml.sheet,application/vnd.ms-excel"></label><label>Liste einfügen<textarea id="smartImportText" rows="7" placeholder="12 Karton Cola 0,33l Lieferant Metro 9,99
 5 kg Grillfleisch Meyer 49,90"></textarea></label><div class="actions"><button class="primary" onclick="smartImport()">Import prüfen</button><button class="secondary" onclick="clearSmartImport()">Leeren</button></div><details class="import-watch"><summary>Automatische Überwachung</summary><p class="muted compact-help">Für Lieferanten-URLs. Am Anfang bleibt alles im Prüfmodus und muss bestätigt werden.</p><label><input id="autoImportEnabled" type="checkbox"> Lieferanten-URL überwachen</label><label>Prüfintervall<select id="autoImportInterval"><option>Täglich</option><option>Alle 6 Stunden</option><option>Stündlich</option></select></label><label><input id="autoImportRequireConfirm" type="checkbox" checked> Immer bestätigen lassen</label><button class="secondary" onclick="saveImportProfile()">Profil speichern</button></details><div class="card"><h2>Prüfung</h2><p class="muted compact-help">Hier erscheint nur die Vorschau. Erst „Import bestätigen“ schreibt Daten.</p><div id="importPreview"><p class="muted">Noch kein Import.</p></div></div></section>
-    <section id="daten" class="grid two section view-section"><div class="card"><h2>💾 Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createTestDelivery()">Test-Lieferung (3 Artikel)</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
+    <section id="daten" class="grid two section view-section"><div class="card"><h2>Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createDelivery()">Test-Lieferung erstellen</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
 </main>
 <script>
 const ACCESS_PASSWORD='MI-Deals-2026!';
@@ -96,13 +92,12 @@ function closeNav(){const btn=document.getElementById('hamburgerBtn');const nav=
 window.addEventListener('hashchange',()=>setActiveTab((location.hash||'#uebersicht').slice(1)));
 
 let state=load();
-const API_BASE = ""; // Next.js Proxy-Routen
-function seed(){return{version:3,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[],auditLog:[]}}
+function seed(){return{version:2,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[]}}
 function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return v&&v.customers&&v.products&&v.deliveries?v:seed()}catch(e){return seed()}}
 function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(state));render();saveCloudState()}
 function setCloudStatus(text,isError=false){const el=document.getElementById('cloudStatus');if(el){el.textContent=text;el.style.borderColor=isError?'#fb7185':'#334155';}updateSystemInfo()}
-async function loadCloudState(){try{setCloudStatus('Cloud-Datenbank: lade zentralen Datenstand...');const res=await fetch(`${API_BASE}/api/state`,{headers:{'x-mi-deals-password':ACCESS_PASSWORD},cache:'no-store'});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Laden fehlgeschlagen')}const cloudData = data.state || data.data; if(cloudData && data.storage !== 'not_connected'){state=cloudData;localStorage.setItem(KEY,JSON.stringify(state));render();setCloudStatus('Cloud-Datenbank aktiv: '+ (data.storage || 'local-file') +' · Stand geladen')}else if(data.storage==='not_connected' || !data.storage){setCloudStatus('Lokale Datei-Speicherung aktiv (.mi-deals-state.json). Kein Cloud-Token nötig.',true)}else{setCloudStatus('Cloud-Datenbank: '+data.storage)}}catch(e){setCloudStatus('Cloud-Datenbank Fehler: '+e.message+'. Lokaler Browser-Speicher + lokale Datei aktiv.',true)}}
-async function saveCloudState(){try{const res=await fetch(`${API_BASE}/api/state`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Speichern fehlgeschlagen')}setCloudStatus('Cloud-Datenbank gespeichert: '+ (data.storage || 'local-file') +' · '+new Date().toLocaleTimeString('de-DE'))}catch(e){setCloudStatus('Cloud-Datenbank nicht gespeichert: '+e.message+'. Lokale Datei + Browser aktiv.',true)}}
+async function loadCloudState(){try{setCloudStatus('Cloud-Datenbank: lade zentralen Datenstand...');const res=await fetch('/api/state',{headers:{'x-mi-deals-password':ACCESS_PASSWORD},cache:'no-store'});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Laden fehlgeschlagen')}const cloudData = data.state || data.data; if(cloudData && data.storage !== 'not_connected'){state=cloudData;localStorage.setItem(KEY,JSON.stringify(state));render();setCloudStatus('Cloud-Datenbank aktiv: '+ (data.storage || 'local-file') +' · Stand geladen')}else if(data.storage==='not_connected' || !data.storage){setCloudStatus('Lokale Datei-Speicherung aktiv (.mi-deals-state.json). Kein Cloud-Token nötig.',true)}else{setCloudStatus('Cloud-Datenbank: '+data.storage)}}catch(e){setCloudStatus('Cloud-Datenbank Fehler: '+e.message+'. Lokaler Browser-Speicher + lokale Datei aktiv.',true)}}
+async function saveCloudState(){try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Speichern fehlgeschlagen')}setCloudStatus('Cloud-Datenbank gespeichert: '+ (data.storage || 'local-file') +' · '+new Date().toLocaleTimeString('de-DE'))}catch(e){setCloudStatus('Cloud-Datenbank nicht gespeichert: '+e.message+'. Lokale Datei + Browser aktiv.',true)}}
 function euro(v){return Number(v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'})}
 function note(t){const el=document.getElementById('notice');if(el)el.textContent=t;const toast=document.getElementById('toast');if(toast){toast.textContent=t;toast.classList.add('show');clearTimeout(window.__miToastTimer);window.__miToastTimer=setTimeout(()=>toast.classList.remove('show'),3200)}updateSystemInfo()}
 function updateSystemInfo(){const el=document.getElementById('systemInfoText');if(el){el.textContent='Projektordner: /Users/christopherno/Projects/Miguel · FERTIGES PRODUKT · '+(document.getElementById('cloudStatus')?.textContent||'Cloud wird geprüft')+' · Letzte Meldung: '+(document.getElementById('notice')?.textContent||'Bereit')}}
@@ -110,46 +105,41 @@ function val(id){return document.getElementById(id).value.trim()}
 function clear(ids){ids.forEach(id=>document.getElementById(id).value='')}
 function addCustomer(){const name=val('c_name');if(!name)return note('Kundenname fehlt.');state.customers.unshift({id:Date.now(),name,contact:val('c_contact'),phone:val('c_phone'),notes:val('c_notes')});clear(['c_name','c_contact','c_phone','c_notes']);note('Kunde gespeichert: '+name);save()}
 function addProduct(){const sku=val('p_sku'),name=val('p_name');if(!sku||!name)return note('Artikelnummer und Name fehlen.');if(state.products.some(p=>p.sku.toLowerCase()===sku.toLowerCase()))return note('Artikelnummer existiert bereits: '+sku);state.products.unshift({id:Date.now(),sku,name,stock:+val('p_stock')||0,minStock:+val('p_min')||0,price:+val('p_price')||0,supplier:val('p_supplier'),imageUrl:val('p_image')});clear(['p_sku','p_name','p_stock','p_min','p_price','p_supplier','p_image']);note('Artikel gespeichert: '+name);save()}
-function createDelivery(){const p=state.products[0];if(!p)return note('Kein Artikel vorhanden.');const d={id:Date.now(),number:'LIEF-'+new Date().getFullYear()+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:state.customers[0]?.name||'Ohne Kunde',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:[{id:Date.now(),sku:p.sku,name:p.name,expected:1,received:0,status:'offen'}]};state.deliveries.unshift(d);note('Lieferung erstellt: '+d.number);save()}
+function createDelivery(){const p=state.products[0];if(!p)return note('Kein Artikel vorhanden.');const d={id:Date.now(),number:'LIEF-'+new Date().getFullYear()+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:state.customers[0]?.name||'Ohne Kunde',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:[{id:Date.now(),sku:p.sku,name:p.name,expected:1,received:0}]};state.deliveries.unshift(d);note('Lieferung erstellt: '+d.number);save()}
 function createDeliveryFromSelection(){createDelivery()}
-function setReceived(did,lid,value){const d=state.deliveries.find(x=>x.id===did);const l=d.lines.find(x=>x.id===lid);l.received=+value||0;save()}
-function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return;if(d.status==='geprüft')return note('Lieferung '+d.number+' wurde bereits gebucht.');d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+(l.received||0);state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:+l.received||0,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang',timestamp:new Date().toISOString()})}});d.status='geprüft';note('Lieferung gebucht: '+d.number+' · Bestand aktualisiert');save()}
-function getDeliveryStatus(d){if(!d||!d.lines||!d.lines.length)return'offen';const booked=d.lines.filter(l=>l.status==='gebucht').length;const total=d.lines.length;if(booked===0)return'offen';if(booked<total)return'teilweise';return'abgeschlossen'}
-function statusBadgeHtml(s){const m={offen:'bg:#ef4444;color:#fff',teilweise:'bg:#f59e0b;color:#000',abgeschlossen:'bg:#22c55e;color:#fff',abweichung:'bg:#f97316;color:#fff',geprüft:'bg:#22c55e;color:#fff'};const c=m[s]||m.offen;return'<span style="display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:600;'+(c)+'">'+s+'</span>'}
-function bookLineItem(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');if(l.status==='gebucht')return note(l.name+' ist bereits gebucht.');const qty=l.received||l.expected;if(!confirm(l.name+' mit '+qty+' Stück buchen?'))return;const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang (Einzelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht';d.status=getDeliveryStatus(d);note(l.name+' ('+qty+' Stück) gebucht. Bestand aktualisiert.');save()}
-function createTestDelivery(){if(state.products.length<2)return note('Mindestens 2 Artikel anlegen für Test-Lieferung.');const ps=state.products.slice(0,3);const d={id:Date.now(),number:'TEST-WE-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Test-Lieferant GmbH',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:ps.map((p,i)=>({id:Date.now()+i+1,sku:p.sku,name:p.name,expected:10+i*5,received:0,unit:'Stk',status:'offen'}))};state.deliveries.unshift(d);save();note('Test-Lieferung erstellt: '+d.number+' mit '+ps.length+' Artikeln')}
-let deliverySortKey='';function sortDeliveries(key){deliverySortKey=(deliverySortKey===key?'-'+key:key);render()}
+function setReceived(did,lid,value){const d=state.deliveries.find(x=>x.id===did);const l=d.lines.find(x=>x.id===lid);l.received=+value||0;const all=d.lines.every(x=>x.received>0||x.expected===0);const bad=d.lines.some(x=>x.received!==x.expected);d.status=all?(bad?'abweichung':'geprüft'):'offen';save()}
+function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p)p.stock+=l.received});d.status='geprüft';note('Lieferung gebucht: '+d.number);save()}
 function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mi-deals-sicherung-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);note('JSON-Sicherung wurde erstellt.')}
-function importData(){const f=document.getElementById('importFile').files[0];if(!f)return note('Bitte zuerst eine JSON-Datei auswählen.');const r=new FileReader();r.onload=()=>{try{const data=JSON.parse(r.result);if(!data.customers||!data.products||!data.deliveries)throw new Error('Ungültiges Format');state=data;if(!state.sales)state.sales=[];if(!state.auditLog)state.auditLog=[];note('Sicherung importiert.');save()}catch(e){note('Import fehlgeschlagen: '+e.message)}};r.readAsText(f)}
+function importData(){const f=document.getElementById('importFile').files[0];if(!f)return note('Bitte zuerst eine JSON-Datei auswählen.');const r=new FileReader();r.onload=()=>{try{const data=JSON.parse(r.result);if(!data.customers||!data.products||!data.deliveries)throw new Error('Ungültiges Format');state=data;if(!state.sales)state.sales=[];note('Sicherung importiert.');save()}catch(e){note('Import fehlgeschlagen: '+e.message)}};r.readAsText(f)}
 
-async function importFromUrl(){const input=document.getElementById('smartImportUrl');const url=input.value.trim();if(!url)return note('Bitte zuerst eine Internetadresse einfügen.');try{note('Internetadresse wird eingelesen...');const res=await fetch(`${API_BASE}/api/import-url`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify({url})});const data=await res.json();if(!data.success)throw new Error(data.error||'Adresse konnte nicht gelesen werden');const textArea=document.getElementById('smartImportText');textArea.value=(textArea.value?textArea.value+'\\n':'')+data.text;note('URL eingelesen. Jetzt Import prüfen.')}catch(e){note('Adress-Import fehlgeschlagen: '+e.message)}}
-async function smartImport(){const file=document.getElementById('smartImportFile').files[0];let text=document.getElementById('smartImportText').value.trim();try{if(file){text=await readSmartImportFile(file)}if(!text.trim())return note('Bitte Datei auswählen oder Liste einfügen.');const lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const veCount=(text.match(/VE:\s*\d+\s*(Stk|Stück)/gi)||[]).length;let result;if(veCount>=3&&lines.length>=veCount*5){result=parseInvoicePDF(text)}else{result=parseSmartRows(text)}const rows=result.rows;if(!rows.length)return note('Keine sicheren Artikelzeilen erkannt. Kopfzeilen, Adressen und Summen wurden ignoriert.');pendingImportRows=rows;renderImportPreview(rows,true,result.rejected);note(rows.length+' sichere Zeilen erkannt. '+result.rejected+' verdächtige Zeilen ignoriert. Bitte prüfen.')}catch(e){note('Import fehlgeschlagen: '+e.message)}}
-function readSmartImportFile(file){return new Promise((resolve,reject)=>{const name=file.name.toLowerCase();const reader=new FileReader();reader.onerror=()=>reject(new Error('Datei konnte nicht gelesen werden.'));if(name.endsWith('.xlsx')||name.endsWith('.xls')){reader.onload=()=>{try{if(!window.XLSX)throw new Error('Excel-Modul konnte nicht geladen werden. Bitte alternativ als CSV speichern.');const wb=XLSX.read(reader.result,{type:'array'});const sheet=wb.Sheets[wb.SheetNames[0]];resolve(XLSX.utils.sheet_to_csv(sheet,{FS:';'}))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else if(name.endsWith('.pdf')){reader.onload=async()=>{try{const pdfjs=window.pdfjsLib||globalThis.pdfjsLib;if(!pdfjs)throw new Error('PDF-Modul lädt noch. Bitte in ein paar Sekunden erneut versuchen.');pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';const pdf=await pdfjs.getDocument({data:reader.result}).promise;const allLines=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i);const content=await page.getTextContent();let lineItems=[],currentY=null;for(const item of content.items){const y=Math.round(item.transform[5]);if(currentY===null||Math.abs(y-currentY)<4){lineItems.push(item.str);currentY=y}else{allLines.push(lineItems.join(' ').trim());lineItems=[item.str];currentY=y}}if(lineItems.length)allLines.push(lineItems.join(' ').trim())}resolve(allLines.join('\n'))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else{reader.onload=()=>resolve(String(reader.result||''));reader.readAsText(file)}})}
-function parseInvoicePDF(text){let lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const merged=[];for(let i=0;i<lines.length;i++){if(/\w-$/.test(lines[i])&&i+1<lines.length&&/^[a-zäöüß]/i.test(lines[i+1])){merged.push(lines[i].replace(/-$/,'')+lines[i+1]);i++}else{merged.push(lines[i])}}lines=merged;const rows=[];const consumed=new Set();const isDataRow=l=>/^\d+\s+\S+\s+\d+[.,]\d+/.test(l)&&!/(?:Pos\.|Bezeichnung|Menge|Einheit|Einzel)/i.test(l);for(let i=0;i<lines.length;i++){const veMatch=lines[i].match(/VE:\s*(\d+(?:[.,]\d+)?)\s*(Stk|Stück|Karton|Kiste|kg|g|l|Liter|Pack|Paket|Palette|Flasche|Dose|Dosen)\s*(?:·\s*ART-(\w+))?/i);if(!veMatch)continue;if(/Pfand/i.test(lines[i])||/fee rule/i.test(lines[i])||/Übertrag/i.test(lines[i]))continue;const veAmount=veMatch[1];const veUnit=veMatch[2];const sku=veMatch[3]?'ART-'+veMatch[3]:'';let nameLines=[];for(let j=i-1;j>=0;j--){const l=lines[j];if(isDataRow(l)){break}if(/^\d+\s+.+?\s+\d+\s+\S+\s+\d+[.,]\d+\s+\d+[.,]\d+$/.test(l)){break}if(/^\d+$/.test(l)&&j>0&&!/^(?:Pos|Position|Nr)/i.test(l)){break}if(/Zwischensumme|Übertrag|Summe|gesamt|Seite/i.test(l)){break}if(/VE:\s*\d+/i.test(l)&&j!==i-1){break}if(/\bPos\.\s*Bezeichnung\b/i.test(l)){break}if(/Rechnung zu #/i.test(l)||/Bestellung #/i.test(l)||/Lieferungen in Rechnung/i.test(l)){break}nameLines.unshift(l)}let name=nameLines.join(' ').replace(/\s*-\s+/g,' - ').replace(/\s{2,}/g,' ').trim();const posNum=(nameLines[0]?nameLines[0].match(/^(\d+)\s/):null)||[];const vpos=posNum[1]?parseInt(posNum[1]):999;name=name.replace(/^\d+\s*/,'').trim();name=name.replace(/^(?:CBuD\s*GmbH\s*[·|]?\s*)/i,'').trim();if(!name||isJunkImportText(name))continue;let amount=0,unit='Stk',price=0;if(i+1<lines.length){const nl=lines[i+1];const dp=nl.match(/^(\d+(?:[.,]\d+)?)\s+(\S+)\s+(\d+[.,]\d+)\s+(\d+[.,]\d+)$/);if(dp){amount=num(dp[1]);unit=dp[2]||'Stk';price=num(dp[3])}else if(/^(\d+(?:[.,]\d+)?)\s+(\S+)/.test(nl)){const m=nl.match(/^(\d+(?:[.,]\d+)?)\s+(\S+)/);amount=num(m[1]);unit=m[2]||'Stk';const pp=nl.match(/\d+[.,]\d+/g);if(pp&&pp.length>=1)price=num(pp[0])}else if(/^\d+(?:[.,]\d+)?$/.test(nl)){amount=num(nl);if(i+2<lines.length&&!/^\d+(?:[.,]\d+)?$/.test(lines[i+2])){const u=lines[i+2].trim();if(u&&!/[.,]/.test(u)&&u.length<20)unit=u}for(let k=i+1;k<lines.length;k++){const p=lines[k].match(/^(\d+(?:[.,]\d+)?)$/);if(p){const val=num(p[1]);if(val>0.1&&val<99999){price=val;break}}}}}for(let j=i-nameLines.length;j<=i+1;j++){if(j>=0&&j<lines.length)consumed.add(j)}const raw=name+' VE: '+veAmount+' '+veUnit+(sku?' · '+sku:'')+' x'+amount;rows.push({sku:sku||makeSku(name),name,amount,unit,price,supplier:'CBuD GmbH',imageUrl:'',raw,_pos:vpos})}for(let i=0;i<lines.length;i++){if(consumed.has(i))continue;const m=lines[i].match(/^(\d+)\s+(.+?)\s+(\d+)\s+(\S+)\s+(\d+[.,]\d+)\s+(\d+[.,]\d+)$/);if(!m)continue;const posNum=parseInt(m[1]);if(posNum<1||posNum>200)continue;let nm=m[2].replace(/\s*-\s+/g,' - ').trim();nm=nm.replace(/^(?:CBuD\s*GmbH\s*[·|]?\s*)/i,'').trim();if(/(?:Pos\.|Bezeichnung|Menge|Einheit|Einzel|Übertrag|Zwischensumme|Summe|Gesamt|Seite|fee rule|Pfand|Rechnung|Bestellung|Lieferung)/i.test(nm))continue;if(isJunkImportText(nm))continue;consumed.add(i);rows.push({sku:makeSku(nm),name:nm,amount:num(m[3]),unit:m[4]||'Stk',price:num(m[5]),supplier:'CBuD GmbH',imageUrl:'',raw:nm+' x'+m[3]+' '+m[4]+' @ '+m[5],_pos:posNum})}rows.sort((a,b)=>(a._pos||999)-(b._pos||999));rows.forEach(r=>delete r._pos);return{rows,rejected:lines.length-rows.length,total:lines.length}}function parseSmartRows(text){let rawLines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const compact=String(text||'').replace(/\\s+/g,' ').trim();if(rawLines.length<3){rawLines=rawLines.concat(extractOrderProductChunks(compact))}let rows=[],rejected=0;rawLines.forEach(line=>{const parsed=parseSmartLine(line);if(parsed&&isSafeImportRow(parsed)){if(!rows.some(r=>r.sku===parsed.sku&&r.amount===parsed.amount)){rows.push(parsed)}}else{rejected++}});return{rows,rejected,total:rawLines.length}}
-function extractOrderProductChunks(text){const chunks=[];const unit='stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?';const re=new RegExp('(?:^|€\s*\d+[,.]?\d*\s*)([A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&./\\- ]{3,90}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*('+unit+')','gi');let m;while((m=re.exec(text))){const name=m[1].replace(/.*?(?:agb|batteriegesetz|legal|account|mein konto|login)\s+/i,'').trim();if(name)chunks.push(m[2]+' '+m[3]+' '+name)}if(chunks.length)return chunks;const fallback=new RegExp('((?:[A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&.\\-]{2,}\\s+){1,9}?VE[: ]+\\d+(?:[,.]\\d+)?\\s*(?:'+unit+'))','gi');while((m=fallback.exec(text))){chunks.push(m[1].trim())}return chunks}
-function parseSmartLine(line,index){const raw=line.replace(/\t/g,';').replace(/\s{2,}/g,' ').trim();if(isJunkImportText(raw))return null;const parts=raw.includes(';')?raw.split(';').map(x=>x.trim()).filter(Boolean):raw.split(',').map(x=>x.trim()).filter(Boolean);let amount=0,unit='Stk',name='',sku='',price=0,supplier='';if(parts.length>=2&&/^\d+([,.]\d+)?$/.test(parts[0])){amount=num(parts[0]);name=parts[1]||'';unit=guessUnit(raw);price=findPrice(raw);supplier=guessSupplier(raw)}else if(parts.length>=3&&/^\d+([,.]\d+)?$/.test(parts[1])){sku=parts[0];amount=num(parts[1]);name=parts[2]||parts[0];unit=parts[3]||guessUnit(raw);price=findPrice(raw);supplier=parts[5]||guessSupplier(raw)}else{const productHint=raw.match(/(?:^|\s)(\d+(?:[,.]\d+)?)\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\s+(.+)/i);const veAfterName=raw.match(/([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)/i);const veHint=raw.match(/VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?).{0,80}?([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,})/i);if(veAfterName){name=veAfterName[1];amount=num(veAfterName[2]);unit=veAfterName[3]||'Stk';price=findPrice(raw);supplier=guessSupplier(raw)}else{const m=productHint||veHint;if(!m)return null;amount=num(m[1]);unit=m[2]||'Stk';name=(m[3]||'');price=findPrice(raw);supplier=guessSupplier(raw)}}const imageUrl=findImageUrl(raw);name=name.replace(/https?:\/\/\S+/ig,'').replace(/\bVE[: ]+\d+(?:[,.]\d+)?\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\b/ig,'').replace(/\b\d+[,.]\d{2}\s*(€|eur)?\b/ig,'').replace(/^[€\s\d.,]+/,'').replace(/\b(lieferant|supplier)[: ]+[\wäöüÄÖÜß .-]+$/i,'').trim();if(!name)return null;sku=sku||makeSku(name);return{sku,name,amount,unit,price,supplier,imageUrl,raw}} 
+async function importFromUrl(){const input=document.getElementById('smartImportUrl');const url=input.value.trim();if(!url)return note('Bitte zuerst eine Internetadresse einfügen.');try{note('Internetadresse wird eingelesen...');const res=await fetch('/api/import-url',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify({url})});const data=await res.json();if(!data.success)throw new Error(data.error||'Adresse konnte nicht gelesen werden');const textArea=document.getElementById('smartImportText');textArea.value=(textArea.value?textArea.value+'\\n':'')+data.text;note('URL eingelesen. Jetzt Import prüfen.')}catch(e){note('Adress-Import fehlgeschlagen: '+e.message)}}
+async function smartImport(){const file=document.getElementById('smartImportFile').files[0];let text=document.getElementById('smartImportText').value.trim();try{if(file){text=await readSmartImportFile(file)}if(!text.trim())return note('Bitte Datei auswählen oder Liste einfügen.');const result=parseSmartRows(text);const rows=result.rows;if(!rows.length)return note('Keine sicheren Artikelzeilen erkannt. Kopfzeilen, Adressen und Summen wurden ignoriert.');pendingImportRows=rows;renderImportPreview(rows,true,result.rejected);note(rows.length+' sichere Zeilen erkannt. '+result.rejected+' verdächtige Zeilen ignoriert. Bitte prüfen.')}catch(e){note('Import fehlgeschlagen: '+e.message)}}
+function readSmartImportFile(file){return new Promise((resolve,reject)=>{const name=file.name.toLowerCase();const reader=new FileReader();reader.onerror=()=>reject(new Error('Datei konnte nicht gelesen werden.'));if(name.endsWith('.xlsx')||name.endsWith('.xls')){reader.onload=()=>{try{if(!window.XLSX)throw new Error('Excel-Modul konnte nicht geladen werden. Bitte alternativ als CSV speichern.');const wb=XLSX.read(reader.result,{type:'array'});const sheet=wb.Sheets[wb.SheetNames[0]];resolve(XLSX.utils.sheet_to_csv(sheet,{FS:';'}))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else if(name.endsWith('.pdf')){reader.onload=async()=>{try{const pdfjs=window.pdfjsLib||globalThis.pdfjsLib;if(!pdfjs)throw new Error('PDF-Modul lädt noch. Bitte in ein paar Sekunden erneut versuchen.');pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';const pdf=await pdfjs.getDocument({data:reader.result}).promise;let pages=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i);const content=await page.getTextContent();pages.push(content.items.map(item=>item.str||'').join(' '))}resolve(pages.join('\\n'))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else{reader.onload=()=>resolve(String(reader.result||''));reader.readAsText(file)}})}
+function parseSmartRows(text){let rawLines=text.split(/\\r?\\n/).map(x=>x.trim()).filter(Boolean);const compact=String(text||'').replace(/\\s+/g,' ').trim();if(rawLines.length<3){rawLines=rawLines.concat(extractOrderProductChunks(compact))}let rows=[],rejected=0;rawLines.forEach(line=>{const parsed=parseSmartLine(line);if(parsed&&isSafeImportRow(parsed)){if(!rows.some(r=>r.sku===parsed.sku&&r.amount===parsed.amount)){rows.push(parsed)}}else{rejected++}});return{rows,rejected,total:rawLines.length}}
+function extractOrderProductChunks(text){const chunks=[];const unit='stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?';const re=new RegExp('(?:^|€\\s*\\d+[,.]?\\d*\\s*)([A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&./\\- ]{3,90}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*('+unit+')','gi');let m;while((m=re.exec(text))){const name=m[1].replace(/.*?(?:agb|batteriegesetz|legal|account|mein konto|login)\\s+/i,'').trim();if(name)chunks.push(m[2]+' '+m[3]+' '+name)}if(chunks.length)return chunks;const fallback=new RegExp('((?:[A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&.\\-]{2,}\\s+){1,9}?VE[: ]+\\d+(?:[,.]\\d+)?\\s*(?:'+unit+'))','gi');while((m=fallback.exec(text))){chunks.push(m[1].trim())}return chunks}
+function parseSmartLine(line,index){const raw=line.replace(/\\t/g,';').replace(/\\s{2,}/g,' ').trim();if(isJunkImportText(raw))return null;const parts=raw.includes(';')?raw.split(';').map(x=>x.trim()).filter(Boolean):raw.split(',').map(x=>x.trim()).filter(Boolean);let amount=0,unit='Stk',name='',sku='',price=0,supplier='';if(parts.length>=2&&/^\\d+([,.]\\d+)?$/.test(parts[0])){amount=num(parts[0]);name=parts[1]||'';unit=guessUnit(raw);price=findPrice(raw);supplier=guessSupplier(raw)}else if(parts.length>=3&&/^\\d+([,.]\\d+)?$/.test(parts[1])){sku=parts[0];amount=num(parts[1]);name=parts[2]||parts[0];unit=parts[3]||guessUnit(raw);price=findPrice(raw);supplier=parts[5]||guessSupplier(raw)}else{const productHint=raw.match(/(?:^|\\s)(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\s+(.+)/i);const veAfterName=raw.match(/([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)/i);const veHint=raw.match(/VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?).{0,80}?([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,})/i);if(veAfterName){name=veAfterName[1];amount=num(veAfterName[2]);unit=veAfterName[3]||'Stk';price=findPrice(raw);supplier=guessSupplier(raw)}else{const m=productHint||veHint;if(!m)return null;amount=num(m[1]);unit=m[2]||'Stk';name=(m[3]||'');price=findPrice(raw);supplier=guessSupplier(raw)}}const imageUrl=findImageUrl(raw);name=name.replace(/https?:\/\/\S+/ig,'').replace(/\\bVE[: ]+\\d+(?:[,.]\\d+)?\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\b/ig,'').replace(/\\b\\d+[,.]\\d{2}\\s*(€|eur)?\\b/ig,'').replace(/^[€\\s\\d.,]+/,'').replace(/\\b(lieferant|supplier)[: ]+[\\wäöüÄÖÜß .-]+$/i,'').trim();if(!name)return null;sku=sku||makeSku(name);return{sku,name,amount,unit,price,supplier,imageUrl,raw}} 
 function isJunkImportText(s){return /(@|account|login|mein konto|legal|agb|batteriegesetz|rechnungsadresse|lieferadresse|gesamt|netto|mwst|total|bestellstatus|zahlungsstatus|versandstatus|bestellnummer|bestelldatum|deutschland|marienmünster|koenigstraße|königstraße)/i.test(s)}
-function isSafeImportRow(r){const name=String(r.name||'').trim();if(!name||name.length<3||name.length>90)return false;if(isJunkImportText(name)||isJunkImportText(r.raw))return false;if(!Number.isFinite(r.amount)||r.amount<=0||r.amount>1000)return false;if(/^[\d€.,\s-]+$/.test(name))return false;if(/\b\d{5}\b/.test(name))return false;if((r.price||0)>5000)return false;return true}
+function isSafeImportRow(r){const name=String(r.name||'').trim();if(!name||name.length<3||name.length>90)return false;if(isJunkImportText(name)||isJunkImportText(r.raw))return false;if(!Number.isFinite(r.amount)||r.amount<=0||r.amount>1000)return false;if(/^[\\d€.,\\s-]+$/.test(name))return false;if(/\\b\\d{5}\\b/.test(name))return false;if((r.price||0)>5000)return false;return true}
 function num(v){return Number(String(v||'0').replace(',','.'))||0}
-function guessUnit(s){const m=s.match(/\b(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\b/i);return m?m[1]:'Stk'}
-function findPrice(s){const m=s.match(/(\d+[,.]\d{2})\s*(€|eur)?\b/i);return m?num(m[1]):0}
-function guessSupplier(s){const m=s.match(/(?:lieferant|supplier)[: ]+([\wäöüÄÖÜß .-]+?)(?:\s+\d+[,.]\d{2}\s*(?:€|eur)?|$)/i);return m?m[1].trim():''}
+function guessUnit(s){const m=s.match(/\\b(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\b/i);return m?m[1]:'Stk'}
+function findPrice(s){const m=s.match(/(\\d+[,.]\\d{2})\\s*(€|eur)?\\b/i);return m?num(m[1]):0}
+function guessSupplier(s){const m=s.match(/(?:lieferant|supplier)[: ]+([\\wäöüÄÖÜß .-]+?)(?:\\s+\\d+[,.]\\d{2}\\s*(?:€|eur)?|$)/i);return m?m[1].trim():''}
 function makeSku(name){return 'IMP-'+name.toUpperCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^A-Z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,24)}
 function findImageUrl(s){const m=String(s||'').match(/https?:\/\/\S+?\.(?:jpg|jpeg|png|webp)(?:\?\S*)?/i);return m?m[0]:''}
-function initials(name){return String(name||'?').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'?'}
+function initials(name){return String(name||'?').split(/\\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'?'}
 function thumbHtml(item){const url=item.imageUrl||item.image||findImageUrl(item.raw);return url?`<div class=\"thumb\"><img src=\"${esc(url)}\" alt=\"${esc(item.name||'Artikelbild')}\" onerror=\"this.parentElement.textContent='${esc(initials(item.name))}'\">`:`<div class=\"thumb\">${esc(initials(item.name))}</div>`}
 
-function applySmartRows(rows){rows.forEach(r=>{const existing=state.products.find(p=>p.sku.toLowerCase()===r.sku.toLowerCase()||p.name.toLowerCase()===r.name.toLowerCase());if(existing){if(r.price)existing.price=r.price;if(r.supplier)existing.supplier=r.supplier;if(r.imageUrl)existing.imageUrl=r.imageUrl}else{state.products.unshift({id:Date.now()+Math.random(),sku:r.sku,name:r.name,stock:0,minStock:0,price:r.price||0,supplier:r.supplier||'Import',imageUrl:r.imageUrl||''})}});const deliveryId=Date.now();state.deliveries.unshift({id:deliveryId,number:'WE-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Import / Warenliste',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:rows.map((r,i)=>({id:deliveryId+i+1,sku:r.sku,name:r.name,expected:r.amount,received:0,unit:r.unit,status:'offen'}))});save()}
+function applySmartRows(rows){rows.forEach(r=>{const existing=state.products.find(p=>p.sku.toLowerCase()===r.sku.toLowerCase()||p.name.toLowerCase()===r.name.toLowerCase());if(existing){existing.stock=(+existing.stock||0)+r.amount;if(r.price)existing.price=r.price;if(r.supplier)existing.supplier=r.supplier;if(r.imageUrl)existing.imageUrl=r.imageUrl}else{state.products.unshift({id:Date.now()+Math.random(),sku:r.sku,name:r.name,stock:r.amount,minStock:0,price:r.price||0,supplier:r.supplier||'Import',imageUrl:r.imageUrl||''})}});state.deliveries.unshift({id:Date.now(),number:'IMPORT-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Import / Warenliste',status:'geprüft',createdAt:new Date().toLocaleDateString('de-DE'),lines:rows.map((r,i)=>({id:Date.now()+i,sku:r.sku,name:r.name,expected:r.amount,received:r.amount,unit:r.unit}))});save()}
 function renderImportPreview(rows,needsApproval=false,rejected=0){document.getElementById('importPreview').innerHTML=(needsApproval?'<div class=\"notice soft\"><b>Prüfung bereit</b><br><span class=\"muted\">Noch nichts gespeichert. '+(rejected?rejected+' unsichere Zeilen ignoriert.':'')+'</span></div>':'')+rows.map(r=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(r)}<div><b>${esc(r.name)}</b><p class=\"muted\">${r.amount} ${esc(r.unit)} · ${r.price?euro(r.price):'kein Preis'}</p><p class=\"muted small\">${esc(r.sku)} · ${esc(r.supplier||'Import')}</p></div></div></div>`).join('')+(needsApproval?'<div class=\"review-actions\"><button class=\"green\" onclick=\"approveSmartImport()\">Import bestätigen</button><button class=\"danger-btn\" onclick=\"discardSmartImport()\">Verwerfen</button></div>':'')}
-function approveSmartImport(){if(!pendingImportRows.length)return note('Keine Vorschau zum Bestätigen vorhanden.');const count=pendingImportRows.length;applySmartRows(pendingImportRows);renderImportPreview(pendingImportRows,false);pendingImportRows=[];note(count+' Artikelzeilen als Wareneingang gespeichert. Jetzt unter "Wareneingang" buchen um Bestände zu erhöhen.')}
+function approveSmartImport(){if(!pendingImportRows.length)return note('Keine Vorschau zum Bestätigen vorhanden.');const count=pendingImportRows.length;applySmartRows(pendingImportRows);renderImportPreview(pendingImportRows,false);pendingImportRows=[];note(count+' Artikelzeilen bestätigt, übernommen und in die Cloud gespeichert.')}
 function discardSmartImport(){pendingImportRows=[];document.getElementById('importPreview').innerHTML='<p class=\"muted\">Vorschau verworfen. Es wurde nichts gespeichert.</p>';note('Vorschau verworfen. Keine Daten wurden gespeichert.')}
 function clearSmartImport(){document.getElementById('smartImportText').value='';document.getElementById('smartImportFile').value='';discardSmartImport()}
 function saveImportProfile(){const profile={enabled:document.getElementById('autoImportEnabled').checked,interval:document.getElementById('autoImportInterval').value,requireConfirm:document.getElementById('autoImportRequireConfirm').checked,url:document.getElementById('smartImportUrl').value.trim(),updatedAt:new Date().toISOString()};localStorage.setItem('mi_deals_import_profile',JSON.stringify(profile));note(profile.enabled?'Import-Profil gespeichert: Lieferanten-URL wird als Prüfimport überwacht.':'Import-Profil gespeichert: Überwachung ist ausgeschaltet.')}
 function importWarenwirtschaftCSV(){ /* Demo: Lade Beispiel-Daten aus der Warenwirtschaft.csv (hardcoded für fertiges Produkt) */ const demoProducts = [{id:Date.now(),sku:'ART-001',name:'Stifte',stock:50,minStock:15,price:1.2,supplier:'ABC Supplier'},{id:Date.now()+1,sku:'ART-002',name:'Notizhefter',stock:20,minStock:8,price:5,supplier:'XYZ GmbH'}]; state.products = demoProducts; state.sales = state.sales || []; note('Warenwirtschaft.csv Demo-Daten geladen (Beispiel).'); save(); }
 
-async function resetToEmpty(){if(!confirm('Wirklich komplett zurücksetzen? Alle Daten werden gelöscht.'))return;try{setCloudStatus('Setze System zurück...');const empty=seed();state=empty;localStorage.setItem(KEY,JSON.stringify(state));render();try{const res=await fetch(`${API_BASE}/api/state`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(empty)});const data=await res.json();if(data.success){setCloudStatus('Cloud: zurückgesetzt');}else{setCloudStatus('Lokal zurückgesetzt (Cloud nicht aktiv: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Lokal zurückgesetzt (Cloud: '+cloudErr.message+')',true);}note('System zurückgesetzt. Alle Daten gelöscht.');}catch(e){note('Zurücksetzen fehlgeschlagen: '+e.message);setCloudStatus('Reset-Fehler: '+e.message,true)}}
+async function resetToEmpty(){if(!confirm('Wirklich komplett zurücksetzen? Alle Daten werden gelöscht.'))return;try{setCloudStatus('Setze System zurück...');const empty=seed();state=empty;localStorage.setItem(KEY,JSON.stringify(state));render();try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(empty)});const data=await res.json();if(data.success){setCloudStatus('Cloud: zurückgesetzt');}else{setCloudStatus('Lokal zurückgesetzt (Cloud nicht aktiv: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Lokal zurückgesetzt (Cloud: '+cloudErr.message+')',true);}note('System zurückgesetzt. Alle Daten gelöscht.');}catch(e){note('Zurücksetzen fehlgeschlagen: '+e.message);setCloudStatus('Reset-Fehler: '+e.message,true)}}
 
-async function resetDemo(){const btn=event?.currentTarget;if(!resetArmed){resetArmed=true;if(btn){btn.textContent='Bestätigen';btn.classList.add('reset-armed')}note('Zum Schutz bitte noch einmal klicken.');setTimeout(()=>{resetArmed=false;if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}},8000);return}resetArmed=false;try{setCloudStatus('Lade Demo-Daten...');const demo=seed();state=demo;localStorage.setItem(KEY,JSON.stringify(state));note('Demo-Daten geladen (leeres System – bereit zum Befüllen).');render();try{const res=await fetch(`${API_BASE}/api/state`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(demo)});const data=await res.json();if(data.success){setCloudStatus('Demo-Daten gespeichert');}else{setCloudStatus('Demo lokal (Cloud: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Demo lokal (Cloud: '+cloudErr.message+')',true);}if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}}catch(e){note('Demo-Fehler: '+e.message);setCloudStatus('Demo-Fehler: '+e.message,true)}}
+async function resetDemo(){const btn=event?.currentTarget;if(!resetArmed){resetArmed=true;if(btn){btn.textContent='Bestätigen';btn.classList.add('reset-armed')}note('Zum Schutz bitte noch einmal klicken.');setTimeout(()=>{resetArmed=false;if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}},8000);return}resetArmed=false;try{setCloudStatus('Lade Demo-Daten...');const demo=seed();state=demo;localStorage.setItem(KEY,JSON.stringify(state));note('Demo-Daten geladen (leeres System – bereit zum Befüllen).');render();try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(demo)});const data=await res.json();if(data.success){setCloudStatus('Demo-Daten gespeichert');}else{setCloudStatus('Demo lokal (Cloud: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Demo lokal (Cloud: '+cloudErr.message+')',true);}if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}}catch(e){note('Demo-Fehler: '+e.message);setCloudStatus('Demo-Fehler: '+e.message,true)}}
 
 function copyDataSummary(){const text=`M&I Deals Stand: Kunden ${state.customers.length}, Artikel ${state.products.length}, Lieferungen ${state.deliveries.length}, Verkäufe ${state.sales ? state.sales.length : 0}`;navigator.clipboard?.writeText(text);note('Kurzübersicht kopiert: '+text)}
 function esc(s){return String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
@@ -214,36 +204,16 @@ function render(){
   const ps=(document.getElementById('productSearch')?.value||'').toLowerCase();
   document.getElementById('productList').innerHTML=state.products.filter(p=>(p.sku+p.name+p.supplier).toLowerCase().includes(ps)).map(p=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(p)}<div><b>${esc(p.name)}</b><p class=\"muted\">${esc(p.sku)} · Bestand ${p.stock} · ${euro(p.price)}</p></div></div><span class=\"badge ${p.stock<=p.minStock?'warn':''}\">${p.stock<=p.minStock?'Nachbestellen':esc(p.supplier||'ok')}</span></div>`).join('')||'<p class=\"muted\">Keine Artikel gefunden.</p>';
   
-  // Lieferungen (render table)
+  // Lieferungen (render list)
   const delContainer = document.getElementById('deliveryList');
   if(delContainer){
-    let sortedDeliveries = [...(state.deliveries || [])];
-    if(deliverySortKey){
-      const desc = deliverySortKey.startsWith('-');
-      const k = desc ? deliverySortKey.slice(1) : deliverySortKey;
-      sortedDeliveries.sort((a,b) => {
-        const va = String(a[k]||'').toLowerCase();
-        const vb = String(b[k]||'').toLowerCase();
-        return desc ? vb.localeCompare(va) : va.localeCompare(vb);
-      });
-    }
-    delContainer.innerHTML = sortedDeliveries.slice(0,20).map(d => {
-      const ds = getDeliveryStatus(d);
-      const rowsHtml = (d.lines||[]).map(l => {
-        const diff = (l.received||0) - l.expected;
-        const diffStr = diff === 0 ? '0' : (diff > 0 ? '+'+diff : String(diff));
-        const diffCls = diff === 0 ? '' : (diff > 0 ? 'diff-pos' : 'diff-neg');
-        const booked = l.status === 'gebucht';
-        const btnDisabled = booked ? 'disabled style="opacity:0.5;cursor:not-allowed"' : '';
-        const btnText = booked ? 'Gebucht' : 'Buchen';
-        return '<tr><td>'+esc(l.sku)+'</td><td>'+esc(l.name)+'</td><td class="num">'+l.expected+'</td><td><input type="number" value="'+(l.received||0)+'" class="recv-input" onchange="setReceived('+d.id+','+l.id+',this.value)"'+(booked?' disabled':'')+'></td><td class="num '+diffCls+'">'+diffStr+'</td><td>'+statusBadgeHtml(l.status)+'</td><td><button class="book-btn" onclick="bookLineItem('+d.id+','+l.id+')"'+btnDisabled+'>'+btnText+'</button></td></tr>';
-      }).join('');
-      return '<div class="delivery-card"><div class="delivery-header"><b>'+esc(d.number)+'</b> – '+esc(d.customer)+' '+statusBadgeHtml(ds)+' <span class="muted">'+d.createdAt+'</span></div><table class="delivery-table"><thead><tr><th onclick="sortDeliveries('sku')">Position</th><th onclick="sortDeliveries('name')">Artikelname</th><th class="num">Erwartet</th><th class="num">Erhalten</th><th class="num">Differenz</th><th>Status</th><th>Aktion</th></tr></thead><tbody>'+rowsHtml+'</tbody></table></div>';
+    delContainer.innerHTML = (state.deliveries || []).slice(0,6).map(d => {
+      const linesHtml = (d.lines||[]).map(l => `<div style="margin:4px 0;font-size:13px"> ${esc(l.name)}: erwartet ${l.expected} | erhalten <input type="number" value="${l.received||0}" style="width:60px" onchange="setReceived(${d.id},${l.id},this.value)"> <button onclick="bookDelivery(${d.id})">Buchen</button></div>`).join('');
+      return `<div class="row"><div><b>${esc(d.number)}</b> – ${esc(d.customer)} <span class="badge">${esc(d.status)}</span><br>${linesHtml}</div></div>`;
     }).join('') || '<p class="muted">Keine Lieferungen.</p>';
   }
-  const auditEl=document.getElementById('auditLogList');if(auditEl){const log=(state.auditLog||[]).slice(0,20);auditEl.innerHTML=log.length?log.map(e=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13px"><div><b>${esc(e.name)}</b> <span class="badge green">+${e.change}</span> <span class="muted">${esc(e.deliveryNumber||e.reason)}</span></div><div class="muted">${e.stockBefore} → ${e.stockAfter} · ${new Date(e.timestamp).toLocaleDateString('de-DE',{day:"2-digit",month:"2-digit",year:"2-digit",hour:"2-digit",minute:"2-digit"})}</div></div>`).join(''):'<p class="muted">Noch keine Bestandsänderungen protokolliert.</p>';}
+  
   // Berichte
-
   document.getElementById('lowStock').innerHTML=state.products.filter(p=>p.stock<=p.minStock).map(p=>`<div class=\"row\"><b>${esc(p.name)}</b><span class=\"badge warn\">Bestand ${p.stock}</span></div>`).join('')||'<p class=\"muted\">Keine kritischen Bestände.</p>';
   document.getElementById('mismatchReport').innerHTML=state.deliveries.filter(d=>d.status==='abweichung').map(d=>`<div class=\"row\"><b>${esc(d.number)}</b><span class=\"badge warn\">Abweichung</span></div>`).join('')||'<p class=\"muted\">Keine offenen Abweichungen.</p>';
   
@@ -362,13 +332,16 @@ function startScanner() {
     });
 }
 
-/* ─── Barcode im Video-Standbild erkennen (Multi-Engine mit Fallbacks) ─── */
+/* ─── Barcode im Video-Standbild erkennen ─── */
 function detectFromVideo() {
   const video = document.getElementById('scannerVideo');
-  if (currentScanCode || !video || video.readyState < 2) return;
-
-  // 1. Native BarcodeDetector (schnellster Weg, wenn verfügbar)
-  if ('BarcodeDetector' in window) {
+  const overlay = document.getElementById('scanOverlay');
+  const statusIcon = document.getElementById('scanStatusIcon');
+  
+  if (currentScanCode) return; // Bereits gefunden, warten auf Aktion
+  
+  // Native BarcodeDetector (schnellster Weg)
+  if ('BarcodeDetector' in window && video.readyState >= 2) {
     const detector = new BarcodeDetector({ 
       formats: ['ean_13','ean_8','code_128','code_39','upc_a','upc_e','itf','qr_code','data_matrix','codabar','code_93'] 
     });
@@ -377,147 +350,12 @@ function detectFromVideo() {
         if (codes.length > 0 && !currentScanCode) {
           onCodeDetected(codes[0].rawValue, codes[0].format);
         } else {
-          tryZXing(); // Fallback 1: ZXing (beste EAN-Erkennung)
+          showScanFeedback(false);
         }
       })
-      .catch(() => tryZXing());
+      .catch(() => showScanFeedback(false));
   } else {
-    tryZXing();
-  }
-}
-
-/* ─── ZXing Fallback (sehr stark bei EAN-Barcodes) ─── */
-function tryZXing() {
-  const video = document.getElementById('scannerVideo');
-  if (!video || video.readyState < 2 || currentScanCode || !window.ZXing) return;
-
-  const canvas = document.getElementById('scannerCanvas');
-  const ctx = canvas.getContext('2d', { willReadFrequently: true });
-
-  if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-  }
-
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-
-  try {
-    const hints = new Map();
-    hints.set(ZXing.DecodeHintType.POSSIBLE_FORMATS, [
-      ZXing.BarcodeFormat.EAN_13, ZXing.BarcodeFormat.EAN_8,
-      ZXing.BarcodeFormat.CODE_128, ZXing.BarcodeFormat.CODE_39,
-      ZXing.BarcodeFormat.UPC_A, ZXing.BarcodeFormat.UPC_E,
-      ZXing.BarcodeFormat.QR_CODE
-    ]);
-
-    const reader = new ZXing.MultiFormatReader();
-    reader.setHints(hints);
-    const result = reader.decode(imageData);
-    
-    if (result && !currentScanCode) {
-      onCodeDetected(result.getText(), result.getBarcodeFormat().toString());
-      return;
-    }
-  } catch(e) {
-    // ZXing hat nichts gefunden
-  }
-
-  tryJsQR(); // Letzter Fallback: jsQR
-}
-
-/* ─── jsQR Fallback (für QR-Codes) ─── */
-function tryJsQR() {
-  const video = document.getElementById('scannerVideo');
-  if (!video || video.readyState < 2 || currentScanCode) return;
-  
-  const canvas = document.getElementById('scannerCanvas');
-  const ctx = canvas.getContext('2d', { willReadFrequently: true });
-  
-  if (canvas.width !== video.videoWidth || canvas.height !== video.videoHeight) {
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-  }
-  
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  
-  try {
-    const code = jsQR(imageData.data, imageData.width, imageData.height, {
-      inversionAttempts: 'dontInvert'
-    });
-    if (code && !currentScanCode) {
-      onCodeDetected(code.data, 'qr_code');
-      return;
-    }
-  } catch(e) {}
-  
-  // Kein Code → roter Blitz (nicht bei jedem Frame)
-  if (Math.random() < 0.33) {
     showScanFeedback(false);
-  }
-}
-
-
-/* ─── Google Lens Fallback (kostenlos, solange Kontingent reicht) ─── */
-let lensTimer = null;
-
-function showGoogleLensButton() {
-  const section = document.getElementById('googleLensSection');
-  if (section) section.style.display = 'block';
-}
-
-function hideGoogleLensButton() {
-  const section = document.getElementById('googleLensSection');
-  if (section) section.style.display = 'none';
-}
-
-async function openGoogleLens() {
-  const video = document.getElementById('scannerVideo');
-  if (!video) return;
-
-  const canvas = document.createElement('canvas');
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  
-  const base64Image = canvas.toDataURL('image/jpeg', 0.85);
-  
-  note('Google Vision API wird aufgerufen...');
-
-  try {
-    const res = await fetch(`${API_BASE}/api/vision`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: base64Image })
-    });
-
-    const data = await res.json();
-
-    if (data.fallback || data.error) {
-      note('Vision API nicht verfügbar (Quota oder Fehler). Fallback auf Barcode.');
-      return;
-    }
-
-    if (data.webEntities && data.webEntities.length > 0) {
-      let html = '<div style="padding:12px;"><h4>Erkannte Objekte:</h4><ul>';
-      data.webEntities.forEach((e) => {
-        html += `<li><strong>${e.description}</strong> (${Math.round(e.score * 100)}%)</li>`;
-      });
-      html += '</ul></div>';
-      
-      const resultDiv = document.createElement('div');
-      resultDiv.innerHTML = html;
-      resultDiv.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111827;border:1px solid #334155;border-radius:16px;max-width:90%;z-index:9999;';
-      document.body.appendChild(resultDiv);
-      
-      setTimeout(() => resultDiv.remove(), 8000);
-    } else {
-      note('Keine Treffer von Google Vision. Barcode-Scan weiterhin aktiv.');
-    }
-  } catch (err) {
-    note('Vision API Fehler. Bleibt bei Barcode-Scan.');
   }
 }
 
@@ -526,15 +364,15 @@ function onCodeDetected(code, format) {
   if (currentScanCode) return;
   currentScanCode = code;
   
-  // Visuelles Feedback: Grün + Haken — 1200ms sichtbar
+  // Visuelles Feedback: Grün + Haken
   const overlay = document.getElementById('scanOverlay');
   const statusIcon = document.getElementById('scanStatusIcon');
   overlay.style.borderColor = '#42e8a4';
-  overlay.style.boxShadow = 'inset 0 0 50px rgba(66,232,164,0.25)';
+  overlay.style.boxShadow = 'inset 0 0 40px rgba(66,232,164,0.2)';
   statusIcon.textContent = '✅';
   statusIcon.style.opacity = '1';
   
-  // Ergebnis anzeigen nach 1200ms
+  // Kurz warten, dann Ergebnis anzeigen
   setTimeout(() => {
     overlay.style.borderColor = 'rgba(255,255,255,0.3)';
     overlay.style.boxShadow = 'none';
@@ -563,14 +401,12 @@ function showScanFeedback(found) {
   const overlay = document.getElementById('scanOverlay');
   const statusIcon = document.getElementById('scanStatusIcon');
   if (found) return;
-  // Sichtbarer roter Blitz — bewusst langsam (800ms), damit User es sieht
-  overlay.style.borderColor = '#ff6b8a';
-  overlay.style.boxShadow = 'inset 0 0 50px rgba(255,107,138,0.25)';
+  // Kurzer roter Blitz wenn Live-Scan läuft und nix gefunden
+  overlay.style.borderColor = 'rgba(255,107,138,0.5)';
   if (feedbackTimeout) clearTimeout(feedbackTimeout);
   feedbackTimeout = setTimeout(() => {
     overlay.style.borderColor = 'rgba(255,255,255,0.3)';
-    overlay.style.boxShadow = 'none';
-  }, 800);
+  }, 150);
 }
 
 /* ─── Ergebnis anzeigen mit Ziel-Auswahl ─── */
@@ -597,13 +433,10 @@ function showScanResult(code) {
 function updateScanTarget() {
   const target = document.querySelector('input[name="scanTarget"]:checked')?.value;
   const custDiv = document.getElementById('scanCustomerSelect');
-  const hint = document.getElementById('scanTargetHint');
   if (target === 'kunde') {
     custDiv.style.display = 'block';
-    if (hint) hint.textContent = '👤 Ziel: An Kunden ausbuchen';
   } else {
     custDiv.style.display = 'none';
-    if (hint) hint.textContent = '📦 Ziel: Ins Lager buchen';
   }
 }
 
@@ -730,108 +563,39 @@ function handleScanFile(input) {
 
 /* ─── Bluetooth/HID Scanner ─── */
 let bluetoothScanner = null;
-let btDeviceInfo = null;
-const BT_STORAGE_KEY = 'mi_deals_bt_device';
 
-function pairBluetoothScanner() {
-  // Wird von Einstellungen > Bluetooth-Geräte aufgerufen
-  connectBluetoothScanner(true);
-}
-
-function disconnectBluetoothScanner() {
-  if (bluetoothScanner) {
-    try {
-      if (typeof bluetoothScanner.disconnect === 'function') bluetoothScanner.disconnect();
-    } catch(e) {}
-    bluetoothScanner = null;
-  }
-  btDeviceInfo = null;
-  localStorage.removeItem(BT_STORAGE_KEY);
-  updateBtUI('⚪ Kein Scanner verbunden', false);
-  updateBtModalStatus('');
-  showToast('🔌 Scanner getrennt.');
-}
-
-function updateBtUI(text, connected) {
-  const el = document.getElementById('btDeviceStatus');
-  if (el) el.textContent = connected ? '🟢 ' + text : text;
-}
-
-function updateBtModalStatus(text) {
-  const el = document.getElementById('btStatus');
-  if (el) el.textContent = text || '';
-}
-
-function connectBluetoothScanner(fromSettings = false) {
-  // Prüfe WebHID API Verfügbarkeit (nur Chrome/Edge Desktop)
-  const webhidAvailable = typeof navigator !== 'undefined' && navigator.hid && typeof WebHIDBarcodeScanner !== 'undefined';
-  if (!webhidAvailable) {
-    const msg = navigator && !navigator.hid
-      ? '❌ Bluetooth-Scanner nur auf Chrome/Edge (Desktop). Auf diesem Gerät: 📷 Kamera + Tastatur-Scanner nutzen.'
-      : '❌ WebHID Bibliothek nicht geladen.';
-    updateBtUI(msg, false);
-    if (fromSettings) showToast('ℹ️ ' + msg);
-    return;
-  }
-  
-  if (bluetoothScanner) {
-    updateBtUI('🟢 Bereits verbunden: ' + (btDeviceInfo?.productName || 'Scanner'), true);
-    showToast('🔗 Bereits verbunden.');
-    return;
-  }
-  
-  try {
-    bluetoothScanner = new WebHIDBarcodeScanner();
-    
-    bluetoothScanner.addEventListener('barcode', e => {
-      onCodeDetected(e.value, e.symbology || 'HID');
-    });
-    
-    bluetoothScanner.addEventListener('connected', d => {
-      btDeviceInfo = { vendorId: d.vendorId, productId: d.productId, productName: d.productName };
-      localStorage.setItem(BT_STORAGE_KEY, JSON.stringify(btDeviceInfo));
-      const name = d.productName || 'Scanner';
-      updateBtUI('🟢 Verbunden: ' + name, true);
-      updateBtModalStatus('🔗 ' + name);
-      showToast('✅ Bluetooth-Scanner verbunden: ' + name);
-    });
-    
-    bluetoothScanner.addEventListener('disconnected', () => {
-      updateBtUI('🔴 Scanner getrennt', false);
-      updateBtModalStatus('');
-      bluetoothScanner = null;
-      btDeviceInfo = null;
-      showToast('🔌 Scanner getrennt.');
-    });
-    
-    if (fromSettings) {
-      // Manuelles Koppeln vom Benutzer gestartet
-      bluetoothScanner.connect();
-      updateBtUI('🔄 Verbinde...', false);
-    } else {
-      // Automatischer Reconnect
-      const saved = localStorage.getItem(BT_STORAGE_KEY);
-      if (saved) {
-        try {
-          const info = JSON.parse(saved);
-          bluetoothScanner.reconnect({ vendorId: info.vendorId, productId: info.productId });
-          updateBtUI('🔄 Stelle Verbindung wieder her...', false);
-        } catch(e) {
-          updateBtUI('⚪ Kein Scanner verbunden', false);
-        }
-      }
+function connectBluetoothScanner() {
+  // WebHidBarcodeScanner versuchen (falls Bibliothek geladen)
+  if (typeof WebHIDBarcodeScanner !== 'undefined') {
+    if (bluetoothScanner) {
+      showToast('🔗 Bereits verbunden.');
+      return;
     }
-  } catch(e) {
-    updateBtUI('❌ Bluetooth-Fehler: ' + e.message, false);
-    showToast('❌ Fehler: ' + e.message);
-    bluetoothScanner = null;
+    try {
+      bluetoothScanner = new WebHIDBarcodeScanner();
+      bluetoothScanner.addEventListener('barcode', e => {
+        onCodeDetected(e.value, e.symbology || 'HID');
+      });
+      bluetoothScanner.connect();
+      document.getElementById('btStatus').textContent = '🔗 Verbinde...';
+      bluetoothScanner.addEventListener('connected', d => {
+        document.getElementById('btStatus').textContent = '🔗 Verbunden: ' + (d.productName || 'Scanner');
+        showToast('✅ Bluetooth-Scanner verbunden!');
+      });
+      bluetoothScanner.addEventListener('disconnected', () => {
+        document.getElementById('btStatus').textContent = '';
+        bluetoothScanner = null;
+        showToast('🔌 Scanner getrennt.');
+      });
+    } catch(e) {
+      showToast('❌ Bluetooth-Fehler: ' + e.message);
+    }
+  } else {
+    showToast('ℹ️ Bluetooth-Scanner: WebHID nicht verfügbar. ' +
+      'Kompatible Scanner (Honeywell, Zebra) im HID-Modus nutzen. ' +
+      'Tastatur-Scanner werden automatisch erkannt.');
   }
 }
-
-// Auto-reconnect beim Seitenstart
-setTimeout(() => {
-  try { connectBluetoothScanner(false); } catch(e) {}
-}, 2000);
 
 /* ─── Tastatur-Scanner automatisch erkennen ─── */
 // Scanner im Tastatur-Modus tippt schneller als ein Mensch
@@ -859,13 +623,13 @@ setTimeout(() => {
     }
     
     // Nur Buchstaben/Zahlen sammeln
-    if(e.key&&e.key.length===1&&/[A-Za-z0-9\-]/.test(e.key)){
+    if (e.key.length === 1 && /[A-Za-z0-9\-]/.test(e.key)) {
       // Wenn langsamer als Threshold → menschliche Eingabe, Buffer zurücksetzen
       if (timeSinceLast > 100 && scanBuffer.length > 0) {
         scanBuffer = '';
       }
       // Wenn schnell genug → Scanner
-      if (timeSinceLast < SCAN_THRESHOLD_MS || scanBuffer.length === 0) {
+      if (timeSinceLast < SCAN_THRESHOLD || scanBuffer.length === 0) {
         scanBuffer += e.key.toUpperCase();
         e.preventDefault();
       }
@@ -938,53 +702,28 @@ function quickAddProduct(code) {
 }
 
 render();
+loadCloudState();
 </script>
-<div id="scannerModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:200;align-items:center;justify-content:center;padding:10px;">
-  <div style="background:#0b1020;border-radius:20px;padding:20px;max-width:440px;width:100%;max-height:96vh;overflow-y:auto;color:white;text-align:center;">
+<div id="scannerModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:200;align-items:center;justify-content:center;">
+  <div style="background:#0b1020;border-radius:20px;padding:20px;max-width:440px;width:95%;color:white;text-align:center;">
     
-    <h3 style="margin:0 0 4px;font-size:clamp(16px,4vw,22px);">📷 Artikel scannen</h3>
-    <p style="font-size:11px;opacity:.6;margin:0 0 10px;">📸 Code scannen → Ziel wählen → Buchen</p>
+    <h3 style="margin:0 0 6px;">📷 Artikel scannen</h3>
+    <p style="font-size:12px;opacity:.6;margin:0 0 12px;">Code scannen → Ziel wählen → Buchen</p>
     
-    <!-- Ziel-Auswahl IMMER sichtbar (vor und nach Scan) -->
-    <div style="margin:0 0 8px;background:rgba(255,255,255,.04);border-radius:12px;padding:6px;">
-      <label style="display:flex;align-items:center;gap:10px;margin:2px 0;padding:8px 12px;border-radius:8px;cursor:pointer;background:rgba(255,255,255,.04);transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
-        <input type="radio" name="scanTarget" value="lager" checked onchange="updateScanTarget()" style="accent-color:var(--cyan);width:18px;height:18px;">
-        <span style="font-size:clamp(13px,3vw,15px);">📦 <b>Ins Lager buchen</b> <span style="font-size:11px;opacity:.6;">(Bestand +1)</span></span>
-      </label>
-      <label style="display:flex;align-items:center;gap:10px;margin:2px 0;padding:8px 12px;border-radius:8px;cursor:pointer;background:rgba(255,255,255,.04);transition:all 0.2s;" onmouseover="this.style.background='rgba(0,212,255,.1)'" onmouseout="this.style.background='rgba(255,255,255,.04)'">
-        <input type="radio" name="scanTarget" value="kunde" onchange="updateScanTarget()" style="accent-color:var(--cyan);width:18px;height:18px;">
-        <span style="font-size:clamp(13px,3vw,15px);">👤 <b>An Kunden ausbuchen</b></span>
-      </label>
-      <div id="scanCustomerSelect" style="display:none;margin:4px 0 0;">
-        <select id="scanCustomer" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:rgba(10,15,28,.9);color:white;font-size:clamp(14px,3.2vw,16px);"></select>
-      </div>
-    </div>
-    
-    <!-- Hinweis: aktuell gewähltes Ziel -->
-    <div id="scanTargetHint" style="font-size:11px;opacity:.5;margin:0 0 6px;">📦 Ziel: Ins Lager buchen</div>
-    
-    <!-- Kamera-Bereich mit Live-Feedback - feste Größe für mobile Sichtbarkeit -->
-    <div id="scannerViewport" style="position:relative;width:100%;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#000;margin:0 0 10px;">
-      <video id="scannerVideo" autoplay playsinline style="width:100%;height:100%;display:block;object-fit:cover;"></video>
+    <!-- Kamera-Bereich mit Live-Feedback -->
+    <div id="scannerViewport" style="position:relative;width:100%;border-radius:12px;overflow:hidden;background:#000;margin:0 0 12px;">
+      <video id="scannerVideo" autoplay playsinline style="width:100%;display:block;transform:scaleX(-1)"></video>
       <canvas id="scannerCanvas" style="display:none;"></canvas>
       <!-- Overlay für grün/rot Feedback -->
       <div id="scanOverlay" style="position:absolute;inset:0;border:4px solid rgba(255,255,255,0.3);border-radius:12px;transition:all 0.3s;pointer-events:none;"></div>
-      <div id="scanStatusIcon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:clamp(36px,8vw,48px);opacity:0;transition:all 0.3s;">✅</div>
+      <div id="scanStatusIcon" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:48px;opacity:0;transition:all 0.3s;">✅</div>
     </div>
     
-    <!-- Steuerung - größere Touch-Targets -->
-    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:0 0 8px;">
-      <button id="scanStartBtn" onclick="startScanner()" class="primary" style="flex:1;min-width:80px;padding:12px 8px;font-size:clamp(13px,3vw,15px);">▶ Kamera</button>
-      <button onclick="document.getElementById('scanFile').click()" class="secondary" style="flex:1;min-width:80px;padding:12px 8px;font-size:clamp(13px,3vw,15px);">📁 Foto</button>
-      <button onclick="pairBluetoothScanner()" class="secondary" style="flex:1;min-width:80px;padding:12px 8px;font-size:clamp(13px,3vw,15px);">🔗 BT</button>
-    </div>
-
-    <!-- Google Lens Fallback Button (erscheint nach 7 Sekunden ohne Erkennung) -->
-    <div id="googleLensSection" style="display:none;margin:8px 0;">
-      <button onclick="openGoogleLens()" class="secondary" style="width:100%;padding:14px 16px;font-size:15px;background:rgba(66,133,244,0.15);border:1px solid #4285f4;color:#8ab4f8;">
-        🔍 Mit Google Lens erkennen
-      </button>
-      <div style="font-size:10px;opacity:0.5;margin-top:4px;">Kostenloser Fallback • solange Kontingent verfügbar</div>
+    <!-- Steuerung -->
+    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:0 0 10px;">
+      <button id="scanStartBtn" onclick="startScanner()" class="primary" style="flex:1;min-width:100px;">▶ Kamera</button>
+      <button onclick="document.getElementById('scanFile').click()" class="secondary" style="flex:1;min-width:100px;">📁 Foto</button>
+      <button onclick="connectBluetoothScanner()" class="secondary" style="flex:1;min-width:100px;">🔗 BT</button>
     </div>
     <input type="file" id="scanFile" accept="image/*" onchange="handleScanFile(this)" style="display:none;">
     
@@ -995,6 +734,19 @@ render();
         <div><b id="scanCodeDisplay">---</b><br><span id="scanProductDisplay" style="font-size:12px;opacity:.7;">Unbekannter Artikel</span></div>
       </div>
       <hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0;">
+      
+      <!-- Ziel-Auswahl -->
+      <label style="display:flex;align-items:center;gap:10px;margin:4px 0;padding:8px 12px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,.04);">
+        <input type="radio" name="scanTarget" value="lager" checked onchange="updateScanTarget()">
+        <span>📦 <b>Ins Lager buchen</b> <span style="font-size:11px;opacity:.6;">(Bestand +1)</span></span>
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;margin:4px 0;padding:8px 12px;border-radius:10px;cursor:pointer;background:rgba(255,255,255,.04);">
+        <input type="radio" name="scanTarget" value="kunde" onchange="updateScanTarget()">
+        <span>👤 <b>An Kunden ausbuchen</b></span>
+      </label>
+      <div id="scanCustomerSelect" style="display:none;margin:4px 0 8px;">
+        <select id="scanCustomer" style="width:100%;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:white;font-size:14px;"></select>
+      </div>
       
       <div style="display:flex;gap:8px;margin-top:10px;">
         <button class="green" onclick="executeScanBooking()" style="flex:2;">✅ Buchen</button>

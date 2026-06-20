@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M&I Deals Warenwirtschaft</title>
+  <style>
+:root{--bg:#070b13;--panel:rgba(255,255,255,.075);--panel2:rgba(255,255,255,.105);--line:rgba(255,255,255,.13);--text:#f8fafc;--muted:#aab6c8;--cyan:#00d4ff;--blue:#4f8cff;--green:#42e8a4;--amber:#ffd166;--danger:#ff6b8a;--purple:#b89cff;--shadow:0 28px 90px rgba(0,0,0,.38)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(circle at 12% 0%,rgba(0,212,255,.26),transparent 34%),radial-gradient(circle at 88% 8%,rgba(184,156,255,.24),transparent 31%),linear-gradient(135deg,#070b13 0%,#0b1020 46%,#10131f 100%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(circle at top,black,transparent 72%)}main{max-width:1260px;margin:0 auto;padding:34px 24px 60px}header,.card{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(24px);overflow:hidden}header:before,.card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 20% 0%,rgba(0,212,255,.20),transparent 35%),radial-gradient(circle at 100% 0%,rgba(184,156,255,.14),transparent 30%);pointer-events:none}header>* ,.card>*{position:relative}h1{font-size:clamp(38px,6vw,74px);line-height:.92;letter-spacing:-.06em;margin:12px 0 20px;max-width:780px}h2{margin:0 0 16px;font-size:clamp(22px,3vw,32px);letter-spacing:-.035em}.muted{color:var(--muted);line-height:1.6}.brand{display:inline-flex;align-items:center;gap:10px;letter-spacing:.24em;color:#bdf5ff;font-weight:900;font-size:13px}.status{display:inline-block;margin-top:12px;padding:6px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.2);font-size:12px;color:#b8e7ff;background:rgba(0,212,255,.08)}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px}.nav a{padding:10px 18px;border:1px solid var(--line);border-radius:999px;color:#c9d8ea;text-decoration:none;font-weight:600;font-size:14px;transition:all .2s}.nav a:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}
+/* Hamburger-Menü */
+.hamburger-btn{position:fixed;top:18px;right:20px;z-index:50;width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055));backdrop-filter:blur(18px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;transition:.2s;padding:0}.hamburger-btn:hover{background:rgba(255,255,255,.1)}.hamburger-btn span{display:block;width:20px;height:2px;border-radius:2px;background:#c9d8ea;transition:.3s}.hamburger-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hamburger-btn.open span:nth-child(2){opacity:0}.hamburger-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.nav-backdrop{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}.nav-backdrop.open{opacity:1;pointer-events:auto}.nav-dropdown{position:fixed;top:72px;right:20px;z-index:45;min-width:220px;background:linear-gradient(160deg,rgba(15,20,35,.98),rgba(10,15,28,.98));border:1px solid var(--line);border-radius:20px;padding:10px;backdrop-filter:blur(24px);box-shadow:0 28px 80px rgba(0,0,0,.5);opacity:0;transform:translateY(-12px) scale(.95);pointer-events:none;transition:all .3s cubic-bezier(.22,1,.36,1)}.nav-dropdown.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.nav-dropdown a{display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:14px;color:#c9d8ea;text-decoration:none;font-weight:500;font-size:15px;transition:all .15s}.nav-dropdown a:hover{background:rgba(255,255,255,.06)}.nav-dropdown a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;font-weight:700;box-shadow:0 8px 30px rgba(0,212,255,.2)}.grid{display:grid;gap:18px}.grid.two{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.section{margin-top:18px}.card h2{margin-bottom:14px}.row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border:1px solid var(--line);border-radius:16px;margin-bottom:8px;background:rgba(255,255,255,.03)}.row:last-child{margin-bottom:0}.product-row{display:flex;gap:12px;align-items:center}.thumb{width:42px;height:42px;border-radius:10px;overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#7aa4c7;flex-shrink:0}.thumb img{width:100%;height:100%;object-fit:cover}.badge{padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);color:#c9d8ea}.badge.warn{background:rgba(255,209,102,.12);border-color:rgba(255,209,102,.35);color:#ffd166}.metric{text-align:center;padding:18px 14px}.metric strong{display:block;font-size:28px;margin:4px 0 2px}.hint{padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);font-size:13px}.hint b{display:block;margin-bottom:4px}.actions{display:flex;gap:10px;margin:12px 0;flex-wrap:wrap}button,.primary,.secondary,.green,.warn{padding:11px 18px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#f1f5f9;font-weight:600;cursor:pointer;transition:all .2s;font-size:14px}button:hover,.primary:hover{background:rgba(255,255,255,.12)}.primary{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.4)}.green{background:linear-gradient(135deg,var(--green),#22c55e);color:#052e16;border-color:rgba(255,255,255,.3)}.warn{background:linear-gradient(135deg,var(--amber),#f59e0b);color:#3f2a00;border-color:rgba(255,255,255,.3)}.danger-btn{background:rgba(255,107,138,.12);color:#fecdd3;border-color:rgba(255,107,138,.3)}.label{display:block;font-size:12px;color:var(--muted);margin-bottom:4px}input,select,textarea{width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.04);color:#f8fafc;font-size:15px}input:focus,select:focus,textarea:focus{outline:none;border-color:var(--cyan);background:rgba(255,255,255,.07)}label{display:block;margin:10px 0 4px;font-size:13px}.view-section{display:none!important}.view-section.active{display:block!important}.view-section.active.grid{display:grid!important}.tab-shell{margin-top:22px}.nav a.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#04111d;border-color:rgba(255,255,255,.42);box-shadow:0 18px 50px rgba(0,212,255,.25)}.tab-headline{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:22px 0}.tab-headline p{margin:0;max-width:680px}.collapse-note{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.07);color:var(--muted);font-size:13px}.reset-armed{background:linear-gradient(135deg,#ff6b8a,#ffd166)!important;color:#18070b!important}.system-strip{display:none}.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(120px);z-index:30;max-width:min(720px,calc(100% - 32px));background:rgba(8,13,24,.92);border:1px solid rgba(255,255,255,.16);box-shadow:0 22px 70px rgba(0,0,0,.35);backdrop-filter:blur(18px);border-radius:18px;padding:14px 18px;color:#eaf6ff;font-weight:700;opacity:0;transition:.24s ease}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}.system-info{grid-column:1/-1}.system-info details{border:1px solid var(--line);border-radius:18px;padding:14px;background:rgba(255,255,255,.055)}.system-info summary{cursor:pointer;font-weight:900;color:#dff8ff}.url-import{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.soft{background:rgba(103,232,249,.08);border-color:rgba(103,232,249,.18)}.soft-line{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}input[type="checkbox"]{width:auto;margin-right:8px}.review-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.danger-btn{background:rgba(251,113,133,.16)!important;color:#fecdd3!important;border:1px solid rgba(251,113,133,.35)!important}.quick-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}.quick-step{padding:10px 12px;border:1px solid var(--line);border-radius:12px;font-size:12px}.auth-overlay{position:fixed;inset:0;background:rgba(7,11,19,.96);z-index:100;display:flex;align-items:center;justify-content:center}.auth-box{max-width:380px;width:92%;text-align:center}.auth-box input{margin:14px 0 10px}.hidden{display:none!important}.notice{padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;margin:8px 0}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script type="module">import * as pdfjsLib from 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs'; window.pdfjsLib=pdfjsLib;</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quagga2@1.0.0-alpha.1/dist/quagga.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+</head>
+<body>
+<main>
+<div id="authOverlay" class="auth-overlay hidden">
+  <div class="auth-box">
+    <div class="brand">M&I DEALS</div>
+    <h2>Geschützter Zugriff</h2>
+    <p class="muted">Diese Warenwirtschaft ist für mobilen Zugriff vorbereitet. Bitte Passwort eingeben.</p>
+    <input id="accessPassword" type="password" placeholder="Passwort" autocomplete="current-password" onkeydown="if(event.key==='Enter') unlockApp()">
+    <button class="primary" onclick="unlockApp()">Zugriff freischalten</button>
+    <p id="authError" class="danger"></p>
+  </div>
+</div>
+
+  <header>
+    <div>
+      <div class="brand">M&I DEALS</div>
+      <h1>Warenwirtschaft, die sich hochwertig anfühlt.</h1>
+      <p class="muted">Gemeinsame Cloud-Daten für Team, Familie und Einkauf: Kunden, Artikel, Bestand, Lieferungen, Verkäufe und intelligente Warenlisten-Erkennung in einer ruhigen Premium-Oberfläche.</p>
+      <span class="status" style="display:none">FERTIGES PRODUKT · lokal + Bot + PDF</span><button onclick="openScannerModal()" style="display:none">📷 Scan</button>
+    </div>
+    <div class="hero-orb" aria-hidden="true"></div>
+  </header>
+  <!-- Hamburger-Navigation --><button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Navigation öffnen"><span></span><span></span><span></span></button><div class="nav-backdrop" id="navBackdrop" onclick="toggleNav()"></div><nav class="nav-dropdown" id="mainNav"><a href="#uebersicht" data-tab="uebersicht" onclick="setActiveTab('uebersicht')">📊 Übersicht</a><a href="#kunden" data-tab="kunden" onclick="setActiveTab('kunden')">👥 Kunden</a><a href="#lager" data-tab="lager" onclick="setActiveTab('lager')">📦 Lager</a><a href="#lieferungen" data-tab="lieferungen" onclick="setActiveTab('lieferungen')">🚚 Lieferungen</a><a href="#verkaeufe" data-tab="verkaeufe" onclick="setActiveTab('verkaeufe')">💰 Verkäufe</a><a href="#berichte" data-tab="berichte" onclick="setActiveTab('berichte')">📈 Berichte</a><a href="#import" data-tab="import" onclick="setActiveTab('import')">📥 Import</a><a href="#daten" data-tab="daten" onclick="setActiveTab('daten')">⚙️ Daten</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><a onclick="openScannerModal();closeNav()" style="cursor:pointer">📷 Scan</a><hr style="border:0;border-top:1px solid rgba(255,255,255,.1);margin:8px 0"><span style="display:block;padding:10px 16px;font-size:11px;color:#6a7a8e">FERTIGES PRODUKT · lokal + Bot + PDF</span></nav>
+  <div id="notice" class="notice system-strip">Bereit.</div><div id="cloudStatus" class="notice system-strip">Cloud-Datenbank: wird geprüft...</div><div id="toast" class="toast" aria-live="polite"></div>
+  <section id="uebersicht" class="view-section active">
+    <div class="tab-headline"><div><h2>Übersicht</h2><p class="muted">Ein Bereich pro Tab. Weniger Scrollen, schneller am Handy.</p></div><span class="collapse-note">Tabsystem aktiv · weniger Ablenkung</span></div>
+    <div id="uebersichtMetrics" class="grid metrics"></div>
+<div class="card" style="margin-top:16px"><h3>Letzte Bewegungen (Ein-/Ausbuchungen)</h3><div id="bewegungenList"></div></div>
+    <div class="card quality"><h2>Bedienhilfe</h2><div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"><div class="hint"><b>1. Kunden</b><p class="muted small">Kunde und Ansprechpartner anlegen.</p></div><div class="hint"><b>2. Lager</b><p class="muted small">Artikel, Bestand und Mindestbestand pflegen.</p></div><div class="hint"><b>3. Lieferungen</b><p class="muted small">Erwartete und erhaltene Menge vergleichen.</p></div><div class="hint"><b>4. Ein-/Ausbuchungen</b><p class="muted small">Ausbuchung an Kunde oder Lager (intern). Genau nachverfolgen, wer welche Ware erhalten hat.</p></div><div class="hint"><b>5. Import</b><p class="muted small">Warenlisten, Excel, PDF, Webadressen oder Lieferscheine erkennen lassen.</p></div></div></div>
+  </section>
+  <section id="kunden" class="grid two section view-section"><div class="card"><h2>Kunden anlegen</h2><label>Kundenname<input id="c_name"></label><label>Ansprechpartner<input id="c_contact"></label><label>Telefon<input id="c_phone"></label><label>Notizen<textarea id="c_notes"></textarea></label><button class="primary" onclick="addCustomer()">Kunde speichern</button></div><div class="card"><h2>Kundenliste</h2><input id="customerSearch" placeholder="Kunden suchen..." oninput="render()"><div id="customerList"></div></div></section>
+  <section id="lager" class="grid two section view-section"><div class="card"><h2>Artikel anlegen</h2><label>Artikelnummer<input id="p_sku"></label><label>Artikelname<input id="p_name"></label><label>Bestand<input id="p_stock" type="number"></label><label>Mindestbestand<input id="p_min" type="number"></label><label>Preis<input id="p_price" type="number" step="0.01"></label><label>Lieferant<input id="p_supplier"></label><label>Bild/Fotolink<input id="p_image" placeholder="optional: https://...jpg"></label><button class="primary" onclick="addProduct()">Artikel speichern</button></div><div class="card"><h2>Lagerbestand</h2><input id="productSearch" placeholder="Artikel suchen..." oninput="render()"><div id="productList"></div></div></section>
+  <section id="lieferungen" class="section card view-section"><h2>Lieferungen abgleichen</h2><p class="muted">Erwartete Menge gegen erhaltene Menge prüfen. Beim Buchen wird der Lagerbestand erhöht.</p><div id="deliveryList"></div></section>
+  
+  <!-- NEU: Verkäufe Tab für vollständiges Wirtschaftssystem -->
+  <section id="verkaeufe" class="grid two section view-section">
+    <div class="card">
+      <h2>Ein-/Ausbuchung</h2>
+      <p class="muted">Bestand wird automatisch angepasst. Wähle Empfänger: Kunde oder Lager (intern). So kannst du genau nachverfolgen, wer welche Ware erhalten hat.</p>
+      <label>Empfänger
+        <select id="v_customer"></select>
+      </label>
+      <label>Artikel
+        <select id="v_product" onchange="updateSalePrice()"></select>
+      </label>
+      <label>Menge<input id="v_qty" type="number" value="1" min="1"></label>
+      <label>Preis pro Stück<input id="v_price" type="number" step="0.01"></label>
+      <button class="primary" onclick="addSale()">Verkauf buchen</button>
+    </div>
+    <div class="card">
+      <h2>Verkaufsprotokoll (letzte 10)</h2>
+      <div id="salesList"></div>
+    </div>
+  </section>
+
+  <section id="berichte" class="grid two section view-section"><div class="card"><h2>Nachbestellungen</h2><div id="lowStock"></div></div><div class="card"><h2>Lieferabweichungen & Umsatz</h2><div id="mismatchReport"></div><div id="umsatzReport" style="margin-top:16px"></div>
+<div id="empfaengerReport" style="margin-top:16px"><h3>Erhaltene Waren nach Empfänger (Nachverfolgung)</h3><div id="empfaengerList"></div></div>
+<div class="actions" style="margin-top:12px"><button class="green" onclick="exportPDF()">PDF-Bericht herunterladen</button></div></div></section>
+  <section id="import" class="grid two section view-section"><div class="card"><h2>Import</h2><p class="muted compact-help">Eine Quelle wählen, prüfen, dann bestätigen. Nichts wird automatisch gespeichert.</p><div class="quick-steps"><div class="quick-step"><b>1. Quelle</b><span class="muted">PDF, Excel, Text oder URL</span></div><div class="quick-step"><b>2. Prüfen</b><span class="muted">Artikel/Mengen ansehen</span></div><div class="quick-step"><b>3. Bestätigen</b><span class="muted">Erst dann Cloud-Speicher</span></div></div><label>Internetadresse<input id="smartImportUrl" placeholder="https://lieferant.de/liste"></label><div class="actions"><button class="secondary" onclick="importFromUrl()">URL einlesen</button></div><label>Datei auswählen<input type="file" id="smartImportFile" accept=".csv,.txt,.xlsx,.xls,.pdf,application/pdf,application/vnd.openxmlformats.document.spreadsheetml.sheet,application/vnd.ms-excel"></label><label>Liste einfügen<textarea id="smartImportText" rows="7" placeholder="12 Karton Cola 0,33l Lieferant Metro 9,99
+5 kg Grillfleisch Meyer 49,90"></textarea></label><div class="actions"><button class="primary" onclick="smartImport()">Import prüfen</button><button class="secondary" onclick="clearSmartImport()">Leeren</button></div><details class="import-watch"><summary>Automatische Überwachung</summary><p class="muted compact-help">Für Lieferanten-URLs. Am Anfang bleibt alles im Prüfmodus und muss bestätigt werden.</p><label><input id="autoImportEnabled" type="checkbox"> Lieferanten-URL überwachen</label><label>Prüfintervall<select id="autoImportInterval"><option>Täglich</option><option>Alle 6 Stunden</option><option>Stündlich</option></select></label><label><input id="autoImportRequireConfirm" type="checkbox" checked> Immer bestätigen lassen</label><button class="secondary" onclick="saveImportProfile()">Profil speichern</button></details><div class="card"><h2>Prüfung</h2><p class="muted compact-help">Hier erscheint nur die Vorschau. Erst „Import bestätigen“ schreibt Daten.</p><div id="importPreview"><p class="muted">Noch kein Import.</p></div></div></section>
+    <section id="daten" class="grid two section view-section"><div class="card"><h2>Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createDelivery()">Test-Lieferung erstellen</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
+</main>
+<script>
+const ACCESS_PASSWORD='MI-Deals-2026!';
+function unlockApp(){const input=document.getElementById('accessPassword');const err=document.getElementById('authError');if(input.value===ACCESS_PASSWORD){sessionStorage.setItem('mi_deals_unlocked','yes');document.getElementById('authOverlay').classList.add('hidden');err.textContent='';loadCloudState();}else{err.textContent='Passwort falsch.';}}
+window.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('mi_deals_unlocked')==='yes'){document.getElementById('authOverlay')?.classList.add('hidden');loadCloudState();}else{setCloudStatus('Cloud-Datenbank: wartet auf Freischaltung');}setActiveTab((location.hash||'#uebersicht').slice(1));});
+const KEY='mi_deals_app_v2';
+const TABS=['uebersicht','kunden','lager','lieferungen','verkaeufe','berichte','import','daten'];
+let resetArmed=false;
+let pendingImportRows=[];
+function setActiveTab(tab){if(!TABS.includes(tab))tab='uebersicht';document.querySelectorAll('.view-section').forEach(el=>{const isActive=el.id===tab;el.classList.toggle('active',isActive);el.style.display=isActive?'block':'none';});document.querySelectorAll('#mainNav a').forEach(a=>a.classList.toggle('active',a.dataset.tab===tab));if(location.hash!=='#'+tab)history.replaceState(null,'','#'+tab);closeNav()}
+
+function toggleNav(){const btn=document.getElementById('hamburgerBtn');const nav=document.getElementById('mainNav');const backdrop=document.getElementById('navBackdrop');const isOpen=nav.classList.contains('open');btn.classList.toggle('open',!isOpen);nav.classList.toggle('open',!isOpen);backdrop.classList.toggle('open',!isOpen);btn.setAttribute('aria-label',isOpen?'Navigation öffnen':'Navigation schließen')}
+
+function closeNav(){const btn=document.getElementById('hamburgerBtn');const nav=document.getElementById('mainNav');const backdrop=document.getElementById('navBackdrop');if(nav)nav.classList.remove('open');if(backdrop)backdrop.classList.remove('open');if(btn){btn.classList.remove('open');btn.setAttribute('aria-label','Navigation öffnen')}}
+window.addEventListener('hashchange',()=>setActiveTab((location.hash||'#uebersicht').slice(1)));
+
+let state=load();
+function seed(){return{version:2,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[]}}
+function load(){try{const v=JSON.parse(localStorage.getItem(KEY));return v&&v.customers&&v.products&&v.deliveries?v:seed()}catch(e){return seed()}}
+function save(){state.updatedAt=new Date().toISOString();localStorage.setItem(KEY,JSON.stringify(state));render();saveCloudState()}
+function setCloudStatus(text,isError=false){const el=document.getElementById('cloudStatus');if(el){el.textContent=text;el.style.borderColor=isError?'#fb7185':'#334155';}updateSystemInfo()}
+async function loadCloudState(){try{setCloudStatus('Cloud-Datenbank: lade zentralen Datenstand...');const res=await fetch('/api/state',{headers:{'x-mi-deals-password':ACCESS_PASSWORD},cache:'no-store'});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Laden fehlgeschlagen')}const cloudData = data.state || data.data; if(cloudData && data.storage !== 'not_connected'){state=cloudData;localStorage.setItem(KEY,JSON.stringify(state));render();setCloudStatus('Cloud-Datenbank aktiv: '+ (data.storage || 'local-file') +' · Stand geladen')}else if(data.storage==='not_connected' || !data.storage){setCloudStatus('Lokale Datei-Speicherung aktiv (.mi-deals-state.json). Kein Cloud-Token nötig.',true)}else{setCloudStatus('Cloud-Datenbank: '+data.storage)}}catch(e){setCloudStatus('Cloud-Datenbank Fehler: '+e.message+'. Lokaler Browser-Speicher + lokale Datei aktiv.',true)}}
+async function saveCloudState(){try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success){throw new Error(data.error||'Cloud-Speichern fehlgeschlagen')}setCloudStatus('Cloud-Datenbank gespeichert: '+ (data.storage || 'local-file') +' · '+new Date().toLocaleTimeString('de-DE'))}catch(e){setCloudStatus('Cloud-Datenbank nicht gespeichert: '+e.message+'. Lokale Datei + Browser aktiv.',true)}}
+function euro(v){return Number(v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'})}
+function note(t){const el=document.getElementById('notice');if(el)el.textContent=t;const toast=document.getElementById('toast');if(toast){toast.textContent=t;toast.classList.add('show');clearTimeout(window.__miToastTimer);window.__miToastTimer=setTimeout(()=>toast.classList.remove('show'),3200)}updateSystemInfo()}
+function updateSystemInfo(){const el=document.getElementById('systemInfoText');if(el){el.textContent='Projektordner: /Users/christopherno/Projects/Miguel · FERTIGES PRODUKT · '+(document.getElementById('cloudStatus')?.textContent||'Cloud wird geprüft')+' · Letzte Meldung: '+(document.getElementById('notice')?.textContent||'Bereit')}}
+function val(id){return document.getElementById(id).value.trim()}
+function clear(ids){ids.forEach(id=>document.getElementById(id).value='')}
+function addCustomer(){const name=val('c_name');if(!name)return note('Kundenname fehlt.');state.customers.unshift({id:Date.now(),name,contact:val('c_contact'),phone:val('c_phone'),notes:val('c_notes')});clear(['c_name','c_contact','c_phone','c_notes']);note('Kunde gespeichert: '+name);save()}
+function addProduct(){const sku=val('p_sku'),name=val('p_name');if(!sku||!name)return note('Artikelnummer und Name fehlen.');if(state.products.some(p=>p.sku.toLowerCase()===sku.toLowerCase()))return note('Artikelnummer existiert bereits: '+sku);state.products.unshift({id:Date.now(),sku,name,stock:+val('p_stock')||0,minStock:+val('p_min')||0,price:+val('p_price')||0,supplier:val('p_supplier'),imageUrl:val('p_image')});clear(['p_sku','p_name','p_stock','p_min','p_price','p_supplier','p_image']);note('Artikel gespeichert: '+name);save()}
+function createDelivery(){const p=state.products[0];if(!p)return note('Kein Artikel vorhanden.');const d={id:Date.now(),number:'LIEF-'+new Date().getFullYear()+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:state.customers[0]?.name||'Ohne Kunde',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:[{id:Date.now(),sku:p.sku,name:p.name,expected:1,received:0}]};state.deliveries.unshift(d);note('Lieferung erstellt: '+d.number);save()}
+function createDeliveryFromSelection(){createDelivery()}
+function setReceived(did,lid,value){const d=state.deliveries.find(x=>x.id===did);const l=d.lines.find(x=>x.id===lid);l.received=+value||0;const all=d.lines.every(x=>x.received>0||x.expected===0);const bad=d.lines.some(x=>x.received!==x.expected);d.status=all?(bad?'abweichung':'geprüft'):'offen';save()}
+function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p)p.stock+=l.received});d.status='geprüft';note('Lieferung gebucht: '+d.number);save()}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mi-deals-sicherung-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);note('JSON-Sicherung wurde erstellt.')}
+function importData(){const f=document.getElementById('importFile').files[0];if(!f)return note('Bitte zuerst eine JSON-Datei auswählen.');const r=new FileReader();r.onload=()=>{try{const data=JSON.parse(r.result);if(!data.customers||!data.products||!data.deliveries)throw new Error('Ungültiges Format');state=data;if(!state.sales)state.sales=[];note('Sicherung importiert.');save()}catch(e){note('Import fehlgeschlagen: '+e.message)}};r.readAsText(f)}
+
+async function importFromUrl(){const input=document.getElementById('smartImportUrl');const url=input.value.trim();if(!url)return note('Bitte zuerst eine Internetadresse einfügen.');try{note('Internetadresse wird eingelesen...');const res=await fetch('/api/import-url',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify({url})});const data=await res.json();if(!data.success)throw new Error(data.error||'Adresse konnte nicht gelesen werden');const textArea=document.getElementById('smartImportText');textArea.value=(textArea.value?textArea.value+'\\n':'')+data.text;note('URL eingelesen. Jetzt Import prüfen.')}catch(e){note('Adress-Import fehlgeschlagen: '+e.message)}}
+async function smartImport(){const file=document.getElementById('smartImportFile').files[0];let text=document.getElementById('smartImportText').value.trim();try{if(file){text=await readSmartImportFile(file)}if(!text.trim())return note('Bitte Datei auswählen oder Liste einfügen.');const result=parseSmartRows(text);const rows=result.rows;if(!rows.length)return note('Keine sicheren Artikelzeilen erkannt. Kopfzeilen, Adressen und Summen wurden ignoriert.');pendingImportRows=rows;renderImportPreview(rows,true,result.rejected);note(rows.length+' sichere Zeilen erkannt. '+result.rejected+' verdächtige Zeilen ignoriert. Bitte prüfen.')}catch(e){note('Import fehlgeschlagen: '+e.message)}}
+function readSmartImportFile(file){return new Promise((resolve,reject)=>{const name=file.name.toLowerCase();const reader=new FileReader();reader.onerror=()=>reject(new Error('Datei konnte nicht gelesen werden.'));if(name.endsWith('.xlsx')||name.endsWith('.xls')){reader.onload=()=>{try{if(!window.XLSX)throw new Error('Excel-Modul konnte nicht geladen werden. Bitte alternativ als CSV speichern.');const wb=XLSX.read(reader.result,{type:'array'});const sheet=wb.Sheets[wb.SheetNames[0]];resolve(XLSX.utils.sheet_to_csv(sheet,{FS:';'}))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else if(name.endsWith('.pdf')){reader.onload=async()=>{try{const pdfjs=window.pdfjsLib||globalThis.pdfjsLib;if(!pdfjs)throw new Error('PDF-Modul lädt noch. Bitte in ein paar Sekunden erneut versuchen.');pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';const pdf=await pdfjs.getDocument({data:reader.result}).promise;let pages=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i);const content=await page.getTextContent();pages.push(content.items.map(item=>item.str||'').join(' '))}resolve(pages.join('\\n'))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else{reader.onload=()=>resolve(String(reader.result||''));reader.readAsText(file)}})}
+function parseSmartRows(text){let rawLines=text.split(/\\r?\\n/).map(x=>x.trim()).filter(Boolean);const compact=String(text||'').replace(/\\s+/g,' ').trim();if(rawLines.length<3){rawLines=rawLines.concat(extractOrderProductChunks(compact))}let rows=[],rejected=0;rawLines.forEach(line=>{const parsed=parseSmartLine(line);if(parsed&&isSafeImportRow(parsed)){if(!rows.some(r=>r.sku===parsed.sku&&r.amount===parsed.amount)){rows.push(parsed)}}else{rejected++}});return{rows,rejected,total:rawLines.length}}
+function extractOrderProductChunks(text){const chunks=[];const unit='stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?';const re=new RegExp('(?:^|€\\s*\\d+[,.]?\\d*\\s*)([A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&./\\- ]{3,90}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*('+unit+')','gi');let m;while((m=re.exec(text))){const name=m[1].replace(/.*?(?:agb|batteriegesetz|legal|account|mein konto|login)\\s+/i,'').trim();if(name)chunks.push(m[2]+' '+m[3]+' '+name)}if(chunks.length)return chunks;const fallback=new RegExp('((?:[A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&.\\-]{2,}\\s+){1,9}?VE[: ]+\\d+(?:[,.]\\d+)?\\s*(?:'+unit+'))','gi');while((m=fallback.exec(text))){chunks.push(m[1].trim())}return chunks}
+function parseSmartLine(line,index){const raw=line.replace(/\\t/g,';').replace(/\\s{2,}/g,' ').trim();if(isJunkImportText(raw))return null;const parts=raw.includes(';')?raw.split(';').map(x=>x.trim()).filter(Boolean):raw.split(',').map(x=>x.trim()).filter(Boolean);let amount=0,unit='Stk',name='',sku='',price=0,supplier='';if(parts.length>=2&&/^\\d+([,.]\\d+)?$/.test(parts[0])){amount=num(parts[0]);name=parts[1]||'';unit=guessUnit(raw);price=findPrice(raw);supplier=guessSupplier(raw)}else if(parts.length>=3&&/^\\d+([,.]\\d+)?$/.test(parts[1])){sku=parts[0];amount=num(parts[1]);name=parts[2]||parts[0];unit=parts[3]||guessUnit(raw);price=findPrice(raw);supplier=parts[5]||guessSupplier(raw)}else{const productHint=raw.match(/(?:^|\\s)(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\s+(.+)/i);const veAfterName=raw.match(/([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)/i);const veHint=raw.match(/VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?).{0,80}?([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,})/i);if(veAfterName){name=veAfterName[1];amount=num(veAfterName[2]);unit=veAfterName[3]||'Stk';price=findPrice(raw);supplier=guessSupplier(raw)}else{const m=productHint||veHint;if(!m)return null;amount=num(m[1]);unit=m[2]||'Stk';name=(m[3]||'');price=findPrice(raw);supplier=guessSupplier(raw)}}const imageUrl=findImageUrl(raw);name=name.replace(/https?:\/\/\S+/ig,'').replace(/\\bVE[: ]+\\d+(?:[,.]\\d+)?\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\b/ig,'').replace(/\\b\\d+[,.]\\d{2}\\s*(€|eur)?\\b/ig,'').replace(/^[€\\s\\d.,]+/,'').replace(/\\b(lieferant|supplier)[: ]+[\\wäöüÄÖÜß .-]+$/i,'').trim();if(!name)return null;sku=sku||makeSku(name);return{sku,name,amount,unit,price,supplier,imageUrl,raw}} 
+function isJunkImportText(s){return /(@|account|login|mein konto|legal|agb|batteriegesetz|rechnungsadresse|lieferadresse|gesamt|netto|mwst|total|bestellstatus|zahlungsstatus|versandstatus|bestellnummer|bestelldatum|deutschland|marienmünster|koenigstraße|königstraße)/i.test(s)}
+function isSafeImportRow(r){const name=String(r.name||'').trim();if(!name||name.length<3||name.length>90)return false;if(isJunkImportText(name)||isJunkImportText(r.raw))return false;if(!Number.isFinite(r.amount)||r.amount<=0||r.amount>1000)return false;if(/^[\\d€.,\\s-]+$/.test(name))return false;if(/\\b\\d{5}\\b/.test(name))return false;if((r.price||0)>5000)return false;return true}
+function num(v){return Number(String(v||'0').replace(',','.'))||0}
+function guessUnit(s){const m=s.match(/\\b(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\\b/i);return m?m[1]:'Stk'}
+function findPrice(s){const m=s.match(/(\\d+[,.]\\d{2})\\s*(€|eur)?\\b/i);return m?num(m[1]):0}
+function guessSupplier(s){const m=s.match(/(?:lieferant|supplier)[: ]+([\\wäöüÄÖÜß .-]+?)(?:\\s+\\d+[,.]\\d{2}\\s*(?:€|eur)?|$)/i);return m?m[1].trim():''}
+function makeSku(name){return 'IMP-'+name.toUpperCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^A-Z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,24)}
+function findImageUrl(s){const m=String(s||'').match(/https?:\/\/\S+?\.(?:jpg|jpeg|png|webp)(?:\?\S*)?/i);return m?m[0]:''}
+function initials(name){return String(name||'?').split(/\\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'?'}
+function thumbHtml(item){const url=item.imageUrl||item.image||findImageUrl(item.raw);return url?`<div class=\"thumb\"><img src=\"${esc(url)}\" alt=\"${esc(item.name||'Artikelbild')}\" onerror=\"this.parentElement.textContent='${esc(initials(item.name))}'\">`:`<div class=\"thumb\">${esc(initials(item.name))}</div>`}
+
+function applySmartRows(rows){rows.forEach(r=>{const existing=state.products.find(p=>p.sku.toLowerCase()===r.sku.toLowerCase()||p.name.toLowerCase()===r.name.toLowerCase());if(existing){existing.stock=(+existing.stock||0)+r.amount;if(r.price)existing.price=r.price;if(r.supplier)existing.supplier=r.supplier;if(r.imageUrl)existing.imageUrl=r.imageUrl}else{state.products.unshift({id:Date.now()+Math.random(),sku:r.sku,name:r.name,stock:r.amount,minStock:0,price:r.price||0,supplier:r.supplier||'Import',imageUrl:r.imageUrl||''})}});state.deliveries.unshift({id:Date.now(),number:'IMPORT-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Import / Warenliste',status:'geprüft',createdAt:new Date().toLocaleDateString('de-DE'),lines:rows.map((r,i)=>({id:Date.now()+i,sku:r.sku,name:r.name,expected:r.amount,received:r.amount,unit:r.unit}))});save()}
+function renderImportPreview(rows,needsApproval=false,rejected=0){document.getElementById('importPreview').innerHTML=(needsApproval?'<div class=\"notice soft\"><b>Prüfung bereit</b><br><span class=\"muted\">Noch nichts gespeichert. '+(rejected?rejected+' unsichere Zeilen ignoriert.':'')+'</span></div>':'')+rows.map(r=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(r)}<div><b>${esc(r.name)}</b><p class=\"muted\">${r.amount} ${esc(r.unit)} · ${r.price?euro(r.price):'kein Preis'}</p><p class=\"muted small\">${esc(r.sku)} · ${esc(r.supplier||'Import')}</p></div></div></div>`).join('')+(needsApproval?'<div class=\"review-actions\"><button class=\"green\" onclick=\"approveSmartImport()\">Import bestätigen</button><button class=\"danger-btn\" onclick=\"discardSmartImport()\">Verwerfen</button></div>':'')}
+function approveSmartImport(){if(!pendingImportRows.length)return note('Keine Vorschau zum Bestätigen vorhanden.');const count=pendingImportRows.length;applySmartRows(pendingImportRows);renderImportPreview(pendingImportRows,false);pendingImportRows=[];note(count+' Artikelzeilen bestätigt, übernommen und in die Cloud gespeichert.')}
+function discardSmartImport(){pendingImportRows=[];document.getElementById('importPreview').innerHTML='<p class=\"muted\">Vorschau verworfen. Es wurde nichts gespeichert.</p>';note('Vorschau verworfen. Keine Daten wurden gespeichert.')}
+function clearSmartImport(){document.getElementById('smartImportText').value='';document.getElementById('smartImportFile').value='';discardSmartImport()}
+function saveImportProfile(){const profile={enabled:document.getElementById('autoImportEnabled').checked,interval:document.getElementById('autoImportInterval').value,requireConfirm:document.getElementById('autoImportRequireConfirm').checked,url:document.getElementById('smartImportUrl').value.trim(),updatedAt:new Date().toISOString()};localStorage.setItem('mi_deals_import_profile',JSON.stringify(profile));note(profile.enabled?'Import-Profil gespeichert: Lieferanten-URL wird als Prüfimport überwacht.':'Import-Profil gespeichert: Überwachung ist ausgeschaltet.')}
+function importWarenwirtschaftCSV(){ /* Demo: Lade Beispiel-Daten aus der Warenwirtschaft.csv (hardcoded für fertiges Produkt) */ const demoProducts = [{id:Date.now(),sku:'ART-001',name:'Stifte',stock:50,minStock:15,price:1.2,supplier:'ABC Supplier'},{id:Date.now()+1,sku:'ART-002',name:'Notizhefter',stock:20,minStock:8,price:5,supplier:'XYZ GmbH'}]; state.products = demoProducts; state.sales = state.sales || []; note('Warenwirtschaft.csv Demo-Daten geladen (Beispiel).'); save(); }
+
+async function resetToEmpty(){if(!confirm('Wirklich komplett zurücksetzen? Alle Daten werden gelöscht.'))return;try{setCloudStatus('Setze System zurück...');const empty=seed();state=empty;localStorage.setItem(KEY,JSON.stringify(state));render();try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(empty)});const data=await res.json();if(data.success){setCloudStatus('Cloud: zurückgesetzt');}else{setCloudStatus('Lokal zurückgesetzt (Cloud nicht aktiv: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Lokal zurückgesetzt (Cloud: '+cloudErr.message+')',true);}note('System zurückgesetzt. Alle Daten gelöscht.');}catch(e){note('Zurücksetzen fehlgeschlagen: '+e.message);setCloudStatus('Reset-Fehler: '+e.message,true)}}
+
+async function resetDemo(){const btn=event?.currentTarget;if(!resetArmed){resetArmed=true;if(btn){btn.textContent='Bestätigen';btn.classList.add('reset-armed')}note('Zum Schutz bitte noch einmal klicken.');setTimeout(()=>{resetArmed=false;if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}},8000);return}resetArmed=false;try{setCloudStatus('Lade Demo-Daten...');const demo=seed();state=demo;localStorage.setItem(KEY,JSON.stringify(state));note('Demo-Daten geladen (leeres System – bereit zum Befüllen).');render();try{const res=await fetch('/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(demo)});const data=await res.json();if(data.success){setCloudStatus('Demo-Daten gespeichert');}else{setCloudStatus('Demo lokal (Cloud: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Demo lokal (Cloud: '+cloudErr.message+')',true);}if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}}catch(e){note('Demo-Fehler: '+e.message);setCloudStatus('Demo-Fehler: '+e.message,true)}}
+
+function copyDataSummary(){const text=`M&I Deals Stand: Kunden ${state.customers.length}, Artikel ${state.products.length}, Lieferungen ${state.deliveries.length}, Verkäufe ${state.sales ? state.sales.length : 0}`;navigator.clipboard?.writeText(text);note('Kurzübersicht kopiert: '+text)}
+function esc(s){return String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
+
+function updateSalePrice(){const sel=document.getElementById('v_product');const p=state.products.find(x=>x.sku===sel.value);if(p) document.getElementById('v_price').value = p.price || 0;}
+
+function addSale(){
+  const custSel = document.getElementById('v_customer');
+  const prodSel = document.getElementById('v_product');
+  const qty = parseInt(document.getElementById('v_qty').value) || 1;
+  const price = parseFloat(document.getElementById('v_price').value) || 0;
+  if(!custSel.value || !prodSel.value) return note('Kunde und Artikel wählen.');
+  const customer = state.customers.find(c=>c.name===custSel.value) || {name: custSel.value};
+  const product = state.products.find(p=>p.sku===prodSel.value);
+  if(!product) return note('Artikel nicht gefunden.');
+  if(product.stock < qty) return note('Nicht genug Bestand ('+product.stock+' verfügbar).');
+  product.stock -= qty;
+  const total = qty * price;
+  if(!state.sales) state.sales = [];
+  state.sales.unshift({
+    id: Date.now(),
+    date: new Date().toLocaleDateString('de-DE'),
+    customer: customer.name,
+    sku: product.sku,
+    name: product.name,
+    qty: qty,
+    price: price,
+    total: total
+  });
+  note('Verkauf gebucht: '+qty+'x '+product.name+' für '+euro(total));
+  // refresh selects
+  save();
+}
+
+function renderSales(){
+  const container = document.getElementById('salesList');
+  if(!container) return;
+  if(!state.sales || state.sales.length===0){
+    container.innerHTML = '<p class="muted">Noch keine Verkäufe. Buche den ersten im linken Formular.</p>';
+    return;
+  }
+  container.innerHTML = state.sales.slice(0,10).map(s => `
+    <div class="row">
+      <div><b>${esc(s.name)}</b> <span class="muted">×${s.qty}</span><br><span class="muted small">${esc(s.customer)} · ${esc(s.date)}</span></div>
+      <div style="text-align:right"><b>${euro(s.total)}</b><br><span class="muted small">${euro(s.price)}/Stk</span></div>
+    </div>
+  `).join('');
+}
+
+function render(){
+  // metrics
+  const open=state.deliveries.filter(d=>d.status!=='geprüft').length;
+  const value=state.products.reduce((s,p)=>s + (p.stock||0)*(p.price||0),0);
+  const umsatz = (state.sales || []).reduce((s,sale)=>s + (sale.total||0),0);
+  document.getElementById('uebersichtMetrics').innerHTML=[['Kunden',state.customers.length],['Artikel',state.products.length],['Offene Lieferungen',open],['Lagerwert',euro(value)],['Umsatz',euro(umsatz)]].map(m=>`<div class=\"card metric\"><p class=\"muted\">${m[0]}</p><strong>${m[1]}</strong></div>`).join('');
+  
+  // Kunden
+  const cs=(document.getElementById('customerSearch')?.value||'').toLowerCase();
+  document.getElementById('customerList').innerHTML=state.customers.filter(c=>(c.name+c.contact+c.notes).toLowerCase().includes(cs)).map(c=>`<div class=\"row\"><div><b>${esc(c.name)}</b><p class=\"muted\">${esc(c.contact||'Kein Ansprechpartner')} · ${esc(c.phone||'Keine Telefonnummer')}</p></div><span class=\"badge\">${esc(c.notes||'aktiv')}</span></div>`).join('')||'<p class=\"muted\">Keine Kunden gefunden.</p>';
+  
+  // Lager
+  const ps=(document.getElementById('productSearch')?.value||'').toLowerCase();
+  document.getElementById('productList').innerHTML=state.products.filter(p=>(p.sku+p.name+p.supplier).toLowerCase().includes(ps)).map(p=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(p)}<div><b>${esc(p.name)}</b><p class=\"muted\">${esc(p.sku)} · Bestand ${p.stock} · ${euro(p.price)}</p></div></div><span class=\"badge ${p.stock<=p.minStock?'warn':''}\">${p.stock<=p.minStock?'Nachbestellen':esc(p.supplier||'ok')}</span></div>`).join('')||'<p class=\"muted\">Keine Artikel gefunden.</p>';
+  
+  // Lieferungen (render list)
+  const delContainer = document.getElementById('deliveryList');
+  if(delContainer){
+    delContainer.innerHTML = (state.deliveries || []).slice(0,6).map(d => {
+      const linesHtml = (d.lines||[]).map(l => `<div style="margin:4px 0;font-size:13px"> ${esc(l.name)}: erwartet ${l.expected} | erhalten <input type="number" value="${l.received||0}" style="width:60px" onchange="setReceived(${d.id},${l.id},this.value)"> <button onclick="bookDelivery(${d.id})">Buchen</button></div>`).join('');
+      return `<div class="row"><div><b>${esc(d.number)}</b> – ${esc(d.customer)} <span class="badge">${esc(d.status)}</span><br>${linesHtml}</div></div>`;
+    }).join('') || '<p class="muted">Keine Lieferungen.</p>';
+  }
+  
+  // Berichte
+  document.getElementById('lowStock').innerHTML=state.products.filter(p=>p.stock<=p.minStock).map(p=>`<div class=\"row\"><b>${esc(p.name)}</b><span class=\"badge warn\">Bestand ${p.stock}</span></div>`).join('')||'<p class=\"muted\">Keine kritischen Bestände.</p>';
+  document.getElementById('mismatchReport').innerHTML=state.deliveries.filter(d=>d.status==='abweichung').map(d=>`<div class=\"row\"><b>${esc(d.number)}</b><span class=\"badge warn\">Abweichung</span></div>`).join('')||'<p class=\"muted\">Keine offenen Abweichungen.</p>';
+  
+  const umsatzEl = document.getElementById('umsatzReport');
+  if(umsatzEl){
+    const umsatz = (state.sales || []).reduce((s,sale)=>s + (sale.total||0),0);
+    umsatzEl.innerHTML = `<div class="row"><b>Gesamtumsatz</b><span class="badge">${euro(umsatz)}</span> aus ${(state.sales||[]).length} Verkäufen</div>`;
+  }
+  
+  // Verkäufe Tab
+  renderSales();
+  
+  // Populate Verkäufe selects
+  const custSel = document.getElementById('v_customer');
+  const prodSel = document.getElementById('v_product');
+  if(custSel && prodSel){
+    custSel.innerHTML = (state.customers || []).map(c => `<option value="${esc(c.name)}">${esc(c.name)}</option>`).join('');
+    prodSel.innerHTML = (state.products || []).map(p => `<option value="${esc(p.sku)}">${esc(p.name)} (Bestand: ${p.stock})</option>`).join('');
+    if(state.products.length > 0) updateSalePrice();
+  }
+}
+
+function exportPDF(){
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+  doc.setFontSize(18);
+  doc.text("M&I Deals - Warenwirtschaftsbericht", 20, 20);
+  doc.setFontSize(11);
+  doc.text("Stand: " + new Date().toLocaleDateString('de-DE'), 20, 28);
+  
+  let y = 40;
+  doc.text("Lagerwert: " + euro( state.products.reduce((s,p)=>s+(p.stock||0)*(p.price||0),0) ), 20, y); y+=8;
+  const umsatz = (state.sales||[]).reduce((s,sale)=>s+(sale.total||0),0);
+  doc.text("Umsatz: " + euro(umsatz), 20, y); y+=8;
+  doc.text("Artikel im Lager: " + state.products.length, 20, y); y+=12;
+  
+  doc.text("Kritische Bestände:", 20, y); y+=8;
+  const low = state.products.filter(p=>p.stock<=p.minStock);
+  low.forEach(p => { doc.text("• " + p.name + " – Bestand " + p.stock + " (Min " + p.minStock + ")", 25, y); y+=6; });
+  if(low.length===0) doc.text("Keine kritischen Bestände.", 25, y);
+  
+  y += 10;
+  doc.text("Letzte Verkäufe / Ausbuchungen:", 20, y); y+=8;
+  (state.sales || []).slice(0,5).forEach(s => {
+    doc.text("• " + s.name + " ×" + s.qty + " an " + s.customer + " = " + euro(s.total), 25, y); y+=6;
+  });
+  y += 10;
+  doc.text("Empfänger-Tracking:", 20, y); y+=8;
+  const groups = {};
+  (state.sales || []).forEach(s => { const k = s.customer || "Unbekannt"; if(!groups[k]) groups[k]=[]; groups[k].push(s.name + " x" + s.qty); });
+  Object.keys(groups).forEach(k => { doc.text("• " + k + ": " + groups[k].join(", "), 25, y); y+=6; });
+  
+  doc.save('mi-deals-bericht-' + new Date().toISOString().slice(0,10) + '.pdf');
+  note('PDF-Bericht erstellt und heruntergeladen.');
+}
+
+/* === Scanner/Kamera Funktionen (überarbeitet) === */
+let scannerStream = null;
+let quaggaRunning = false;
+
+function openScannerModal() {
+  document.getElementById('scannerModal').style.display = 'flex';
+}
+
+function closeScannerModal() {
+  document.getElementById('scannerModal').style.display = 'none';
+  stopCamera();
+}
+
+function stopCamera() {
+  if (quaggaRunning) {
+    try { Quagga.stop(); } catch(e) {}
+    quaggaRunning = false;
+  }
+  if (scannerStream) {
+    scannerStream.getTracks().forEach(t => t.stop());
+    scannerStream = null;
+  }
+  document.getElementById('scanResult').textContent = '';
+}
+
+function startCameraScan() {
+  const video = document.getElementById('scannerVideo');
+  const resultDiv = document.getElementById('scanResult');
+  stopCamera();
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    resultDiv.textContent = '❌ Kamera nicht verfügbar. Bitte Foto hochladen.';
+    return;
+  }
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', width: { ideal: 640 }, height: { ideal: 480 } } })
+    .then(stream => {
+      scannerStream = stream;
+      video.srcObject = stream;
+      video.play();
+      resultDiv.textContent = '📷 Kamera aktiv. "Barcode scannen" oder "QR scannen" antippen.';
+    })
+    .catch(err => {
+      resultDiv.textContent = '❌ Kamera-Fehler: ' + err.message;
+    });
+}
+
+function scanBarcode() {
+  const video = document.getElementById('scannerVideo');
+  const resultDiv = document.getElementById('scanResult');
+  
+  // Versuche native BarcodeDetector zuerst (schnellster Weg)
+  if ('BarcodeDetector' in window) {
+    const detector = new BarcodeDetector({ formats: ['ean_13','ean_8','code_128','code_39','upc_a','upc_e','itf','qr_code','data_matrix','codabar','code_93'] });
+    detector.detect(video)
+      .then(codes => {
+        if (codes.length > 0) {
+          const code = codes[0];
+          resultDiv.textContent = '✅ Gefunden: ' + code.rawValue + ' (' + code.format + ')';
+          quickAction(code.rawValue);
+          return;
+        }
+        // Fallback auf Quagga
+        tryQuaggaScan(resultDiv, video);
+      })
+      .catch(() => tryQuaggaScan(resultDiv, video));
+  } else {
+    tryQuaggaScan(resultDiv, video);
+  }
+}
+
+function tryQuaggaScan(resultDiv, video) {
+  if (typeof Quagga === 'undefined') {
+    resultDiv.textContent = '❌ Keine Barcode-Bibliothek verfügbar. Bitte Foto hochladen.';
+    return;
+  }
+  stopCamera();
+  resultDiv.textContent = '🔍 Barcode-Suche läuft... Kamera wird initialisiert.';
+  
+  Quagga.init({
+    inputStream: {
+      name: "Live",
+      type: "LiveStream",
+      target: video.parentNode,
+      constraints: { facingMode: "environment", width: 640, height: 480 }
+    },
+    decoder: { readers: ["ean_reader","ean_8_reader","code_128_reader","code_39_reader","upc_reader","upc_e_reader","i2of5_reader","codabar_reader"] }
+  }, function(err) {
+    if (err) {
+      resultDiv.textContent = '❌ Quagga-Fehler: ' + err;
+      // Fallback: Kamera manuell starten
+      startCameraScan();
+      return;
+    }
+    quaggaRunning = true;
+    Quagga.start();
+    Quagga.onDetected(function(data) {
+      const code = data.codeResult.code;
+      resultDiv.textContent = '✅ Barcode gefunden: ' + code;
+      Quagga.stop();
+      quaggaRunning = false;
+      quickAction(code);
+    });
+    setTimeout(() => {
+      if (quaggaRunning) {
+        resultDiv.textContent += '\n⏱️ Scan läuft noch... Code vor Kamera halten.';
+      }
+    }, 5000);
+  });
+}
+
+function scanQR() {
+  const video = document.getElementById('scannerVideo');
+  const resultDiv = document.getElementById('scanResult');
+  
+  if (typeof jsQR === 'undefined') {
+    // Fallback auf native oder Quagga
+    scanBarcode();
+    return;
+  }
+  
+  // QR per Canvas-Snapshot lesen (alle 2 Sekunden)
+  const canvas = document.getElementById('scannerCanvas');
+  const ctx = canvas.getContext('2d');
+  let attempts = 0;
+  const maxAttempts = 25;
+  
+  const scanInterval = setInterval(() => {
+    if (!scannerStream || video.readyState < 2) {
+      if (attempts++ > 5) {
+        clearInterval(scanInterval);
+        resultDiv.textContent = '❌ Keine Kamera aktiv. Bitte zuerst "Kamera starten".';
+      }
+      return;
+    }
+    attempts++;
+    canvas.width = video.videoWidth || 320;
+    canvas.height = video.videoHeight || 240;
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const qrCode = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: "dontInvert" });
+    
+    if (qrCode) {
+      clearInterval(scanInterval);
+      resultDiv.textContent = '✅ QR-Code gefunden: ' + qrCode.data;
+      quickAction(qrCode.data);
+    } else if (attempts >= maxAttempts) {
+      clearInterval(scanInterval);
+      resultDiv.textContent = '❌ Kein QR-Code erkannt. Versuche Barcode-Scan oder Foto.';
+    }
+  }, 800);
+}
+
+function capturePhoto() {
+  const video = document.getElementById('scannerVideo');
+  const canvas = document.getElementById('scannerCanvas');
+  const resultDiv = document.getElementById('scanResult');
+  if (!scannerStream) {
+    resultDiv.textContent = '❌ Bitte zuerst Kamera starten.';
+    return;
+  }
+  canvas.width = video.videoWidth || 640;
+  canvas.height = video.videoHeight || 480;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(video, 0, 0);
+  canvas.toBlob(blob => {
+    if (blob) {
+      resultDiv.textContent = '📸 Foto aufgenommen (' + Math.round(blob.size/1024) + ' KB).';
+      // Automatisch Barcode/QR im Foto suchen
+      const img = new Image();
+      img.onload = () => {
+        if ('BarcodeDetector' in window) {
+          new BarcodeDetector({ formats: ['ean_13','ean_8','code_128','code_39','upc_a','upc_e','itf','qr_code'] })
+            .detect(img).then(codes => {
+              if (codes.length > 0) {
+                resultDiv.textContent += ' ✅ Code gefunden: ' + codes[0].rawValue;
+                quickAction(codes[0].rawValue);
+              }
+            }).catch(() => {});
+        }
+      };
+      img.src = URL.createObjectURL(blob);
+    } else {
+      resultDiv.textContent = '❌ Foto konnte nicht erstellt werden.';
+    }
+  }, 'image/jpeg', 0.85);
+  stopCamera();
+}
+
+function handleScanFile(input) {
+  const resultDiv = document.getElementById('scanResult');
+  const file = input.files[0];
+  if (!file) return;
+  
+  const img = new Image();
+  img.onload = () => {
+    // Native BarcodeDetector versuchen
+    if ('BarcodeDetector' in window) {
+      new BarcodeDetector({ formats: ['ean_13','ean_8','code_128','code_39','upc_a','upc_e','itf','qr_code','data_matrix','codabar','code_93'] })
+        .detect(img)
+        .then(codes => {
+          if (codes.length > 0) {
+            resultDiv.textContent = '✅ ' + codes[0].format + ': ' + codes[0].rawValue;
+            quickAction(codes[0].rawValue);
+            return;
+          }
+          // QR via jsQR
+          tryQRFromImage(img, resultDiv);
+        })
+        .catch(() => tryQRFromImage(img, resultDiv));
+    } else {
+      tryQRFromImage(img, resultDiv);
+    }
+  };
+  img.src = URL.createObjectURL(file);
+}
+
+function tryQRFromImage(img, resultDiv) {
+  if (typeof jsQR === 'undefined') {
+    resultDiv.textContent = '📄 Datei geladen: ' + img.src.split('/').pop() + '. Kein Code erkannt.';
+    return;
+  }
+  const c = document.createElement('canvas');
+  c.width = img.naturalWidth || 640;
+  c.height = img.naturalHeight || 480;
+  const ctx = c.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  const imageData = ctx.getImageData(0, 0, c.width, c.height);
+  const qr = jsQR(imageData.data, imageData.width, imageData.height);
+  if (qr) {
+    resultDiv.textContent = '✅ QR: ' + qr.data;
+    quickAction(qr.data);
+  } else {
+    resultDiv.textContent = '📄 Datei geladen. Kein Code erkannt.';
+  }
+}
+
+function quickAction(code) {
+  const resultDiv = document.getElementById('scanResult');
+  const product = state.products.find(p => p.sku === code || p.name.toUpperCase().includes(code.toUpperCase()));
+  if (product) {
+    resultDiv.innerHTML += '<br><b>' + product.name + '</b> gefunden. <button class="green" onclick="addDirectSale(\'' + product.sku + '\')">Ausbuchen</button>';
+  } else {
+    resultDiv.innerHTML += '<br>Kein Produkt gefunden. <button class="primary" onclick="quickAddProduct(\'' + code + '\')">Als neuen Artikel anlegen</button>';
+  }
+}
+
+function addDirectSale(sku) {
+  const p = state.products.find(x => x.sku === sku);
+  if (!p || p.stock <= 0) return note('Nicht genug auf Lager für ' + sku);
+  if (!state.sales) state.sales = [];
+  state.sales.unshift({
+    id: Date.now(),
+    product: p.sku,
+    name: p.name,
+    qty: 1,
+    price: p.price,
+    total: p.price,
+    customer: 'Kassenverkauf (Scan)',
+    date: new Date().toLocaleDateString('de-DE'),
+    empfaenger: 'Lagerabgang'
+  });
+  p.stock -= 1;
+  note('Ausgebucht: ' + p.name);
+  save();
+}
+
+function quickAddProduct(code) {
+  const name = prompt('Name des neuen Artikels für Code ' + code + ':') || code;
+  if (!name) return;
+  state.products.unshift({
+    id: Date.now(),
+    sku: code,
+    name: name,
+    stock: 1,
+    minStock: 0,
+    price: 0,
+    supplier: 'Scan-Import'
+  });
+  note('Neuer Artikel angelegt: ' + name + ' (' + code + ')');
+  save();
+}
+
+render();
+loadCloudState();
+</script>
+<div id="scannerModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:200;align-items:center;justify-content:center;"><div style="background:#0b1020;border-radius:20px;padding:20px;max-width:420px;width:95%;color:white;text-align:center;"><h3 style="margin:0 0 12px;">📷 Schnell-Scan (Handy-Kamera)</h3><p style="font-size:13px;opacity:.7;">Barcode (Strichcode 1 Gen), QR oder Produkt-Foto. Schnelle Ein-/Ausbuchung.</p><video id="scannerVideo" autoplay playsinline style="width:100%;border-radius:12px;background:#000;margin:12px 0;"></video><canvas id="scannerCanvas" style="display:none;"></canvas><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0;"><button onclick="startCameraScan()" class="primary">Kamera starten</button><button onclick="scanBarcode()">Barcode scannen</button><button onclick="scanQR()">QR scannen</button><button onclick="capturePhoto()">Foto aufnehmen</button></div><div id="scanResult" style="min-height:50px;background:rgba(255,255,255,0.05);border-radius:10px;padding:8px;margin:8px 0;font-size:13px;text-align:left;"></div><div style="display:flex;gap:8px;justify-content:center;"><button onclick="closeScannerModal()">Schließen</button><button onclick="stopCamera()">Stop</button></div><input type="file" id="scanFile" accept="image/*" onchange="handleScanFile(this)" style="margin-top:8px;"></div></div></body>
+</html>
