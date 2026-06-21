@@ -515,6 +515,8 @@ function render(){
     prodSel.innerHTML = (state.products || []).map(p => `<option value="${esc(p.sku)}">${esc(p.name)} (Bestand: ${p.stock})</option>`).join('');
     if(state.products.length > 0) updateSalePrice();
   }
+  // Post-render: WebSocket-Status nachholen (Race-Condition: ws.onopen vor render())
+  if(wsConnected) updateSyncStatus('live');
 }
 
 function exportPDF(){
