@@ -24,20 +24,25 @@ def get_state(request: Request):
     if password != "MI-Deals-2026!":
         return {"success": False, "error": "Unauthorized"}
 
-    ensure_table()
-    with engine.connect() as conn:
-        row = conn.execute(
-            text("SELECT data FROM app_state WHERE id = 1")
-        ).fetchone()
+    try:
+        ensure_table()
+        with engine.connect() as conn:
+            row = conn.execute(
+                text("SELECT data FROM app_state WHERE id = 1")
+            ).fetchone()
 
-        if row is None:
-            return {"success": True, "state": None, "storage": "empty"}
+            if row is None:
+                return {"success": True, "state": None, "storage": "empty"}
 
-        return {
-            "success": True,
-            "state": json.loads(row[0]),
-            "storage": "postgresql"
-        }
+            raw = row[0]
+            state_data = raw if isinstance(raw, dict) else json.loads(raw)
+            return {
+                "success": True,
+                "state": state_data,
+                "storage": "postgresql"
+            }
+    except Exception as e:
+        return {"success": False, "error": str(e)}
 
 @router.post("/state")
 async def set_state(request: Request):

@@ -177,9 +177,11 @@ async def get_stock_state(request: Request):
                     "storage": "empty"
                 }
 
+            raw = row[0]
+            state_data = raw if isinstance(raw, dict) else json.loads(raw)
             return {
                 "success": True,
-                "state": json.loads(row[0]),
+                "state": state_data,
                 "updated_at": str(row[1]) if row[1] else None,
                 "active_clients": manager.count,
                 "storage": "postgresql"
