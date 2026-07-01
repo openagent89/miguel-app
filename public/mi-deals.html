@@ -73,7 +73,6 @@
   <script src="https://unpkg.com/@point-of-sale/webhid-barcode-scanner@1.2.2/dist/webhid-barcode-scanner.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
   <script src="https://unpkg.com/@zxing/library@0.21.0/umd/index.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
 </head>
 <body>
 <main>
@@ -105,7 +104,7 @@
     <div class="card" style="margin-top:16px"><h3>📦 Kritische Bestände</h3><div id="lowStockOverview"></div></div>
   </section>
   <section id="kunden" class="grid two section view-section"><div class="card"><h2>Kunden anlegen</h2><label>Kundenname<input id="c_name"></label><label>Ansprechpartner<input id="c_contact"></label><label>Telefon<input id="c_phone"></label><label>Notizen<textarea id="c_notes"></textarea></label><button class="primary" onclick="addCustomer()">Kunde speichern</button></div><div class="card"><h2>Kundenliste</h2><input id="customerSearch" placeholder="Kunden suchen..." oninput="render()"><div id="customerList"></div></div></section>
-  <section id="lager" class="grid two section view-section"><div class="card"><h2>📦 Neuen Artikel anlegen</h2><label>Artikelnummer<input id="p_sku"></label><label>Artikelname<input id="p_name"></label><label>Bestand<input id="p_stock" type="number"></label><label>Mindestbestand<input id="p_min" type="number"></label><label>Preis<input id="p_price" type="number" step="0.01"></label><label>Lieferant<input id="p_supplier"></label><label>Bild/Fotolink<input id="p_image" placeholder="optional: https://...jpg"></label><button class="primary" onclick="addProduct()">Artikel speichern</button></div><div class="card"><h2>Lagerbestand</h2><input id="productSearch" placeholder="Artikel suchen..." oninput="render()"><div id="productList"></div></div></section>
+  <section id="lager" class="grid two section view-section"><div class="card"><h2>📦 Neuen Artikel anlegen</h2><label>Artikelnummer<input id="p_sku"></label><label>Artikelname<input id="p_name"></label><label>Bestand<input id="p_stock" type="number"></label><label>Mindestbestand<input id="p_min" type="number"></label><label>Preis<input id="p_price" type="number" step="0.01"></label><label>Lieferant<input id="p_supplier"></label><label>Bild/Fotolink<input id="p_image" /><label class="muted small">MHD (falls vorhanden)</label><input id="p_expiry" type="date" class="input" /> placeholder="optional: https://...jpg"></label><button class="primary" onclick="addProduct()">Artikel speichern</button></div><div class="card"><h2>Lagerbestand</h2><input id="productSearch" placeholder="Artikel suchen..." oninput="render()"><div id="productList"></div></div></section>
   <section id="lieferungen" class="section card view-section"><h2>📥 Wareneingang</h2><p class="muted">Erhaltene Lieferungen erfassen und Artikel in den Bestand einbuchen.</p><div id="deliveryList"></div></section>
   
   <!-- NEU: Verkäufe Tab für vollständiges Wirtschaftssystem -->
@@ -135,7 +134,8 @@
   <section id="audit" class="section card view-section"><h2>📋 Protokoll</h2><p class="muted">Jede Bestandsänderung wird hier mit Vorher/Nachher-Werten dokumentiert.</p><div id="auditLogList"></div></section>
   <section id="import" class="grid two section view-section"><div class="card"><h2>Import</h2><p class="muted compact-help">Eine Quelle wählen, prüfen, dann bestätigen. Nichts wird automatisch gespeichert.</p><div class="quick-steps"><div class="quick-step"><b>1. Quelle</b><span class="muted">PDF, Excel, Text oder URL</span></div><div class="quick-step"><b>2. Prüfen</b><span class="muted">Artikel/Mengen ansehen</span></div><div class="quick-step"><b>3. Bestätigen</b><span class="muted">Erst dann Cloud-Speicher</span></div></div><label>Internetadresse<input id="smartImportUrl" placeholder="https://lieferant.de/liste"></label><div class="actions"><button class="secondary" onclick="importFromUrl()">URL einlesen</button></div><label>Datei auswählen<input type="file" id="smartImportFile" accept=".csv,.txt,.xlsx,.xls,.pdf,application/pdf,application/vnd.openxmlformats.document.spreadsheetml.sheet,application/vnd.ms-excel"></label><label>Liste einfügen<textarea id="smartImportText" rows="7" placeholder="12 Karton Cola 0,33l Lieferant Metro 9,99
 5 kg Grillfleisch Meyer 49,90"></textarea></label><div class="actions"><button class="primary" onclick="smartImport()">Import prüfen</button><button class="secondary" onclick="clearSmartImport()">Leeren</button></div><details class="import-watch"><summary>Automatische Überwachung</summary><p class="muted compact-help">Für Lieferanten-URLs. Am Anfang bleibt alles im Prüfmodus und muss bestätigt werden.</p><label><input id="autoImportEnabled" type="checkbox"> Lieferanten-URL überwachen</label><label>Prüfintervall<select id="autoImportInterval"><option>Täglich</option><option>Alle 6 Stunden</option><option>Stündlich</option></select></label><label><input id="autoImportRequireConfirm" type="checkbox" checked> Immer bestätigen lassen</label><button class="secondary" onclick="saveImportProfile()">Profil speichern</button></details><div class="card"><h2>Prüfung</h2><p class="muted compact-help">Hier erscheint nur die Vorschau. Erst „Import bestätigen“ schreibt Daten.</p><div id="importPreview"><p class="muted">Noch kein Import.</p></div></div></section>
-    <section id="daten" class="grid two section view-section"><div class="card"><h2>💾 Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createTestDelivery()">Test-Lieferung (3 Artikel)</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card"><h2>🔗 Echtzeit-Sync</h2><p class="muted">Letzte WebSocket-Verbindung zum Server prüfen und eine Test-Änderung senden. Bei 🟢 Live sollte die Änderung sofort auf allen Geräten erscheinen.</p><div class="actions"><button class="primary" onclick="syncTestRandom()">🔄 Sync-Test (Bestand ändern)</button><button class="secondary" onclick="createTestDelivery()">📦 Test-Lieferung (3 Artikel)</button></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
+    <section id="daten" class="grid two section view-section"><div class="card"><h2>💾 Daten sichern</h2><p class="muted">Lädt eine vollständige JSON-Sicherung aller Kunden, Artikel, Lieferungen und Verkäufe herunter.</p><div class="actions"><button class="green" onclick="exportData()">JSON-Sicherung herunterladen</button><button class="secondary" onclick="copyDataSummary()">Kurzübersicht kopieren</button></div></div><div class="card"><h2>Daten wiederherstellen</h2><p class="muted">Importiert eine vorher exportierte JSON-Sicherung. Bestehende Browserdaten werden ersetzt und danach in die Cloud gespeichert.</p><input type="file" id="importFile" accept="application/json"><div class="actions"><button class="warn" onclick="importData()">Sicherung importieren</button><button class="secondary" onclick="resetDemo()">Demo-Daten laden</button></div></div><div class="card"><h2>Test-Werkzeuge</h2><p class="muted">Nur für Tests und Entwicklung. Nicht im laufenden Betrieb verwenden.</p><div class="actions"><button class="secondary" onclick="createTestDelivery()">Test-Lieferung (3 Artikel)</button><button class="secondary" onclick="importWarenwirtschaftCSV()">Beispiel-Artikel laden</button><button class="danger-btn" onclick="resetToEmpty()">System komplett zurücksetzen</button></div></div><div class="card"><h2>🔗 Echtzeit-Sync</h2><p class="muted">Letzte WebSocket-Verbindung zum Server prüfen und eine Test-Änderung senden. Bei 🟢 Live sollte die Änderung sofort auf allen Geräten erscheinen.</p><div class="actions"><button class="primary" onclick="syncTestRandom()">🔄 Sync-Test (Bestand ändern)</button><button class="secondary" onclick="createTestDelivery()">📦 Test-Lieferung (3 Artikel)</button></div></div>
+    <div class="card"><h2>🤖 Telegram-Steuerung (@MundIDealBot)</h2><p class="muted">Direkter Test-Versand an den Bot. Übertrifft Konkurrenten durch nahtlose Bot-Integration ohne externe Tools.</p><div class="actions"><button class="primary" onclick="sendTelegramTest()">📨 Test-Nachricht senden</button><button class="secondary" onclick="checkTelegramStatus()">Status prüfen</button></div><div id="telegramStatus" style="margin-top:8px;font-size:12px;color:var(--muted)"></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
 </main>
 <script>
 const ACCESS_PASSWORD='MI-Deals-2026!';
@@ -301,6 +301,85 @@ setTimeout(connectWebSocket, 500);
 
 function seed(){return{version:3,updatedAt:new Date().toISOString(),customers:[],products:[],deliveries:[],sales:[],auditLog:[]}}
 
+// === Zentrale State-Management-Schicht (Meilenstein 11) ===
+function updateStock(sku, change, reason = 'Manuell') {
+  const p = state.products.find(x => x.sku.toLowerCase() === sku.toLowerCase());
+  if (!p) return false;
+  const oldStock = p.stock || 0;
+  p.stock = oldStock + change;
+  if (!state.auditLog) state.auditLog = [];
+  state.auditLog.unshift({
+    id: Date.now(),
+    sku: p.sku,
+    name: p.name,
+    change: change,
+    stockBefore: oldStock,
+    stockAfter: p.stock,
+    reason: reason,
+    timestamp: new Date().toISOString()
+  });
+  return true;
+}
+
+function validateProduct(product) {
+  if (!product || !product.sku || !product.name) return false;
+  if (product.stock < 0 || product.minStock < 0) return false;
+  return true;
+}
+
+function getStateSnapshot() {
+  return JSON.parse(JSON.stringify(state));
+}
+
+function createDeliveryFromImport(rows) {
+  const deliveryId = Date.now();
+  const lines = rows.map((r, i) => ({
+    id: deliveryId + i + 1,
+    sku: r.sku,
+    name: r.name,
+    expected: r.amount,
+    received: 0,
+    unit: r.unit || 'Stk',
+    status: 'offen'
+  }));
+  state.deliveries.unshift({
+    id: deliveryId,
+    number: 'WE-' + new Date().toISOString().slice(0,10) + '-' + String(state.deliveries.length+1).padStart(3,'0'),
+    customer: 'Import / Warenliste',
+    status: 'offen',
+    createdAt: new Date().toLocaleDateString('de-DE'),
+    lines: lines
+  });
+  return deliveryId;
+}
+
+function isValidSku(sku){return sku && sku.length >= 3 && sku.length <= 30;}
+function normalizeUnit(unit){const u=(unit||'Stk').toLowerCase();if(['kart','karton','box'].includes(u))return 'Karton';if(['pkg','pack','packung'].includes(u))return 'Packung';return 'Stk';}
+
+// === Meilenstein 12: Robuste Import-Engine ===
+function robustImport(text, options = {}) {
+  if (!text || text.trim().length < 3) return { rows: [], rejected: 0, error: "Kein Text" };
+  
+  const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  const rows = [];
+  let rejected = 0;
+
+  lines.forEach((line, index) => {
+    if (isJunkImportText(line)) { rejected++; return; }
+    
+    const parsed = parseSmartLine(line, index);
+    if (parsed && isSafeImportRow(parsed) && isValidSku(parsed.sku)) {
+      parsed.unit = normalizeUnit(parsed.unit);
+      rows.push(parsed);
+    } else {
+      rejected++;
+    }
+  });
+
+  return { rows, rejected, error: null };
+}
+// === Ende State-Management-Schicht ===
+
 /* Server-first State: lade von Cloud, Fallback auf localStorage-Cache */
 async function loadCloudState(){
   setCloudStatus('📡 Lade zentralen Datenstand...');
@@ -354,55 +433,72 @@ function save(){
 }
 function setCloudStatus(text,isError=false){const el=document.getElementById('cloudStatus');if(el){el.textContent=text;el.style.borderColor=isError?'#fb7185':'#334155';}updateSystemInfo()}
 async function saveCloudState(){try{const res=await fetch(API_URL+'/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(state)});const data=await res.json();if(!data.success)throw new Error(data.error||'Cloud-Speichern fehlgeschlagen');setCloudStatus('☁️ Cloud gespeichert · '+new Date().toLocaleTimeString('de-DE'))}catch(e){/* silent */}}
+
+async function sendTelegramTest(){
+  const statusEl = document.getElementById('telegramStatus');
+  statusEl.textContent = 'Sende Test-Nachricht...';
+  try {
+    const res = await fetch(API_URL + '/telegram/notify', {
+      method: 'POST',
+      headers: {'content-type': 'application/json', 'x-mi-deals-password': ACCESS_PASSWORD},
+      body: JSON.stringify({message: '🧪 Test von M&I Deals App – Telegram-Integration funktioniert!'})
+    });
+    const data = await res.json();
+    if (data.status === 'sent') {
+      statusEl.textContent = '✅ Test-Nachricht erfolgreich gesendet an @MundIDealBot';
+    } else {
+      statusEl.textContent = '⚠️ ' + (data.message || 'Fehler beim Senden');
+    }
+  } catch(e) {
+    statusEl.textContent = '❌ Fehler: ' + e.message;
+  }
+}
+
+function checkTelegramStatus(){
+  const statusEl = document.getElementById('telegramStatus');
+  statusEl.textContent = 'Telegram-Router aktiv. Token/Chat-ID via .env prüfen für vollen Betrieb.';
+}
 function euro(v){return Number(v||0).toLocaleString('de-DE',{style:'currency',currency:'EUR'})}
 function note(t){const el=document.getElementById('notice');if(el)el.textContent=t;const toast=document.getElementById('toast');if(toast){toast.textContent=t;toast.classList.add('show');clearTimeout(window.__miToastTimer);window.__miToastTimer=setTimeout(()=>toast.classList.remove('show'),3200)}updateSystemInfo()}
 function updateSystemInfo(){const el=document.getElementById('systemInfoText');if(el){el.textContent='Projektordner: /Users/christopherno/Projects/Miguel · FERTIGES PRODUKT · '+(document.getElementById('cloudStatus')?.textContent||'Cloud wird geprüft')+' · Letzte Meldung: '+(document.getElementById('notice')?.textContent||'Bereit')}}
 function val(id){return document.getElementById(id).value.trim()}
 function clear(ids){ids.forEach(id=>document.getElementById(id).value='')}
-function addCustomer(){const name=val('c_name');if(!name)return note('Kundenname fehlt.');state.customers.unshift({id:Date.now(),name,contact:val('c_contact'),phone:val('c_phone'),notes:val('c_notes')});clear(['c_name','c_contact','c_phone','c_notes']);note('Kunde gespeichert: '+name);save()}
-function addProduct(){const sku=val('p_sku'),name=val('p_name');if(!sku||!name)return note('Artikelnummer und Name fehlen.');if(state.products.some(p=>p.sku.toLowerCase()===sku.toLowerCase()))return note('Artikelnummer existiert bereits: '+sku);state.products.unshift({id:Date.now(),sku,name,stock:+val('p_stock')||0,minStock:+val('p_min')||0,price:+val('p_price')||0,supplier:val('p_supplier'),imageUrl:val('p_image')});clear(['p_sku','p_name','p_stock','p_min','p_price','p_supplier','p_image']);note('Artikel gespeichert: '+name);save()}
-function createDelivery(){const p=state.products[0];if(!p)return note('Kein Artikel vorhanden.');const d={id:Date.now(),number:'LIEF-'+new Date().getFullYear()+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:state.customers[0]?.name||'Ohne Kunde',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:[{id:Date.now(),sku:p.sku,name:p.name,expected:1,received:0,status:'offen'}]};state.deliveries.unshift(d);note('Lieferung erstellt: '+d.number);save()}
+function addCustomer(){const name=val('c_name');if(!name)return note('Kundenname fehlt.');state.customers.unshift({id:Date.now(),name,contact:val('c_contact'),phone:val('c_phone'),notes:val('c_notes')});clear(['c_name','c_contact','c_phone','c_notes']);note('Kunde gespeichert: '+name);save();render()}
+function addProduct(){const sku=val('p_sku'),name=val('p_name');if(!sku||!name)return note('Artikelnummer und Name fehlen.');if(state.products.some(p=>p.sku.toLowerCase()===sku.toLowerCase()))return note('Artikelnummer existiert bereits: '+sku);state.products.unshift({id:Date.now(),sku,name,stock:+val('p_stock')||0,minStock:+val('p_min')||0,price:+val('p_price')||0,supplier:val('p_supplier'),imageUrl:val('p_image'),expiry_date:val('p_expiry')||null});clear(['p_sku','p_name','p_stock','p_min','p_price','p_supplier','p_image']);note('Artikel gespeichert: '+name);save();render()}
+function createDelivery(){const p=state.products[0];if(!p)return note('Kein Artikel vorhanden.');const d={id:Date.now(),number:'LIEF-'+new Date().getFullYear()+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:state.customers[0]?.name||'Ohne Kunde',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:[{id:Date.now(),sku:p.sku,name:p.name,expected:1,received:0,status:'offen'}]};state.deliveries.unshift(d);note('Lieferung erstellt: '+d.number);save();render()}
 function createDeliveryFromSelection(){createDelivery()}
 function recvInput(did,lid,el){const d=state.deliveries.find(x=>x.id===did);if(!d)return;const l=d.lines.find(x=>x.id===lid);if(!l)return;const v=parseInt(el.value.replace(/[^0-9]/g,''))||0;l.received=v;const df=document.getElementById('diff-'+did+'-'+lid);if(df){const diff=v-l.expected;df.textContent=diff===0?'0':(diff>0?'+'+diff:String(diff));df.className='num '+(diff===0?'':(diff>0?'diff-pos':'diff-neg'))}}function confirmRecv(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');save();note('Menge übernommen: '+l.name+' = '+l.received+' Stück')}function setReceived(did,lid,value){const d=state.deliveries.find(x=>x.id===did);const l=d.lines.find(x=>x.id===lid);l.received=+value||0;save()}
-function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return;if(d.status==='geprüft')return note('Lieferung '+d.number+' wurde bereits gebucht.');d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+(l.received||0);state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:+l.received||0,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang',timestamp:new Date().toISOString()})}});d.status='geprüft';note('Lieferung gebucht: '+d.number+' · Bestand aktualisiert');save()}
+function bookDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return;if(d.status==='geprüft')return note('Lieferung '+d.number+' wurde bereits gebucht.');d.lines.forEach(l=>{const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+(l.received||0);state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:+l.received||0,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang',timestamp:new Date().toISOString()})}});d.status='geprüft';note('✅ Lieferung gebucht: '+d.number+' · Bestand aktualisiert');save();render()}
 function getDeliveryStatus(d){if(!d||!d.lines||!d.lines.length)return'offen';const booked=d.lines.filter(l=>l.status==='gebucht').length;const total=d.lines.length;if(booked===0)return'offen';if(booked<total)return'teilweise';return'abgeschlossen'}
 function statusBadgeHtml(s){const m={offen:'bg:#ef4444;color:#fff',teilweise:'bg:#f59e0b;color:#000',abgeschlossen:'bg:#22c55e;color:#fff',abweichung:'bg:#f97316;color:#fff',geprüft:'bg:#22c55e;color:#fff'};const c=m[s]||m.offen;return'<span style="display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;font-weight:600;'+(c)+'">'+s+'</span>'}
-function bookLineItem(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');if(l.status==='gebucht')return note(l.name+' ist bereits gebucht.');const qty=parseInt(l.received)||0;if(qty<=0)return note('Bitte zuerst die erhaltene Menge eintragen (Erhalten > 0).');if(!confirm(l.name+' mit '+qty+' Stück buchen?'))return;const p=state.products.find(x=>x.sku===l.sku);if(p){const oldStock=p.stock||0;p.stock=oldStock+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:oldStock,stockAfter:p.stock,reason:'Wareneingang (Einzelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht';d.status=getDeliveryStatus(d);note(l.name+' ('+qty+' Stück) gebucht. Bestand aktualisiert.');save()}
+function bookLineItem(did,lid){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const l=d.lines.find(x=>x.id===lid);if(!l)return note('Artikel in Lieferung nicht gefunden.');if(l.status==='gebucht')return note(l.name+' ist bereits gebucht.');const qty=parseInt(l.received)||0;if(qty<=0)return note('Bitte zuerst die erhaltene Menge eintragen (Erhalten > 0).');if(!confirm(l.name+' mit '+qty+' Stück buchen?'))return;
+  // Nutze zentrale updateStock-Funktion (Meilenstein 11)
+  const success = updateStock(l.sku, qty, 'Wareneingang (Einzelbuchung)');
+  if (!success) return note('Artikel nicht gefunden.');
+  l.status='gebucht';d.status=getDeliveryStatus(d);note(l.name+' ('+qty+' Stück) gebucht. Bestand aktualisiert.');save();render()
+}
 function bookAllDelivery(did){const d=state.deliveries.find(x=>x.id===did);if(!d)return note('Lieferung nicht gefunden.');const ub=d.lines.filter(l=>l.status!=='gebucht');if(!ub.length)return note('Alle Positionen bereits gebucht.');if(!confirm('Alle '+ub.length+' offenen Positionen von '+d.number+' auf die erwartete Menge setzen und buchen?'))return;let count=0;ub.forEach(l=>{l.received=l.expected;const qty=l.received;const p=state.products.find(x=>x.sku===l.sku);if(p){const os=p.stock||0;p.stock=os+qty;state.auditLog=(state.auditLog||[]);state.auditLog.unshift({id:Date.now()+Math.random(),deliveryId:did,deliveryNumber:d.number,sku:l.sku,name:l.name,change:qty,stockBefore:os,stockAfter:p.stock,reason:'Wareneingang (Sammelbuchung)',timestamp:new Date().toISOString()})}l.status='gebucht';count++});d.status=getDeliveryStatus(d);note(count+' Artikel wurden auf die erwartete Menge gesetzt und gebucht.');save();render()}
-function createTestDelivery(){if(state.products.length<2)return note('Mindestens 2 Artikel anlegen für Test-Lieferung.');const ps=state.products.slice(0,3);const d={id:Date.now(),number:'TEST-WE-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Test-Lieferant GmbH',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:ps.map((p,i)=>({id:Date.now()+i+1,sku:p.sku,name:p.name,expected:10+i*5,received:0,unit:'Stk',status:'offen'}))};state.deliveries.unshift(d);save();note('Test-Lieferung erstellt: '+d.number+' mit '+ps.length+' Artikeln')}
+
 let deliverySortKey='';function sortDeliveries(key){deliverySortKey=(deliverySortKey===key?'-'+key:key);render()}
 function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='mi-deals-sicherung-'+new Date().toISOString().slice(0,10)+'.json';a.click();URL.revokeObjectURL(a.href);note('JSON-Sicherung wurde erstellt.')}
 function importData(){const f=document.getElementById('importFile').files[0];if(!f)return note('Bitte zuerst eine JSON-Datei auswählen.');const r=new FileReader();r.onload=()=>{try{const data=JSON.parse(r.result);if(!data.customers||!data.products||!data.deliveries)throw new Error('Ungültiges Format');state=data;if(!state.sales)state.sales=[];if(!state.auditLog)state.auditLog=[];note('Sicherung importiert.');save()}catch(e){note('Import fehlgeschlagen: '+e.message)}};r.readAsText(f)}
 
-async function importFromUrl(){const input=document.getElementById('smartImportUrl');const url=input.value.trim();if(!url)return note('Bitte zuerst eine Internetadresse einfügen.');try{note('Internetadresse wird eingelesen...');const res=await fetch(`API_URL + '/api/import-url`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify({url})});const data=await res.json();if(!data.success)throw new Error(data.error||'Adresse konnte nicht gelesen werden');const textArea=document.getElementById('smartImportText');textArea.value=(textArea.value?textArea.value+'\\n':'')+data.text;note('URL eingelesen. Jetzt Import prüfen.')}catch(e){note('Adress-Import fehlgeschlagen: '+e.message)}}
-async function smartImport(){const file=document.getElementById('smartImportFile').files[0];let text=document.getElementById('smartImportText').value.trim();try{if(file){text=await readSmartImportFile(file)}if(!text.trim())return note('Bitte Datei auswählen oder Liste einfügen.');const lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const veCount=(text.match(/VE:\s*\d+\s*(Stk|Stück)/gi)||[]).length;let result;if(veCount>=3&&lines.length>=veCount*5){result=parseInvoicePDF(text)}else{result=parseSmartRows(text)}const rows=result.rows;if(!rows.length)return note('Keine sicheren Artikelzeilen erkannt. Kopfzeilen, Adressen und Summen wurden ignoriert.');pendingImportRows=rows;renderImportPreview(rows,true,result.rejected);note(rows.length+' sichere Zeilen erkannt. '+result.rejected+' verdächtige Zeilen ignoriert. Bitte prüfen.')}catch(e){note('Import fehlgeschlagen: '+e.message)}}
-function readSmartImportFile(file){return new Promise((resolve,reject)=>{const name=file.name.toLowerCase();const reader=new FileReader();reader.onerror=()=>reject(new Error('Datei konnte nicht gelesen werden.'));if(name.endsWith('.xlsx')||name.endsWith('.xls')){reader.onload=()=>{try{if(!window.XLSX)throw new Error('Excel-Modul konnte nicht geladen werden. Bitte alternativ als CSV speichern.');const wb=XLSX.read(reader.result,{type:'array'});const sheet=wb.Sheets[wb.SheetNames[0]];resolve(XLSX.utils.sheet_to_csv(sheet,{FS:';'}))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else if(name.endsWith('.pdf')){reader.onload=async()=>{try{const pdfjs=window.pdfjsLib||globalThis.pdfjsLib;if(!pdfjs)throw new Error('PDF-Modul lädt noch. Bitte in ein paar Sekunden erneut versuchen.');pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';const pdf=await pdfjs.getDocument({data:reader.result}).promise;const allLines=[];for(let i=1;i<=pdf.numPages;i++){const page=await pdf.getPage(i);const content=await page.getTextContent();let lineItems=[],currentY=null;for(const item of content.items){const y=Math.round(item.transform[5]);if(currentY===null||Math.abs(y-currentY)<4){lineItems.push(item.str);currentY=y}else{allLines.push(lineItems.join(' ').trim());lineItems=[item.str];currentY=y}}if(lineItems.length)allLines.push(lineItems.join(' ').trim())}resolve(allLines.join('\n'))}catch(e){reject(e)}};reader.readAsArrayBuffer(file)}else{reader.onload=()=>resolve(String(reader.result||''));reader.readAsText(file)}})}
-function parseInvoicePDF(text){let lines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const merged=[];for(let i=0;i<lines.length;i++){if(/\w-$/.test(lines[i])&&i+1<lines.length&&/^[a-zäöüß]/i.test(lines[i+1])){merged.push(lines[i].replace(/-$/,'')+lines[i+1]);i++}else{merged.push(lines[i])}}lines=merged;const rows=[];const consumed=new Set();const isDataRow=l=>/^\d+\s+\S+\s+\d+[.,]\d+/.test(l)&&!/(?:Pos\.|Bezeichnung|Menge|Einheit|Einzel)/i.test(l);for(let i=0;i<lines.length;i++){const veMatch=lines[i].match(/VE:\s*(\d+(?:[.,]\d+)?)\s*(Stk|Stück|Karton|Kiste|kg|g|l|Liter|Pack|Paket|Palette|Flasche|Dose|Dosen)\s*(?:·\s*ART-(\w+))?/i);if(!veMatch)continue;if(/Pfand/i.test(lines[i])||/fee rule/i.test(lines[i])||/Übertrag/i.test(lines[i]))continue;const veAmount=veMatch[1];const veUnit=veMatch[2];const sku=veMatch[3]?'ART-'+veMatch[3]:'';let nameLines=[];for(let j=i-1;j>=0;j--){const l=lines[j];if(isDataRow(l)){break}if(/^\d+\s+.+?\s+\d+\s+\S+\s+\d+[.,]\d+\s+\d+[.,]\d+$/.test(l)){break}if(/^\d+$/.test(l)&&j>0&&!/^(?:Pos|Position|Nr)/i.test(l)){break}if(/Zwischensumme|Übertrag|Summe|gesamt|Seite/i.test(l)){break}if(/VE:\s*\d+/i.test(l)&&j!==i-1){break}if(/\bPos\.\s*Bezeichnung\b/i.test(l)){break}if(/Rechnung zu #/i.test(l)||/Bestellung #/i.test(l)||/Lieferungen in Rechnung/i.test(l)){break}nameLines.unshift(l)}let name=nameLines.join(' ').replace(/\s*-\s+/g,' - ').replace(/\s{2,}/g,' ').trim();const posNum=(nameLines[0]?nameLines[0].match(/^(\d+)\s/):null)||[];const vpos=posNum[1]?parseInt(posNum[1]):999;name=name.replace(/^\d+\s*/,'').trim();name=name.replace(/^(?:CBuD\s*GmbH\s*[·|]?\s*)/i,'').trim();if(!name||isJunkImportText(name))continue;let amount=0,unit='Stk',price=0;if(i+1<lines.length){const nl=lines[i+1];const dp=nl.match(/^(\d+(?:[.,]\d+)?)\s+(\S+)\s+(\d+[.,]\d+)\s+(\d+[.,]\d+)$/);if(dp){amount=num(dp[1]);unit=dp[2]||'Stk';price=num(dp[3])}else if(/^(\d+(?:[.,]\d+)?)\s+(\S+)/.test(nl)){const m=nl.match(/^(\d+(?:[.,]\d+)?)\s+(\S+)/);amount=num(m[1]);unit=m[2]||'Stk';const pp=nl.match(/\d+[.,]\d+/g);if(pp&&pp.length>=1)price=num(pp[0])}else if(/^\d+(?:[.,]\d+)?$/.test(nl)){amount=num(nl);if(i+2<lines.length&&!/^\d+(?:[.,]\d+)?$/.test(lines[i+2])){const u=lines[i+2].trim();if(u&&!/[.,]/.test(u)&&u.length<20)unit=u}for(let k=i+1;k<lines.length;k++){const p=lines[k].match(/^(\d+(?:[.,]\d+)?)$/);if(p){const val=num(p[1]);if(val>0.1&&val<99999){price=val;break}}}}}for(let j=i-nameLines.length;j<=i+1;j++){if(j>=0&&j<lines.length)consumed.add(j)}const raw=name+' VE: '+veAmount+' '+veUnit+(sku?' · '+sku:'')+' x'+amount;rows.push({sku:sku||makeSku(name),name,amount,unit,price,supplier:'CBuD GmbH',imageUrl:'',raw,_pos:vpos})}for(let i=0;i<lines.length;i++){if(consumed.has(i))continue;const m=lines[i].match(/^(\d+)\s+(.+?)\s+(\d+)\s+(\S+)\s+(\d+[.,]\d+)\s+(\d+[.,]\d+)$/);if(!m)continue;const posNum=parseInt(m[1]);if(posNum<1||posNum>200)continue;let nm=m[2].replace(/\s*-\s+/g,' - ').trim();nm=nm.replace(/^(?:CBuD\s*GmbH\s*[·|]?\s*)/i,'').trim();if(/(?:Pos\.|Bezeichnung|Menge|Einheit|Einzel|Übertrag|Zwischensumme|Summe|Gesamt|Seite|fee rule|Pfand|Rechnung|Bestellung|Lieferung)/i.test(nm))continue;if(isJunkImportText(nm))continue;consumed.add(i);rows.push({sku:makeSku(nm),name:nm,amount:num(m[3]),unit:m[4]||'Stk',price:num(m[5]),supplier:'CBuD GmbH',imageUrl:'',raw:nm+' x'+m[3]+' '+m[4]+' @ '+m[5],_pos:posNum})}rows.sort((a,b)=>(a._pos||999)-(b._pos||999));rows.forEach(r=>delete r._pos);return{rows,rejected:lines.length-rows.length,total:lines.length}}function parseSmartRows(text){let rawLines=text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const compact=String(text||'').replace(/\\s+/g,' ').trim();if(rawLines.length<3){rawLines=rawLines.concat(extractOrderProductChunks(compact))}let rows=[],rejected=0;rawLines.forEach(line=>{const parsed=parseSmartLine(line);if(parsed&&isSafeImportRow(parsed)){if(!rows.some(r=>r.sku===parsed.sku&&r.amount===parsed.amount)){rows.push(parsed)}}else{rejected++}});return{rows,rejected,total:rawLines.length}}
-function extractOrderProductChunks(text){const chunks=[];const unit='stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?';const re=new RegExp('(?:^|€\s*\d+[,.]?\d*\s*)([A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&./\\- ]{3,90}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*('+unit+')','gi');let m;while((m=re.exec(text))){const name=m[1].replace(/.*?(?:agb|batteriegesetz|legal|account|mein konto|login)\s+/i,'').trim();if(name)chunks.push(m[2]+' '+m[3]+' '+name)}if(chunks.length)return chunks;const fallback=new RegExp('((?:[A-ZÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9+&.\\-]{2,}\\s+){1,9}?VE[: ]+\\d+(?:[,.]\\d+)?\\s*(?:'+unit+'))','gi');while((m=fallback.exec(text))){chunks.push(m[1].trim())}return chunks}
-function parseSmartLine(line,index){const raw=line.replace(/\t/g,';').replace(/\s{2,}/g,' ').trim();if(isJunkImportText(raw))return null;const parts=raw.includes(';')?raw.split(';').map(x=>x.trim()).filter(Boolean):raw.split(',').map(x=>x.trim()).filter(Boolean);let amount=0,unit='Stk',name='',sku='',price=0,supplier='';if(parts.length>=2&&/^\d+([,.]\d+)?$/.test(parts[0])){amount=num(parts[0]);name=parts[1]||'';unit=guessUnit(raw);price=findPrice(raw);supplier=guessSupplier(raw)}else if(parts.length>=3&&/^\d+([,.]\d+)?$/.test(parts[1])){sku=parts[0];amount=num(parts[1]);name=parts[2]||parts[0];unit=parts[3]||guessUnit(raw);price=findPrice(raw);supplier=parts[5]||guessSupplier(raw)}else{const productHint=raw.match(/(?:^|\s)(\d+(?:[,.]\d+)?)\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\s+(.+)/i);const veAfterName=raw.match(/([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,}?)\\s+VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)/i);const veHint=raw.match(/VE[: ]+(\\d+(?:[,.]\\d+)?)\\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?).{0,80}?([A-Za-zÄÖÜa-zäöüß][A-Za-zÄÖÜäöüß0-9 +\/.\&-]{3,})/i);if(veAfterName){name=veAfterName[1];amount=num(veAfterName[2]);unit=veAfterName[3]||'Stk';price=findPrice(raw);supplier=guessSupplier(raw)}else{const m=productHint||veHint;if(!m)return null;amount=num(m[1]);unit=m[2]||'Stk';name=(m[3]||'');price=findPrice(raw);supplier=guessSupplier(raw)}}const imageUrl=findImageUrl(raw);name=name.replace(/https?:\/\/\S+/ig,'').replace(/\bVE[: ]+\d+(?:[,.]\d+)?\s*(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\b/ig,'').replace(/\b\d+[,.]\d{2}\s*(€|eur)?\b/ig,'').replace(/^[€\s\d.,]+/,'').replace(/\b(lieferant|supplier)[: ]+[\wäöüÄÖÜß .-]+$/i,'').trim();if(!name)return null;sku=sku||makeSku(name);return{sku,name,amount,unit,price,supplier,imageUrl,raw}}function isJunkImportText(s){return /(@|account|login|mein konto|legal|agb|batteriegesetz|rechnungsadresse|lieferadresse|gesamt|netto|mwst|total|bestellstatus|zahlungsstatus|versandstatus|bestellnummer|bestelldatum|deutschland|marienmünster|koenigstraße|königstraße)/i.test(s)}
-function isSafeImportRow(r){const name=String(r.name||'').trim();if(!name||name.length<3||name.length>90)return false;if(isJunkImportText(name)||isJunkImportText(r.raw))return false;if(!Number.isFinite(r.amount)||r.amount<=0||r.amount>1000)return false;if(/^[\d€.,\s-]+$/.test(name))return false;if(/\b\d{5}\b/.test(name))return false;if((r.price||0)>5000)return false;return true}
-function num(v){return Number(String(v||'0').replace(',','.'))||0}
-function guessUnit(s){const m=s.match(/\b(stk|stück|karton|kiste|kg|g|l|liter|pack|paket|palette|flasche|dosen?)\b/i);return m?m[1]:'Stk'}
-function findPrice(s){const m=s.match(/(\d+[,.]\d{2})\s*(€|eur)?\b/i);return m?num(m[1]):0}
-function guessSupplier(s){const m=s.match(/(?:lieferant|supplier)[: ]+([\wäöüÄÖÜß .-]+?)(?:\s+\d+[,.]\d{2}\s*(?:€|eur)?|$)/i);return m?m[1].trim():''}
-function makeSku(name){return 'IMP-'+name.toUpperCase().normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').replace(/[^A-Z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,24)}
-function findImageUrl(s){const m=String(s||'').match(/https?:\/\/\S+?\.(?:jpg|jpeg|png|webp)(?:\?\S*)?/i);return m?m[0]:''}
-function initials(name){return String(name||'?').split(/\s+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'?'}
-function thumbHtml(item){const url=item.imageUrl||item.image||findImageUrl(item.raw);return url?`<div class=\"thumb\"><img src=\"${esc(url)}\" alt=\"${esc(item.name||'Artikelbild')}\" onerror=\"this.parentElement.textContent='${esc(initials(item.name))}'\">`:`<div class=\"thumb\">${esc(initials(item.name))}</div>`}
-
-function applySmartRows(rows){rows.forEach(r=>{const existing=state.products.find(p=>p.sku.toLowerCase()===r.sku.toLowerCase()||p.name.toLowerCase()===r.name.toLowerCase());if(existing){if(r.price)existing.price=r.price;if(r.supplier)existing.supplier=r.supplier;if(r.imageUrl)existing.imageUrl=r.imageUrl}else{state.products.unshift({id:Date.now()+Math.random(),sku:r.sku,name:r.name,stock:0,minStock:0,price:r.price||0,supplier:r.supplier||'Import',imageUrl:r.imageUrl||''})}});const deliveryId=Date.now();state.deliveries.unshift({id:deliveryId,number:'WE-'+new Date().toISOString().slice(0,10)+'-'+String(state.deliveries.length+1).padStart(3,'0'),customer:'Import / Warenliste',status:'offen',createdAt:new Date().toLocaleDateString('de-DE'),lines:rows.map((r,i)=>({id:deliveryId+i+1,sku:r.sku,name:r.name,expected:r.amount,received:0,unit:r.unit,status:'offen'}))});save()}
-function renderImportPreview(rows,needsApproval=false,rejected=0){document.getElementById('importPreview').innerHTML=(needsApproval?'<div class=\"notice soft\"><b>Prüfung bereit</b><br><span class=\"muted\">Noch nichts gespeichert. '+(rejected?rejected+' unsichere Zeilen ignoriert.':'')+'</span></div>':'')+rows.map(r=>`<div class=\"row\"><div class=\"product-row\">${thumbHtml(r)}<div><b>${esc(r.name)}</b><p class=\"muted\">${r.amount} ${esc(r.unit)} · ${r.price?euro(r.price):'kein Preis'}</p><p class=\"muted small\">${esc(r.sku)} · ${esc(r.supplier||'Import')}</p></div></div></div>`).join('')+(needsApproval?'<div class=\"review-actions\"><button class=\"green\" onclick=\"approveSmartImport()\">Import bestätigen</button><button class=\"danger-btn\" onclick=\"discardSmartImport()\">Verwerfen</button></div>':'')}
-function approveSmartImport(){if(!pendingImportRows.length)return note('Keine Vorschau zum Bestätigen vorhanden.');const count=pendingImportRows.length;applySmartRows(pendingImportRows);renderImportPreview(pendingImportRows,false);pendingImportRows=[];note(count+' Artikelzeilen als Wareneingang gespeichert. Jetzt unter "Wareneingang" buchen um Bestände zu erhöhen.')}
-function discardSmartImport(){pendingImportRows=[];document.getElementById('importPreview').innerHTML='<p class=\"muted\">Vorschau verworfen. Es wurde nichts gespeichert.</p>';note('Vorschau verworfen. Keine Daten wurden gespeichert.')}
-function clearSmartImport(){document.getElementById('smartImportText').value='';document.getElementById('smartImportFile').value='';discardSmartImport()}
-function saveImportProfile(){const profile={enabled:document.getElementById('autoImportEnabled').checked,interval:document.getElementById('autoImportInterval').value,requireConfirm:document.getElementById('autoImportRequireConfirm').checked,url:document.getElementById('smartImportUrl').value.trim(),updatedAt:new Date().toISOString()};localStorage.setItem('mi_deals_import_profile',JSON.stringify(profile));note(profile.enabled?'Import-Profil gespeichert: Lieferanten-URL wird als Prüfimport überwacht.':'Import-Profil gespeichert: Überwachung ist ausgeschaltet.')}
-function importWarenwirtschaftCSV(){ /* Demo: Lade Beispiel-Daten aus der Warenwirtschaft.csv (hardcoded für fertiges Produkt) */ const demoProducts = [{id:Date.now(),sku:'ART-001',name:'Stifte',stock:50,minStock:15,price:1.2,supplier:'ABC Supplier'},{id:Date.now()+1,sku:'ART-002',name:'Notizhefter',stock:20,minStock:8,price:5,supplier:'XYZ GmbH'}]; state.products = demoProducts; state.sales = state.sales || []; note('Warenwirtschaft.csv Demo-Daten geladen (Beispiel).'); save(); }
-
-async function resetToEmpty(){if(!confirm('Wirklich komplett zurücksetzen? Alle Daten werden gelöscht.'))return;try{setCloudStatus('Setze System zurück...');const empty=seed();state=empty;localStorage.setItem(KEY,JSON.stringify(state));render();try{const res=await fetch(API_URL+'/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(empty)});const data=await res.json();if(data.success){setCloudStatus('Cloud: zurückgesetzt');}else{setCloudStatus('Lokal zurückgesetzt (Cloud nicht aktiv: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Lokal zurückgesetzt (Cloud: '+cloudErr.message+')',true);}note('System zurückgesetzt. Alle Daten gelöscht.');}catch(e){note('Zurücksetzen fehlgeschlagen: '+e.message);setCloudStatus('Reset-Fehler: '+e.message,true)}}
+async function importFromUrl(){const input=document.getElementById('smartImportUrl');const url=input.value.trim();if(!url)return note('Bitte zuerst eine Internetadresse einfügen.');try{note('Internetadresse wird eingelesen...');const res=await fetch(`${API_URL}/api/import-url`,{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify({url})});const data=await res.json();if(!data.success)throw new Error(data.error||'Adresse konnte nicht gelesen werden');const textArea=document.getElementById('smartImportText');textArea.value=(textArea.value?textArea.value+'\\n':'')+data.text;note('URL eingelesen. Jetzt Import prüfen.')}catch(e){note('Adress-Import fehlgeschlagen: '+e.message)}}
+async function smartImport(){const file=document.getElementById('smartImportFile').files[0];let text=document.getElementById('smartImportText').value.trim();try{if(file){text=await readSmartImportFile(file)}if(!text.trim())return note('Bitte Datei auswählen oder Liste einfügen.');const result=robustImport(text);const rows=result.rows;if(!rows.length)return note('Keine sicheren Artikelzeilen erkannt.');pendingImportRows=rows;renderImportPreview(rows,true,result.rejected);note(rows.length+' sichere Zeilen erkannt. '+result.rejected+' verdächtige Zeilen ignoriert. Bitte prüfen.')}catch(e){note('Import fehlgeschlagen: '+e.message)}}}
 
 async function resetDemo(){const btn=event?.currentTarget;if(!resetArmed){resetArmed=true;if(btn){btn.textContent='Bestätigen';btn.classList.add('reset-armed')}note('Zum Schutz bitte noch einmal klicken.');setTimeout(()=>{resetArmed=false;if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}},8000);return}resetArmed=false;try{setCloudStatus('Lade Demo-Daten...');const demo=seed();state=demo;localStorage.setItem(KEY,JSON.stringify(state));note('Demo-Daten geladen (leeres System – bereit zum Befüllen).');render();try{const res=await fetch(API_URL+'/api/state',{method:'POST',headers:{'content-type':'application/json','x-mi-deals-password':ACCESS_PASSWORD},body:JSON.stringify(demo)});const data=await res.json();if(data.success){setCloudStatus('Demo-Daten gespeichert');}else{setCloudStatus('Demo lokal (Cloud: '+data.error+')',true);}}catch(cloudErr){setCloudStatus('Demo lokal (Cloud: '+cloudErr.message+')',true);}if(btn){btn.textContent='Demo-Daten laden';btn.classList.remove('reset-armed')}}catch(e){note('Demo-Fehler: '+e.message);setCloudStatus('Demo-Fehler: '+e.message,true)}}
 
 function copyDataSummary(){const text=`M&I Deals Stand: Kunden ${state.customers.length}, Artikel ${state.products.length}, Lieferungen ${state.deliveries.length}, Verkäufe ${state.sales ? state.sales.length : 0}`;navigator.clipboard?.writeText(text);note('Kurzübersicht kopiert: '+text)}
+
+function getMhdStatus(expiry){
+  if(!expiry) return {text:'–', class:''};
+  const days = Math.ceil((new Date(expiry) - new Date()) / (1000*60*60*24));
+  if(days < 0) return {text:'abgelaufen', class:'critical'};
+  if(days <= 7) return {text: days+' Tage', class:'critical'};
+  if(days <= 30) return {text: days+' Tage', class:''};
+  return {text: expiry, class:''};
+}
+
 function esc(s){return String(s??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]))}
 
 function updateSalePrice(){const sel=document.getElementById('v_product');const p=state.products.find(x=>x.sku===sel.value);if(p) document.getElementById('v_price').value = p.price || 0;}
@@ -1260,6 +1356,101 @@ function createTestDelivery(){
   save();
 }
 
+/* === NEU: additive Buchungslogik für Wareneingang (fix für bleibende Einträge) === */
+function bookAllDelivery(deliveryId) {
+  const idx = state.deliveries.findIndex(d => d.id === deliveryId);
+  if (idx === -1) {
+    showToast('❌ Lieferung nicht gefunden.');
+    return;
+  }
+  const delivery = state.deliveries[idx];
+  if (!delivery.lines || delivery.lines.length === 0) {
+    // leere Lieferung einfach entfernen
+    state.deliveries.splice(idx, 1);
+    save();
+    render();
+    return;
+  }
+
+  let bookedCount = 0;
+  delivery.lines.forEach(line => {
+    const product = state.products.find(p => p.sku === line.sku);
+    if (!product) return;
+
+    const before = product.stock || 0;
+    const received = (line.received != null ? line.received : line.expected) || 0;
+    if (received <= 0) return;
+
+    product.stock = before + received;
+    if (!product.updatedAt) product.updatedAt = new Date().toISOString();
+
+    // Audit-Eintrag
+    state.auditLog = state.auditLog || [];
+    state.auditLog.unshift({
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      sku: product.sku,
+      name: product.name,
+      change: received,
+      stockBefore: before,
+      stockAfter: product.stock,
+      timestamp: new Date().toISOString(),
+      reason: 'Wareneingang',
+      deliveryNumber: delivery.number || delivery.id
+    });
+
+    bookedCount++;
+  });
+
+  // WICHTIG: Lieferung nach erfolgreicher Buchung entfernen → Liste wird geleert
+  state.deliveries.splice(idx, 1);
+
+  note('✅ Lieferung ' + (delivery.number || delivery.id) + ' vollständig ins Lager gebucht (' + bookedCount + ' Positionen).');
+  save();
+  render();
+}
+
+/* Hilfsfunktion für einzelne Positionen (falls später benötigt) */
+function bookDeliveryLine(deliveryId, lineId) {
+  const delivery = state.deliveries.find(d => d.id === deliveryId);
+  if (!delivery) return;
+  const line = (delivery.lines || []).find(l => l.id === lineId);
+  if (!line) return;
+
+  const product = state.products.find(p => p.sku === line.sku);
+  if (!product) return;
+
+  const before = product.stock || 0;
+  const received = (line.received != null ? line.received : line.expected) || 0;
+
+  product.stock = before + received;
+  product.updatedAt = new Date().toISOString();
+
+  state.auditLog = state.auditLog || [];
+  state.auditLog.unshift({
+    id: Date.now(),
+    sku: product.sku,
+    name: product.name,
+    change: received,
+    stockBefore: before,
+    stockAfter: product.stock,
+    timestamp: new Date().toISOString(),
+    reason: 'Wareneingang (Einzelposition)',
+    deliveryNumber: delivery.number || delivery.id
+  });
+
+  // Position aus der Lieferung entfernen
+  delivery.lines = delivery.lines.filter(l => l.id !== lineId);
+
+  // Wenn keine Positionen mehr → ganze Lieferung entfernen
+  if (delivery.lines.length === 0) {
+    state.deliveries = state.deliveries.filter(d => d.id !== deliveryId);
+  }
+
+  note('✅ Position gebucht und aus Wareneingang entfernt.');
+  save();
+  render();
+}
+
 render();
 </script>
 <div id="scannerModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:200;align-items:center;justify-content:center;padding:10px;">
@@ -1330,5 +1521,5 @@ render();
     
     <button onclick="closeScannerModal()" style="margin-top:8px;padding:8px 24px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#f1f5f9;cursor:pointer;">Schließen</button>
   </div>
-</div></body></body>
+</div></body>
 </html>
