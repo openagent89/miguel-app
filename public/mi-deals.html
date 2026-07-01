@@ -81,10 +81,10 @@
     <div class="brand">M&I DEALS</div>
     <h2>Geschützter Zugriff</h2>
     <p class="muted">Diese Warenwirtschaft ist für mobilen Zugriff vorbereitet. Bitte Passwort eingeben.</p>
-    <div style="position:relative">
-      <input id="accessPassword" type="password" placeholder="Passwort" autocomplete="off" onkeydown="if(event.key==='Enter') unlockApp()" style="padding-right:44px">
-      <input id="accessPasswordVisible" type="text" placeholder="Passwort" autocomplete="off" onkeydown="if(event.key==='Enter') unlockApp()" style="padding-right:44px; display:none;">
-      <button type="button" onclick="togglePasswordVisibility(this)" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:#1f2a3a;border:1px solid #3a4a5f;color:#c9d8ea;font-size:12px;cursor:pointer;padding:4px 10px;border-radius:4px;min-width:70px;">Anzeigen</button>
+    <div>
+      <input id="accessPassword" type="password" placeholder="Passwort" autocomplete="off" onkeydown="if(event.key==='Enter') unlockApp()" style="padding-right:12px; width:100%; box-sizing:border-box;">
+      <input id="accessPasswordVisible" type="text" placeholder="Passwort" autocomplete="off" onkeydown="if(event.key==='Enter') unlockApp()" style="padding-right:12px; width:100%; box-sizing:border-box; display:none;">
+      <button type="button" onclick="togglePasswordVisibility(this)" style="margin-top:8px; background:#1f2a3a; border:1px solid #3a4a5f; color:#c9d8ea; font-size:13px; cursor:pointer; padding:6px 14px; border-radius:6px; display:block;">Anzeigen</button>
     </div>
     <button class="primary" onclick="unlockApp()">Zugriff freischalten</button>
     <p id="authError" class="danger"></p>
