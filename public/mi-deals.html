@@ -81,7 +81,10 @@
     <div class="brand">M&I DEALS</div>
     <h2>Geschützter Zugriff</h2>
     <p class="muted">Diese Warenwirtschaft ist für mobilen Zugriff vorbereitet. Bitte Passwort eingeben.</p>
-    <input id="accessPassword" type="password" placeholder="Passwort" autocomplete="current-password" onkeydown="if(event.key==='Enter') unlockApp()">
+    <div style="position:relative">
+      <input id="accessPassword" type="password" placeholder="Passwort" autocomplete="current-password" onkeydown="if(event.key==='Enter') unlockApp()" style="padding-right:44px">
+      <button type="button" onclick="togglePasswordVisibility()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:#c9d8ea;font-size:18px;cursor:pointer;padding:4px">👁️</button>
+    </div>
     <button class="primary" onclick="unlockApp()">Zugriff freischalten</button>
     <p id="authError" class="danger"></p>
   </div>
@@ -138,8 +141,67 @@
     <div class="card"><h2>🤖 Telegram-Steuerung (@MundIDealBot)</h2><p class="muted">Direkter Test-Versand an den Bot. Übertrifft Konkurrenten durch nahtlose Bot-Integration ohne externe Tools.</p><div class="actions"><button class="primary" onclick="sendTelegramTest()">📨 Test-Nachricht senden</button><button class="secondary" onclick="checkTelegramStatus()">Status prüfen</button></div><div id="telegramStatus" style="margin-top:8px;font-size:12px;color:var(--muted)"></div></div><div class="card"><h2>🔗 Bluetooth-Geräte</h2><p class="muted">Kopple einen Bluetooth-Barcode-Scanner (Honeywell, Zebra, DataLogic) für schnelles Scannen ohne Kamera.</p><div id="btDeviceStatus" style="padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.04);margin:8px 0;font-size:13px;">⚪ Kein Scanner verbunden</div><div class="actions"><button class="primary" onclick="pairBluetoothScanner()">🔍 Gerät suchen & koppeln</button><button class="secondary" onclick="disconnectBluetoothScanner()">Trennen</button></div><p class="muted" style="font-size:11px;margin-top:8px;">Hinweis: Bluetooth-Scanner-Kopplung per WebHID erfordert Chrome/Edge am Desktop. <b>Auf iOS:</b> Scanner im HID-Keyboard-Modus (Standard) in iOS Bluetooth-Einstellungen als Tastatur koppeln → Code wird automatisch erkannt wie Tastatureingabe. 📷 Kamera-Scan funktioniert immer.</p></div><div class="card system-info"><h2>Impressum & Systeminfo</h2><p class="muted">Technische Hinweise sind hier abgelegt und stören nicht mehr im Arbeitsbereich.</p><details><summary>Systemstatus anzeigen</summary><p class="muted" id="systemInfoText">Cloud und Projektinformationen werden nach dem Login aktualisiert.</p></details></div></section>
 </main>
 <script>
-const ACCESS_PASSWORD='MI-Deals-2026!';
-function unlockApp(){const input=document.getElementById('accessPassword');const err=document.getElementById('authError');if(input.value===ACCESS_PASSWORD){sessionStorage.setItem('mi_deals_unlocked','yes');document.getElementById('authOverlay').classList.add('hidden');err.textContent='';loadCloudState();connectWebSocket();}else{err.textContent='Passwort falsch.';}}
+const ACCESS_PASSWORD = 'MI-Deals-2026!';
+
+function togglePasswordVisibility() {
+  const input = document.getElementById('accessPassword');
+  const btn = event.currentTarget;
+  if (input.type === 'password') {
+    input.type = 'text';
+    if (btn) btn.textContent = '🙈';
+  } else {
+    input.type = 'password';
+    if (btn) btn.textContent = '👁️';
+  }
+}
+
+async function unlockApp() {
+  const input = document.getElementById('accessPassword');
+  const err = document.getElementById('authError');
+  const btn = event.currentTarget;
+
+  if (!input.value) {
+    err.textContent = 'Bitte Passwort eingeben.';
+    return;
+  }
+
+  // 1. Lokale Prüfung (schnell)
+  if (input.value !== ACCESS_PASSWORD) {
+    err.textContent = 'Passwort falsch.';
+    return;
+  }
+
+  // 2. Server-seitige Validierung (sicherer Gate)
+  err.textContent = 'Prüfe mit Backend...';
+  if (btn) btn.disabled = true;
+
+  try {
+    const res = await fetch(`${API_URL}/api/state`, {
+      method: 'GET',
+      headers: {
+        'x-mi-deals-password': ACCESS_PASSWORD
+      },
+      cache: 'no-store'
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || 'Backend-Verbindung fehlgeschlagen');
+    }
+
+    // Erfolg → freischalten
+    sessionStorage.setItem('mi_deals_unlocked', 'yes');
+    document.getElementById('authOverlay').classList.add('hidden');
+    err.textContent = '';
+    loadCloudState();
+    connectWebSocket();
+
+  } catch (e) {
+    err.textContent = 'Passwort korrekt, aber Backend nicht erreichbar: ' + e.message;
+    if (btn) btn.disabled = false;
+  }
+}
 window.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('mi_deals_unlocked')==='yes'){document.getElementById('authOverlay')?.classList.add('hidden');loadCloudState();connectWebSocket();}else{setCloudStatus('Cloud-Datenbank: wartet auf Freischaltung');}setActiveTab((location.hash||'#uebersicht').slice(1));});
 const KEY='mi_deals_app_v2';
 const TABS=['uebersicht','kunden','lager','lieferungen','verkaeufe','berichte','import','daten'];
