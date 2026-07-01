@@ -148,30 +148,42 @@
 <script>
 const ACCESS_PASSWORD = 'MI-Deals-2026!';
 
-function togglePasswordVisibility() {
-  const input = document.getElementById('accessPassword');
-  const btn = event.currentTarget;
-  if (input.type === 'password') {
-    input.type = 'text';
-    if (btn) btn.textContent = '🙈';
+window.togglePasswordVisibility = function togglePasswordVisibility(btn) {
+  const hiddenInput = document.getElementById('accessPassword');
+  const visibleInput = document.getElementById('accessPasswordVisible');
+  if (!hiddenInput || !visibleInput || !btn) return;
+
+  if (hiddenInput.style.display === 'none') {
+    // Sichtbares Textfeld → zurück zum Passwortfeld
+    hiddenInput.value = visibleInput.value;
+    visibleInput.style.display = 'none';
+    hiddenInput.style.display = '';
+    btn.textContent = 'Anzeigen';
   } else {
-    input.type = 'password';
-    if (btn) btn.textContent = '👁️';
+    // Passwortfeld → sichtbares Textfeld
+    visibleInput.value = hiddenInput.value;
+    hiddenInput.style.display = 'none';
+    visibleInput.style.display = '';
+    btn.textContent = 'Verbergen';
   }
-}
+};
 
-async function unlockApp() {
-  const input = document.getElementById('accessPassword');
+window.unlockApp = async function unlockApp() {
+  const hiddenInput = document.getElementById('accessPassword');
+  const visibleInput = document.getElementById('accessPasswordVisible');
   const err = document.getElementById('authError');
-  const btn = event.currentTarget;
+  const btn = document.querySelector('.auth-box .primary');
+  const value = (visibleInput && visibleInput.style.display !== 'none')
+    ? visibleInput.value
+    : (hiddenInput ? hiddenInput.value : '');
 
-  if (!input.value) {
+  if (!value) {
     err.textContent = 'Bitte Passwort eingeben.';
     return;
   }
 
   // 1. Lokale Prüfung (schnell)
-  if (input.value !== ACCESS_PASSWORD) {
+  if (value !== ACCESS_PASSWORD) {
     err.textContent = 'Passwort falsch.';
     return;
   }
@@ -184,7 +196,7 @@ async function unlockApp() {
     const res = await fetch(`${API_URL}/api/state`, {
       method: 'GET',
       headers: {
-        'x-mi-deals-password': ACCESS_PASSWORD
+        'x-mi-deals-password': value
       },
       cache: 'no-store'
     });
@@ -206,7 +218,7 @@ async function unlockApp() {
     err.textContent = 'Passwort korrekt, aber Backend nicht erreichbar: ' + e.message;
     if (btn) btn.disabled = false;
   }
-}
+};
 window.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('mi_deals_unlocked')==='yes'){document.getElementById('authOverlay')?.classList.add('hidden');loadCloudState();connectWebSocket();}else{setCloudStatus('Cloud-Datenbank: wartet auf Freischaltung');}setActiveTab((location.hash||'#uebersicht').slice(1));});
 const KEY='mi_deals_app_v2';
 const TABS=['uebersicht','kunden','lager','lieferungen','verkaeufe','berichte','import','daten'];
